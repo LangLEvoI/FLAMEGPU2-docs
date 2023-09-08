@@ -1,0 +1,94 @@
+
+.. _file_include_flamegpu_simulation_AgentLoggingConfig.h:
+
+File AgentLoggingConfig.h
+=========================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation>` (``include/flamegpu/simulation``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/AgentLoggingConfig.h``)
+-----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_AgentLoggingConfig.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/runtime/agent/HostAgentAPI.cuh`` (:ref:`file_include_flamegpu_runtime_agent_HostAgentAPI.cuh`)
+
+- ``flamegpu/simulation/AgentLoggingConfig_Reductions.cuh`` (:ref:`file_include_flamegpu_simulation_AgentLoggingConfig_Reductions.cuh`)
+
+- ``flamegpu/simulation/AgentLoggingConfig_SumReturn.h`` (:ref:`file_include_flamegpu_simulation_AgentLoggingConfig_SumReturn.h`)
+
+- ``flamegpu/simulation/LoggingConfig.h`` (:ref:`file_include_flamegpu_simulation_LoggingConfig.h`)
+
+- ``memory``
+
+- ``mutex``
+
+- ``set``
+
+- ``string``
+
+- ``utility``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_flamegpu.h`
+
+- :ref:`file_include_flamegpu_simulation_LogFrame.h`
+
+- :ref:`file_src_flamegpu_simulation_AgentLoggingConfig.cu`
+
+- :ref:`file_src_flamegpu_simulation_LoggingConfig.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1AgentLoggingConfig`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1ad31aa8a96f16f233806285ae39fe822c`
+
+- :ref:`exhale_function_namespaceflamegpu_1a71a0b028ba8c669fca81bc8b91c8161b`
+
+- :ref:`exhale_function_namespaceflamegpu_1ad9ab3f3957c697d1ba77d0129c4e8d42`
+
+- :ref:`exhale_function_namespaceflamegpu_1a46155a7c33d3922708b9eb440f974c43`
+
+- :ref:`exhale_function_namespaceflamegpu_1a008ad38c0accf8b9c904b89a49a80e16`
+

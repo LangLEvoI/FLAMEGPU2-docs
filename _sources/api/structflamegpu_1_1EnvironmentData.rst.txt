@@ -1,0 +1,27 @@
+.. _exhale_struct_structflamegpu_1_1EnvironmentData:
+
+Struct EnvironmentData
+======================
+
+- Defined in :ref:`file_include_flamegpu_model_EnvironmentData.h`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structflamegpu_1_1EnvironmentData_1_1MacroPropData`
+- :ref:`exhale_struct_structflamegpu_1_1EnvironmentData_1_1PropData`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::EnvironmentData
+   :members:
+   :protected-members:
+   :undoc-members:

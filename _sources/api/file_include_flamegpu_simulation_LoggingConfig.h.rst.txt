@@ -1,0 +1,87 @@
+
+.. _file_include_flamegpu_simulation_LoggingConfig.h:
+
+File LoggingConfig.h
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation>` (``include/flamegpu/simulation``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/LoggingConfig.h``)
+------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_LoggingConfig.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/model/ModelData.h`` (:ref:`file_include_flamegpu_model_ModelData.h`)
+
+- ``flamegpu/runtime/agent/HostAgentAPI.cuh`` (:ref:`file_include_flamegpu_runtime_agent_HostAgentAPI.cuh`)
+
+- ``flamegpu/simulation/CUDAEnsemble.h`` (:ref:`file_include_flamegpu_simulation_CUDAEnsemble.h`)
+
+- ``flamegpu/util/StringPair.h`` (:ref:`file_include_flamegpu_util_StringPair.h`)
+
+- ``map``
+
+- ``memory``
+
+- ``set``
+
+- ``string``
+
+- ``utility``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_flamegpu.h`
+
+- :ref:`file_include_flamegpu_simulation_AgentLoggingConfig.h`
+
+- :ref:`file_include_flamegpu_simulation_LogFrame.h`
+
+- :ref:`file_src_flamegpu_simulation_CUDAEnsemble.cu`
+
+- :ref:`file_src_flamegpu_simulation_CUDASimulation.cu`
+
+- :ref:`file_src_flamegpu_simulation_LoggingConfig.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1LoggingConfig_1_1NameReductionFn`
+
+- :ref:`exhale_class_classflamegpu_1_1LoggingConfig`
+
+- :ref:`exhale_class_classflamegpu_1_1StepLoggingConfig`
+

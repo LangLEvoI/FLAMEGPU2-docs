@@ -1,0 +1,23 @@
+.. _dir_include_flamegpu_runtime_environment:
+
+
+Directory environment
+=====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_runtime>` (``include/flamegpu/runtime``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``include/flamegpu/runtime/environment``
+
+
+Files
+-----
+
+- :ref:`file_include_flamegpu_runtime_environment_DeviceEnvironment.cuh`
+- :ref:`file_include_flamegpu_runtime_environment_DeviceMacroProperty.cuh`
+- :ref:`file_include_flamegpu_runtime_environment_HostEnvironment.cuh`
+- :ref:`file_include_flamegpu_runtime_environment_HostMacroProperty.cuh`
+
+

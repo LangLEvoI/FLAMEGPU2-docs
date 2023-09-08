@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1_1cuda_1a692af6493d6b046d530c8103d2a9f72a:
+
+Function flamegpu::detail::cuda::cuDevicePrimaryContextIsActive
+===============================================================
+
+- Defined in :ref:`file_include_flamegpu_detail_cuda.cuh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::cuda::cuDevicePrimaryContextIsActive(int)

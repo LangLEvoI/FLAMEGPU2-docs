@@ -1,0 +1,332 @@
+
+.. _program_listing_file_include_flamegpu_simulation_CUDASimulation.h:
+
+Program Listing for File CUDASimulation.h
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_simulation_CUDASimulation.h>` (``include/flamegpu/simulation/CUDASimulation.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_SIMULATION_CUDASIMULATION_H_
+   #define INCLUDE_FLAMEGPU_SIMULATION_CUDASIMULATION_H_
+   
+   #include <cuda.h>
+   
+   #include <atomic>
+   #include <memory>
+   #include <vector>
+   #include <string>
+   #include <unordered_map>
+   #include <map>
+   #include <set>
+   
+   #include "flamegpu/exception/FLAMEGPUDeviceException.cuh"
+   #include "flamegpu/simulation/Simulation.h"
+   #include "flamegpu/runtime/detail/curve/HostCurve.cuh"
+   #include "flamegpu/simulation/detail/CUDAScatter.cuh"
+   #include "flamegpu/simulation/CUDAEnsemble.h"
+   #include "flamegpu/simulation/detail/RandomManager.cuh"
+   #include "flamegpu/runtime/agent/HostNewAgentAPI.h"
+   #include "flamegpu/simulation/detail/CUDAMacroEnvironment.h"
+   #include "flamegpu/simulation/detail/EnvironmentManager.cuh"
+   
+   #ifdef FLAMEGPU_VISUALISATION
+   #include "flamegpu/visualiser/ModelVis.h"
+   #endif
+   
+   #ifdef _MSC_VER
+   #pragma warning(push, 2)
+   #include "jitify/jitify.hpp"
+   #pragma warning(pop)
+   #else
+   #include "jitify/jitify.hpp"
+   #endif
+   
+   namespace flamegpu {
+   namespace detail {
+   class SimRunner;
+   class CUDAAgent;
+   class CUDAMessage;
+   }  // namespace detail
+   
+   class AgentVector;
+   class LoggingConfig;
+   class StepLoggingConfig;
+   class RunPlan;
+   
+   struct RunLog;
+   
+   class CUDASimulation : public Simulation {
+       friend class HostAgentAPI;
+       friend class HostAPI;
+       friend class detail::SimRunner;
+       friend class CUDAEnsemble;
+   #ifdef FLAMEGPU_VISUALISATION
+   
+       friend class visualiser::ModelVis;
+       friend struct visualiser::ModelVisData;
+   #endif
+   
+       typedef std::unordered_map<std::string, std::unique_ptr<detail::CUDAAgent>> CUDAAgentMap;
+       typedef std::unordered_map<std::string, std::unique_ptr<detail::CUDAMessage>> CUDAMessageMap;
+       typedef std::map<std::string, std::unique_ptr<CUDASimulation>> CUDASubModelMap;
+   
+    public:
+       struct Config {
+           friend class detail::SimRunner;
+           friend class CUDASimulation;
+           friend class HostAPI;
+           int device_id = 0;
+           bool inLayerConcurrency = true;
+   
+        private:
+           bool is_submodel = false;
+           bool is_ensemble = false;
+           unsigned int ensemble_run_id = UINT_MAX;
+       };
+       explicit CUDASimulation(const ModelDescription& model, int argc = 0, const char** argv = nullptr)
+   #ifdef SWIG
+           : CUDASimulation(model, argc, argv, true)
+   #else
+           : CUDASimulation(model, argc, argv, false)
+   #endif
+       { }
+   
+    private:
+       CUDASimulation(const ModelDescription& model, int argc, const char** argv, bool _isSWIG);
+       CUDASimulation(const std::shared_ptr<const ModelData> &model, bool _isSWIG);
+       CUDASimulation(const std::shared_ptr<SubModelData>& submodel_desc, CUDASimulation *master_model);
+   
+    public:
+       virtual ~CUDASimulation();
+       void initFunctions() override;
+       bool step() override;
+       void exitFunctions() override;
+       void simulate() override;
+       void simulate(const RunPlan &plan);
+       void setPopulationData(AgentVector& population, const std::string &state_name = ModelData::DEFAULT_STATE) override;
+       void getPopulationData(AgentVector& population, const std::string& state_name = ModelData::DEFAULT_STATE) override;
+       template<typename T>
+       void setEnvironmentProperty(const std::string &property_name, T value);
+       template<typename T, flamegpu::size_type N>
+       void setEnvironmentProperty(const std::string &property_name, const std::array<T, N> &value);
+       template<typename T, flamegpu::size_type N = 0>
+       void setEnvironmentProperty(const std::string& property_name, flamegpu::size_type index, T value);
+   #ifdef SWIG
+   
+       template<typename T>
+       void setEnvironmentPropertyArray(const std::string& property_name, const std::vector<T>& value);
+   #endif
+   
+       template<typename T>
+       T getEnvironmentProperty(const std::string &property_name);
+       template<typename T, flamegpu::size_type N>
+       std::array<T, N> getEnvironmentProperty(const std::string &property_name);
+       template<typename T, flamegpu::size_type N = 0>
+       T getEnvironmentProperty(const std::string& property_name, flamegpu::size_type index);
+   #ifdef SWIG
+   
+       template<typename T>
+       std::vector<T> getEnvironmentPropertyArray(const std::string& property_name);
+   #endif
+   
+       Config &CUDAConfig();
+       unsigned int getStepCounter() override;
+       void resetStepCounter() override;
+       const Config &getCUDAConfig() const;
+       void setStepLog(const StepLoggingConfig &stepConfig);
+       void setExitLog(const LoggingConfig &exitConfig);
+       const RunLog &getRunLog() const override;
+   #ifdef FLAMEGPU_VISUALISATION
+   
+       visualiser::ModelVis getVisualisation();
+   #endif
+   
+       double getElapsedTimeRTCInitialisation() const;
+   
+       double getElapsedTimeSimulation() const;
+   
+       double getElapsedTimeInitFunctions() const;
+   
+       double getElapsedTimeExitFunctions() const;
+   
+       std::vector<double> getElapsedTimeSteps() const;
+   
+       double getElapsedTimeStep(unsigned int step) const;
+   
+       using Simulation::getInstanceID;
+   
+    protected:
+       void reset(bool submodelReset) override;
+       void applyConfig_derived() override;
+       bool checkArgs_derived(int argc, const char** argv, int &i) override;
+       void printHelp_derived() override;
+   
+    private:
+       detail::CUDAAgent& getCUDAAgent(const std::string& agent_name) const;
+       detail::CUDAMessage& getCUDAMessage(const std::string& message_name) const;
+       void reseed(uint64_t seed);
+       unsigned int step_count;
+       double elapsedSecondsSimulation;
+       double elapsedSecondsInitFunctions;
+       double elapsedSecondsExitFunctions;
+       double elapsedSecondsRTCInitialisation;
+   
+       std::vector<double> elapsedSecondsPerStep;
+       void incrementStepCounter();
+       CUDAAgentMap agent_map;
+       detail::CUDAMacroEnvironment macro_env;
+       Config config;
+       std::shared_ptr<const StepLoggingConfig> step_log_config;
+       std::shared_ptr<const LoggingConfig> exit_log_config;
+       std::unique_ptr<RunLog> run_log;
+       void resetLog();
+       void processStepLog(const double step_time_seconds);
+       void processExitLog();
+       CUDAMessageMap message_map;
+       CUDASubModelMap submodel_map;
+       std::vector<cudaStream_t> streams;
+   
+       void createStreams(const unsigned int nStreams);
+   
+       cudaStream_t getStream(const unsigned int n);
+   
+       void destroyStreams();
+   
+       void synchronizeAllStreams();
+   
+       void stepLayer(const std::shared_ptr<LayerData>& layer, const unsigned int layerIndex);
+       void layerHostFunctions(const std::shared_ptr<LayerData>& layer, const unsigned int layerIndex);
+   
+       void stepStepFunctions();
+       bool stepExitConditions();
+   
+       void spatialSortAgent_async(const std::string& funcName, const std::string& agentName, const std::string& state, const int mode, cudaStream_t stream, unsigned int streamId);
+   
+       constexpr static int Agent2D = 0;
+       constexpr static int Agent3D = 1;
+   
+       std::set<std::string> sortTriggers2D;
+       std::set<std::string> sortTriggers3D;
+   
+       void determineAgentsToSort();
+   
+       struct Singletons {
+           detail::RandomManager rng;
+           detail::CUDAScatter scatter;
+           std::shared_ptr<detail::EnvironmentManager> environment;
+   #if !defined(FLAMEGPU_SEATBELTS) || FLAMEGPU_SEATBELTS
+   
+           exception::DeviceExceptionManager exception;
+   #endif
+           explicit Singletons(const std::shared_ptr<detail::EnvironmentManager> &environment) : environment(environment) { }
+       } * singletons;
+       void initEnvironmentMgr();
+       bool singletonsInitialised;
+   
+       bool rtcInitialised;
+       int deviceInitialised = -1;
+   
+       void initialiseSingletons();
+       void initialiseRTC();
+       std::unique_ptr<HostAPI> host_api;
+       void processHostAgentCreation(unsigned int streamId);
+   
+    public:
+       typedef std::vector<NewAgentStorage> AgentDataBuffer;
+       typedef std::unordered_map<std::string, AgentDataBuffer> AgentDataBufferStateMap;
+       typedef std::unordered_map<std::string, VarOffsetStruct> AgentOffsetMap;
+       typedef std::unordered_map<std::string, AgentDataBufferStateMap> AgentDataMap;
+   
+    private:
+       std::shared_ptr<detail::EnvironmentManager> getEnvironment() const override;
+       void assignAgentIDs();
+       bool agent_ids_have_init = true;
+       AgentOffsetMap agentOffsets;
+       AgentDataMap agentData;
+       void initOffsetsAndMap();
+   #ifdef FLAMEGPU_VISUALISATION
+   
+       std::shared_ptr<visualiser::ModelVisData> visualisation;
+   #endif
+   
+       static bool detectPureRTC(const std::shared_ptr<const ModelData>& _model);
+   
+   #if __CUDACC_VER_MAJOR__ >= 12
+   
+       std::uint64_t cudaContextID;
+   #endif  // __CUDACC_VER_MAJOR__ >= 12
+   
+    protected:
+       const bool isPureRTC;
+       const bool isSWIG;
+   };
+   
+   template<typename T>
+   void CUDASimulation::setEnvironmentProperty(const std::string& property_name, const T value) {
+       if (!property_name.empty() && property_name[0] == '_') {
+           THROW exception::ReservedName("Environment property names cannot begin with '_', this is reserved for internal usage, "
+               "in CUDASimulation::setEnvironmentProperty().");
+       }
+       if (!singletonsInitialised)
+           initialiseSingletons();
+       singletons->environment->setProperty<T>(property_name, value);
+   }
+   template<typename T, flamegpu::size_type N>
+   void CUDASimulation::setEnvironmentProperty(const std::string& property_name, const std::array<T, N>& value) {
+       if (!property_name.empty() && property_name[0] == '_') {
+           THROW exception::ReservedName("Environment property names cannot begin with '_', this is reserved for internal usage, "
+               "in CUDASimulation::setEnvironmentProperty().");
+       }
+       if (!singletonsInitialised)
+           initialiseSingletons();
+       singletons->environment->setProperty<T, N>(property_name, value);
+   }
+   template<typename T, flamegpu::size_type N>
+   void CUDASimulation::setEnvironmentProperty(const std::string& property_name, const flamegpu::size_type index, const T value) {
+       if (!singletonsInitialised)
+           initialiseSingletons();
+       singletons->environment->setProperty<T, N>(property_name, index, value);
+   }
+   template<typename T>
+   T CUDASimulation::getEnvironmentProperty(const std::string& property_name) {
+       if (!singletonsInitialised)
+           initialiseSingletons();
+       return singletons->environment->getProperty<T>(property_name);
+   }
+   template<typename T, flamegpu::size_type N>
+   std::array<T, N> CUDASimulation::getEnvironmentProperty(const std::string& property_name) {
+       if (!singletonsInitialised)
+           initialiseSingletons();
+       return singletons->environment->getProperty<T, N>(property_name);
+   }
+   template<typename T, flamegpu::size_type N>
+   T CUDASimulation::getEnvironmentProperty(const std::string& property_name, const flamegpu::size_type index) {
+       if (!singletonsInitialised)
+           initialiseSingletons();
+       return singletons->environment->getProperty<T, N>(property_name, index);
+   }
+   #ifdef SWIG
+   template<typename T>
+   void CUDASimulation::setEnvironmentPropertyArray(const std::string& property_name, const std::vector<T>& value) {
+       if (!property_name.empty() && property_name[0] == '_') {
+           THROW exception::ReservedName("Environment property names cannot begin with '_', this is reserved for internal usage, "
+               "in CUDASimulation::setEnvironmentPropertyArray().");
+       }
+       if (!singletonsInitialised)
+           initialiseSingletons();
+       singletons->environment->setPropertyArray<T>(property_name, value);
+   }
+   template<typename T>
+   std::vector<T> CUDASimulation::getEnvironmentPropertyArray(const std::string& property_name) {
+       if (!singletonsInitialised)
+           initialiseSingletons();
+       return singletons->environment->getPropertyArray<T>(property_name);
+   }
+   #endif
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_SIMULATION_CUDASIMULATION_H_

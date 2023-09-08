@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1a46155a7c33d3922708b9eb440f974c43:
+
+Template Function flamegpu::getAgentVariableStandardDevFunc
+===========================================================
+
+- Defined in :ref:`file_include_flamegpu_simulation_AgentLoggingConfig.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::getAgentVariableStandardDevFunc(HostAgentAPI&, const std::string&)

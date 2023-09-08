@@ -1,0 +1,95 @@
+
+.. _file_include_flamegpu_defines.h:
+
+File defines.h
+==============
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu>` (``include/flamegpu``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/defines.h``)
+-------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_defines.h.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_model_AgentData.h`
+
+- :ref:`file_include_flamegpu_model_ModelData.h`
+
+- :ref:`file_include_flamegpu_runtime_agent_HostNewAgentAPI.h`
+
+- :ref:`file_include_flamegpu_runtime_AgentFunction.cuh`
+
+- :ref:`file_include_flamegpu_runtime_DeviceAPI.cuh`
+
+- :ref:`file_include_flamegpu_runtime_messaging_MessageBruteForce_MessageBruteForceDevice.cuh`
+
+- :ref:`file_include_flamegpu_runtime_messaging_MessageNone.h`
+
+- :ref:`file_include_flamegpu_simulation_AgentVector.h`
+
+- :ref:`file_include_flamegpu_simulation_CUDAEnsemble.h`
+
+- :ref:`file_include_flamegpu_simulation_detail_AgentInterface.h`
+
+- :ref:`file_include_flamegpu_simulation_detail_EnvironmentManager.cuh`
+
+- :ref:`file_include_flamegpu_simulation_detail_RandomManager.cuh`
+
+- :ref:`file_include_flamegpu_simulation_detail_SimRunner.h`
+
+- :ref:`file_include_flamegpu_simulation_Simulation.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_namespaceflamegpu_1a85851c7dc9bdb27265f3ee52194f6737`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_namespaceflamegpu_1aa38504d5d161ede66606cf62524fb9e2`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1a4f33b71f99d74a889a0ac6c23ddabc15`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespaceflamegpu_1ae222c3a1e48085efbe98bf734bf18c47`
+
+- :ref:`exhale_variable_namespaceflamegpu_1ae2461128afe905a603afcb7877188f29`
+

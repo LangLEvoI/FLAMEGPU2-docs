@@ -1,0 +1,25 @@
+
+.. _program_listing_file_include_flamegpu_util_cleanup.h:
+
+Program Listing for File cleanup.h
+==================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_util_cleanup.h>` (``include/flamegpu/util/cleanup.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_UTIL_CLEANUP_H_
+   #define INCLUDE_FLAMEGPU_UTIL_CLEANUP_H_
+   
+   namespace flamegpu {
+   namespace util {
+   
+   void cleanup();
+   void clearRTCDiskCache();
+   
+   }  // namespace util
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_UTIL_CLEANUP_H_

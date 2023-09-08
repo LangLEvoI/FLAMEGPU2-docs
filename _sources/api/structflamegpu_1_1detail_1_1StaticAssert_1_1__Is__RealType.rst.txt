@@ -1,0 +1,25 @@
+.. _exhale_struct_structflamegpu_1_1detail_1_1StaticAssert_1_1__Is__RealType:
+
+Template Struct _Is_RealType
+============================
+
+- Defined in :ref:`file_include_flamegpu_detail_StaticAssert.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public flamegpu::detail::StaticAssert::_Cat_base< is_same< _Ty, float >::value||is_same< _Ty, double >::value >`` (:ref:`exhale_struct_structflamegpu_1_1detail_1_1StaticAssert_1_1__Cat__base`)
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::detail::StaticAssert::_Is_RealType
+   :members:
+   :protected-members:
+   :undoc-members:

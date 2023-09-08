@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1a09c6bdb2a8c16c9b3a1cc2c1d2f47bef:
+
+Function flamegpu::detail::broadcastInitKernel
+==============================================
+
+- Defined in :ref:`file_src_flamegpu_simulation_detail_CUDAScatter.cu`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::broadcastInitKernel(const unsigned int, CUDAScatter::ScatterData *, const unsigned int, const unsigned int)

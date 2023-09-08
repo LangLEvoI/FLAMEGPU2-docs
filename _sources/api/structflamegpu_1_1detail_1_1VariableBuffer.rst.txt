@@ -1,0 +1,16 @@
+.. _exhale_struct_structflamegpu_1_1detail_1_1VariableBuffer:
+
+Struct VariableBuffer
+=====================
+
+- Defined in :ref:`file_include_flamegpu_simulation_detail_CUDAFatAgentStateList.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::detail::VariableBuffer
+   :members:
+   :protected-members:
+   :undoc-members:

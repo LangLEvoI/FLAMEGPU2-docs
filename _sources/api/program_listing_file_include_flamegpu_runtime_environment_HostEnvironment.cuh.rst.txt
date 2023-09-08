@@ -1,0 +1,144 @@
+
+.. _program_listing_file_include_flamegpu_runtime_environment_HostEnvironment.cuh:
+
+Program Listing for File HostEnvironment.cuh
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_runtime_environment_HostEnvironment.cuh>` (``include/flamegpu/runtime/environment/HostEnvironment.cuh``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_RUNTIME_ENVIRONMENT_HOSTENVIRONMENT_CUH_
+   #define INCLUDE_FLAMEGPU_RUNTIME_ENVIRONMENT_HOSTENVIRONMENT_CUH_
+   
+   #include <cuda_runtime.h>
+   #include <device_launch_parameters.h>  // Required for FLAMEGPU_SEATBELTS=OFF builds for some reason.
+   
+   #include <unordered_map>
+   #include <array>
+   #include <string>
+   #include <utility>
+   #include <set>
+   #include <vector>
+   #include <memory>
+   
+   #include "flamegpu/simulation/detail/CUDAMacroEnvironment.h"
+   #include "flamegpu/simulation/detail/CUDAErrorChecking.cuh"
+   #include "flamegpu/simulation/detail/EnvironmentManager.cuh"
+   #include "flamegpu/runtime/environment/HostMacroProperty.cuh"
+   
+   namespace flamegpu {
+   
+   class HostEnvironment {
+       friend class HostAPI;
+   
+    protected:
+       explicit HostEnvironment(unsigned int instance_id, const std::shared_ptr<detail::EnvironmentManager> &env, detail::CUDAMacroEnvironment &_macro_env);
+       const std::shared_ptr<detail::EnvironmentManager> env_mgr;
+       detail::CUDAMacroEnvironment& macro_env;
+       const unsigned int instance_id;
+   
+    public:
+       template<typename T>
+       T getProperty(const std::string &name) const;
+       template<typename T, flamegpu::size_type N>
+       std::array<T, N> getProperty(const std::string &name) const;
+       template<typename T, flamegpu::size_type N = 0>
+       T getProperty(const std::string &name, flamegpu::size_type index) const;
+   #ifdef SWIG
+   
+       template<typename T>
+       std::vector<T> getPropertyArray(const std::string & name) const;
+   #endif
+   
+       template<typename T>
+       T setProperty(const std::string &name, T value) const;
+       template<typename T, flamegpu::size_type N>
+       std::array<T, N> setProperty(const std::string &name, const std::array<T, N> &value) const;
+       template<typename T, flamegpu::size_type N = 0>
+       T setProperty(const std::string &name, flamegpu::size_type index, T value) const;
+   #ifdef SWIG
+   
+       template<typename T>
+       std::vector<T> setPropertyArray(const std::string & name, const std::vector<T> & value) const;
+   #endif
+   
+       template<typename T, unsigned int I = 1, unsigned int J = 1, unsigned int K = 1, unsigned int W = 1>
+       HostMacroProperty<T, I, J, K, W> getMacroProperty(const std::string& name) const;
+   #ifdef SWIG
+   
+       template<typename T>
+       HostMacroProperty_swig<T> getMacroProperty_swig(const std::string& name) const;
+   #endif
+   };
+   
+   template<typename T>
+   T HostEnvironment::setProperty(const std::string &name, const T value) const {
+       if (!name.empty() && name[0] == '_') {
+           THROW exception::ReservedName("Environment property names cannot begin with '_', this is reserved for internal usage, "
+               "in HostEnvironment::set().");
+       }
+       return env_mgr->setProperty<T>(name, value);
+   }
+   template<typename T, flamegpu::size_type N>
+   std::array<T, N> HostEnvironment::setProperty(const std::string &name, const std::array<T, N> &value) const {
+       if (!name.empty() && name[0] == '_') {
+           THROW exception::ReservedName("Environment property names cannot begin with '_', this is reserved for internal usage, "
+               "in HostEnvironment::set().");
+       }
+       return env_mgr->setProperty<T, N>(name, value);
+   }
+   template<typename T, flamegpu::size_type N>
+   T HostEnvironment::setProperty(const std::string &name, flamegpu::size_type index, const T value) const {
+       if (!name.empty() && name[0] == '_') {
+           THROW exception::ReservedName("Environment property names cannot begin with '_', this is reserved for internal usage, "
+               "in HostEnvironment::set().");
+       }
+       return env_mgr->setProperty<T, N>(name, index, value);
+   }
+   #ifdef SWIG
+   template<typename T>
+   std::vector<T> HostEnvironment::setPropertyArray(const std::string &name, const std::vector<T> &value) const {
+       if (!name.empty() && name[0] == '_') {
+           THROW exception::ReservedName("Environment property names cannot begin with '_', this is reserved for internal usage, "
+               "in HostEnvironment::setArray().");
+       }
+       return env_mgr->setPropertyArray<T>(name, value);
+   }
+   #endif  // SWIG
+   
+   template<typename T>
+   T HostEnvironment::getProperty(const std::string &name) const  {
+       return env_mgr->getProperty<T>(name);
+   }
+   template<typename T, flamegpu::size_type N>
+   std::array<T, N> HostEnvironment::getProperty(const std::string &name) const  {
+       return env_mgr->getProperty<T, N>(name);
+   }
+   template<typename T, flamegpu::size_type N>
+   T HostEnvironment::getProperty(const std::string &name, const flamegpu::size_type index) const  {
+       return env_mgr->getProperty<T, N>(name, index);
+   }
+   #ifdef SWIG
+   template<typename T>
+   std::vector<T> HostEnvironment::getPropertyArray(const std::string& name) const {
+       return env_mgr->getPropertyArray<T>(name);
+   }
+   #endif  // SWIG
+   
+   template<typename T, unsigned int I, unsigned int J, unsigned int K, unsigned int W>
+   HostMacroProperty<T, I, J, K, W> HostEnvironment::getMacroProperty(const std::string& name) const {
+       return macro_env.getProperty<T, I, J, K, W>(name);
+   }
+   
+   #ifdef SWIG
+   template<typename T>
+   HostMacroProperty_swig<T> HostEnvironment::getMacroProperty_swig(const std::string& name) const {
+       return macro_env.getProperty_swig<T>(name);
+   }
+   #endif
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_RUNTIME_ENVIRONMENT_HOSTENVIRONMENT_CUH_

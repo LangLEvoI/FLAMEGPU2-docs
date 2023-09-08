@@ -1,0 +1,33 @@
+.. _dir_include_flamegpu_detail:
+
+
+Directory detail
+================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu>` (``include/flamegpu``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``include/flamegpu/detail``
+
+
+Files
+-----
+
+- :ref:`file_include_flamegpu_detail_Any.h`
+- :ref:`file_include_flamegpu_detail_compute_capability.cuh`
+- :ref:`file_include_flamegpu_detail_cuda.cuh`
+- :ref:`file_include_flamegpu_detail_CUDAEventTimer.cuh`
+- :ref:`file_include_flamegpu_detail_curand.cuh`
+- :ref:`file_include_flamegpu_detail_cxxname.hpp`
+- :ref:`file_include_flamegpu_detail_JitifyCache.h`
+- :ref:`file_include_flamegpu_detail_SignalHandlers.h`
+- :ref:`file_include_flamegpu_detail_StaticAssert.h`
+- :ref:`file_include_flamegpu_detail_SteadyClockTimer.h`
+- :ref:`file_include_flamegpu_detail_TestSuiteTelemetry.h`
+- :ref:`file_include_flamegpu_detail_Timer.h`
+- :ref:`file_include_flamegpu_detail_type_decode.h`
+- :ref:`file_include_flamegpu_detail_wddm.cuh`
+
+

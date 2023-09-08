@@ -1,0 +1,13 @@
+.. _exhale_variable_namespaceflamegpu_1a8fdfd48619c64c23a7ce5fb573bb737b:
+
+Variable flamegpu::TELEMETRY_RANDOM_ID
+======================================
+
+- Defined in :ref:`file_include_flamegpu_version.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: flamegpu::TELEMETRY_RANDOM_ID

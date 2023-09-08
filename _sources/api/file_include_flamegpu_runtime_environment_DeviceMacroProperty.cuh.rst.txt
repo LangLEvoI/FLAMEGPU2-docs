@@ -1,0 +1,70 @@
+
+.. _file_include_flamegpu_runtime_environment_DeviceMacroProperty.cuh:
+
+File DeviceMacroProperty.cuh
+============================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_runtime_environment>` (``include/flamegpu/runtime/environment``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/runtime/environment/DeviceMacroProperty.cuh``)
+-----------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_runtime_environment_DeviceMacroProperty.cuh.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``algorithm``
+
+- ``cstdint``
+
+- ``limits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_runtime_environment_DeviceEnvironment.cuh`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1DeviceMacroProperty`
+
+- :ref:`exhale_class_classflamegpu_1_1ReadOnlyDeviceMacroProperty`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_DeviceMacroProperty_8cuh_1a32074af98f8c5782285351cf69b8d6ba`
+

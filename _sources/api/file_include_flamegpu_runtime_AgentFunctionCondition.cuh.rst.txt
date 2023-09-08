@@ -1,0 +1,81 @@
+
+.. _file_include_flamegpu_runtime_AgentFunctionCondition.cuh:
+
+File AgentFunctionCondition.cuh
+===============================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_runtime>` (``include/flamegpu/runtime``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/runtime/AgentFunctionCondition.cuh``)
+--------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_runtime_AgentFunctionCondition.cuh.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cuda_runtime.h``
+
+- ``device_launch_parameters.h``
+
+- ``flamegpu/runtime/AgentFunctionCondition_shim.cuh`` (:ref:`file_include_flamegpu_runtime_AgentFunctionCondition_shim.cuh`)
+
+- ``flamegpu/runtime/DeviceAPI.cuh`` (:ref:`file_include_flamegpu_runtime_DeviceAPI.cuh`)
+
+- ``flamegpu/runtime/detail/curve/DeviceCurve.cuh`` (:ref:`file_include_flamegpu_runtime_detail_curve_DeviceCurve.cuh`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_model_AgentFunctionData.cuh`
+
+- :ref:`file_include_flamegpu_runtime_DeviceAPI.cuh`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1ad1d0646758e9e727e1b5c8765b01b902`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_AgentFunctionCondition_8cuh_1a574cefe207a9b2a90e1b48ecbac1bfed`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_namespaceflamegpu_1ae62625f2f2b70b2b5f9d218db249d8e1`
+

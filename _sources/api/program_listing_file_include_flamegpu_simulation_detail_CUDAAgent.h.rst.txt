@@ -1,0 +1,119 @@
+
+.. _program_listing_file_include_flamegpu_simulation_detail_CUDAAgent.h:
+
+Program Listing for File CUDAAgent.h
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_simulation_detail_CUDAAgent.h>` (``include/flamegpu/simulation/detail/CUDAAgent.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAAGENT_H_
+   #define INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAAGENT_H_
+   
+   #include <memory>
+   #include <map>
+   #include <utility>
+   #include <string>
+   #include <mutex>
+   #include <unordered_map>
+   #include <list>
+   
+   // include sub classes
+   #include "flamegpu/detail/JitifyCache.h"
+   #include "flamegpu/simulation/detail/CUDAAgentStateList.h"
+   #include "flamegpu/model/AgentFunctionData.cuh"
+   #include "flamegpu/model/SubAgentData.h"
+   #include "flamegpu/runtime/detail/curve/curve_rtc.cuh"
+   #include "flamegpu/simulation/detail/AgentInterface.h"
+   #include "flamegpu/simulation/detail/EnvironmentManager.cuh"
+   
+   namespace flamegpu {
+   class HostAPI;
+   struct VarOffsetStruct;
+   namespace detail {
+   class CUDAMacroEnvironment;
+   class CUDAScatter;
+   class CUDAFatAgent;
+   class CUDAAgent : public AgentInterface {
+   #ifdef FLAMEGPU_VISUALISATION
+       friend struct visualiser::AgentVisData;
+   #endif  // FLAMEGPU_VISUALISATION
+   
+    public:
+        typedef std::map<const std::string, std::unique_ptr<jitify::experimental::KernelInstantiation>> CUDARTCFuncMap;
+        typedef std::map<const std::string, std::unique_ptr<detail::curve::CurveRTCHost>> CUDARTCHeaderMap;
+       typedef std::pair<const std::string, std::unique_ptr<jitify::experimental::KernelInstantiation>> CUDARTCFuncMapPair;
+       CUDAAgent(const AgentData& description, const CUDASimulation &_cudaSimulation);
+       CUDAAgent(
+           const AgentData &description,
+           const CUDASimulation &_cudaSimulation,
+           const std::unique_ptr<CUDAAgent> &master_agent,
+           const std::shared_ptr<SubAgentData> &mapping);
+       void mapRuntimeVariables(const AgentFunctionData& func, unsigned int instance_id) const;
+       void setPopulationData(const AgentVector& population, const std::string &state_name, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void getPopulationData(AgentVector& population, const std::string& state_name) const;
+       unsigned int getStateSize(const std::string &state) const override;
+       unsigned int getStateAllocatedSize(const std::string &state) const;
+       CAgentDescription getAgentDescription() const override;
+       void *getStateVariablePtr(const std::string &state_name, const std::string &variable_name) override;
+       void processDeath(const AgentFunctionData& func, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void transitionState(const std::string &_src, const std::string &_dest, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void processFunctionCondition(const AgentFunctionData& func, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void scatterHostCreation(const std::string &state_name, unsigned int newSize, char *const d_inBuff, const VarOffsetStruct &offsets, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void scatterSort_async(const std::string &state_name, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void mapNewRuntimeVariables_async(const CUDAAgent& func_agent, const AgentFunctionData& func, unsigned int maxLen, detail::CUDAScatter &scatter, unsigned int instance_id, cudaStream_t stream, unsigned int streamId);
+       void releaseNewBuffer(const AgentFunctionData& func);
+       void scatterNew(const AgentFunctionData& func, unsigned int newSize, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void clearFunctionCondition(const std::string &state);
+       void addInstantitateRTCFunction(const AgentFunctionData& func, const std::shared_ptr<EnvironmentManager>& env, const CUDAMacroEnvironment& macro_env, bool function_condition = false);
+       void addInstantitateFunction(const AgentFunctionData& func, const std::shared_ptr<EnvironmentManager>& env, const CUDAMacroEnvironment& macro_env, bool function_condition = false);
+       const jitify::experimental::KernelInstantiation& getRTCInstantiation(const std::string &function_name) const;
+       detail::curve::CurveRTCHost &getRTCHeader(const std::string &function_name) const;
+       detail::curve::HostCurve &getCurve(const std::string& function_name) const;
+       const CUDARTCFuncMap& getRTCFunctions() const;
+       void initUnmappedVars(CUDAScatter& scatter, unsigned int streamId, cudaStream_t stream);
+       void initExcludedVars(const std::string& state, unsigned int count, unsigned int offset, CUDAScatter& scatter, unsigned int streamId, cudaStream_t stream);
+       void cullAllStates();
+       void cullUnmappedStates();
+       void resizeState(const std::string &state, unsigned int minSize, bool retainData, cudaStream_t stream);
+       void setStateAgentCount(const std::string& state, unsigned int newSize);
+       std::list<std::shared_ptr<VariableBuffer>> getUnboundVariableBuffers(const std::string& state);
+       id_t nextID(unsigned int count = 1) override;
+       id_t* getDeviceNextID();
+       void assignIDs(HostAPI &hostapi, CUDAScatter& scatter, cudaStream_t stream, unsigned int streamId);
+       void setPopulationVec(const std::string& state_name, const std::shared_ptr<DeviceAgentVector_impl>& d_vec);
+       std::shared_ptr<DeviceAgentVector_impl> getPopulationVec(const std::string& state_name);
+       void resetPopulationVecs();
+   
+    private:
+       void validateIDCollisions(cudaStream_t stream) const;
+       static size_t calcTotalVarSize(const AgentData &agent) {
+           size_t rtn = 0;
+           for (const auto &v : agent.variables) {
+               rtn += v.second.type_size * v.second.elements;
+           }
+           return rtn;
+       }
+       unsigned int getFatIndex() const { return fat_index; }
+       std::shared_ptr<CUDAFatAgent> getFatAgent() { return fat_agent; }
+       const AgentData &agent_description;
+       std::unordered_map<std::string, std::shared_ptr<CUDAAgentStateList>> state_map;
+       std::shared_ptr<CUDAFatAgent> fat_agent;
+       const unsigned int fat_index;
+       const CUDASimulation &cudaSimulation;
+       CUDARTCFuncMap rtc_func_map;
+       CUDARTCHeaderMap rtc_header_map;
+       std::unordered_map<std::string, std::unique_ptr<detail::curve::HostCurve>> curve_map;
+       const size_t TOTAL_AGENT_VARIABLE_SIZE;
+       std::unordered_map<std::string, void*> newBuffs;
+       std::mutex newBuffsMutex;
+       std::map<std::string, std::shared_ptr<DeviceAgentVector_impl>> population_dvec;
+   };
+   
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAAGENT_H_

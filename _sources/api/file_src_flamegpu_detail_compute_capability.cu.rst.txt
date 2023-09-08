@@ -1,0 +1,52 @@
+
+.. _file_src_flamegpu_detail_compute_capability.cu:
+
+File compute_capability.cu
+==========================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_flamegpu_detail>` (``src/flamegpu/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/flamegpu/detail/compute_capability.cu``)
+----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_flamegpu_detail_compute_capability.cu.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``flamegpu/detail/compute_capability.cuh`` (:ref:`file_include_flamegpu_detail_compute_capability.cuh`)
+
+- ``flamegpu/simulation/detail/CUDAErrorChecking.cuh`` (:ref:`file_include_flamegpu_simulation_detail_CUDAErrorChecking.cuh`)
+
+- ``nvrtc.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+

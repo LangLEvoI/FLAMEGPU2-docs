@@ -1,0 +1,91 @@
+
+.. _file_include_flamegpu_model_EnvironmentDescription.h:
+
+File EnvironmentDescription.h
+=============================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_model>` (``include/flamegpu/model``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/model/EnvironmentDescription.h``)
+----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_model_EnvironmentDescription.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/detail/Any.h`` (:ref:`file_include_flamegpu_detail_Any.h`)
+
+- ``flamegpu/detail/type_decode.h`` (:ref:`file_include_flamegpu_detail_type_decode.h`)
+
+- ``flamegpu/exception/FLAMEGPUException.h`` (:ref:`file_include_flamegpu_exception_FLAMEGPUException.h`)
+
+- ``flamegpu/model/EnvironmentData.h`` (:ref:`file_include_flamegpu_model_EnvironmentData.h`)
+
+- ``flamegpu/runtime/environment/HostEnvironment.cuh`` (:ref:`file_include_flamegpu_runtime_environment_HostEnvironment.cuh`)
+
+- ``flamegpu/simulation/CUDAEnsemble.h`` (:ref:`file_include_flamegpu_simulation_CUDAEnsemble.h`)
+
+- ``memory``
+
+- ``string``
+
+- ``typeindex``
+
+- ``typeinfo``
+
+- ``utility``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_flamegpu.h`
+
+- :ref:`file_include_flamegpu_simulation_RunPlan.h`
+
+- :ref:`file_src_flamegpu_model_EnvironmentDescription.cpp`
+
+- :ref:`file_src_flamegpu_model_ModelDescription.cpp`
+
+- :ref:`file_src_flamegpu_model_SubEnvironmentDescription.cpp`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAMacroEnvironment.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1CEnvironmentDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1EnvironmentDescription`
+

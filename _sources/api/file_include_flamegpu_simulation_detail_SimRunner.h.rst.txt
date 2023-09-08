@@ -1,0 +1,81 @@
+
+.. _file_include_flamegpu_simulation_detail_SimRunner.h:
+
+File SimRunner.h
+================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation_detail>` (``include/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/detail/SimRunner.h``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_detail_SimRunner.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``atomic``
+
+- ``condition_variable``
+
+- ``flamegpu/defines.h`` (:ref:`file_include_flamegpu_defines.h`)
+
+- ``flamegpu/simulation/LogFrame.h`` (:ref:`file_include_flamegpu_simulation_LogFrame.h`)
+
+- ``memory``
+
+- ``mutex``
+
+- ``queue``
+
+- ``string``
+
+- ``thread``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_flamegpu_simulation_CUDAEnsemble.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_SimRunner.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1SimRunner_1_1ErrorDetail`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1SimRunner`
+

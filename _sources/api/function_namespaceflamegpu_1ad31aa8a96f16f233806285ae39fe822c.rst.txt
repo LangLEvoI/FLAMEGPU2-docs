@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1ad31aa8a96f16f233806285ae39fe822c:
+
+Template Function flamegpu::getAgentVariableMaxFunc
+===================================================
+
+- Defined in :ref:`file_include_flamegpu_simulation_AgentLoggingConfig.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::getAgentVariableMaxFunc(HostAgentAPI&, const std::string&)

@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespaceflamegpu_1_1detail_1a3244d1e124bb3b9b62bc13480c080bd1:
+
+Typedef flamegpu::detail::CUDAMessageMapPair
+============================================
+
+- Defined in :ref:`file_include_flamegpu_simulation_detail_CUDAMessageList.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: flamegpu::detail::CUDAMessageMapPair

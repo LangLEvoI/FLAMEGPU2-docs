@@ -1,0 +1,13 @@
+.. _exhale_variable_namespaceflamegpu_1_1detail_1a5e169c9830e27f3e46a57d103144d5d3:
+
+Variable flamegpu::detail::STANDARD_DEVIATION_MEAN
+==================================================
+
+- Defined in :ref:`file_src_flamegpu_simulation_AgentLoggingConfig.cu`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: flamegpu::detail::STANDARD_DEVIATION_MEAN

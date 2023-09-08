@@ -1,0 +1,82 @@
+
+.. _file_include_flamegpu_simulation_detail_RandomManager.cuh:
+
+File RandomManager.cuh
+======================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation_detail>` (``include/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/detail/RandomManager.cuh``)
+---------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_detail_RandomManager.cuh.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cstdint``
+
+- ``flamegpu/defines.h`` (:ref:`file_include_flamegpu_defines.h`)
+
+- ``flamegpu/detail/curand.cuh`` (:ref:`file_include_flamegpu_detail_curand.cuh`)
+
+- ``flamegpu/simulation/Simulation.h`` (:ref:`file_include_flamegpu_simulation_Simulation.h`)
+
+- ``random`` (:ref:`file_include_flamegpu_runtime_random_AgentRandom.cuh`)
+
+- ``string``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_runtime_random_HostRandom.cuh`
+
+- :ref:`file_include_flamegpu_simulation_CUDASimulation.h`
+
+- :ref:`file_src_flamegpu_simulation_detail_RandomManager.cu`
+
+- :ref:`file_src_flamegpu_simulation_Simulation.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1RandomManager`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_RandomManager_8cuh_1a17038ff9ff09bc3005320b94089da9be`
+

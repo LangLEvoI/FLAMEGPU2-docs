@@ -1,0 +1,73 @@
+
+.. _file_include_flamegpu_detail_type_decode.h:
+
+File type_decode.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_detail>` (``include/flamegpu/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/detail/type_decode.h``)
+------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_detail_type_decode.h.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_model_AgentDescription.h`
+
+- :ref:`file_include_flamegpu_model_EnvironmentDescription.h`
+
+- :ref:`file_include_flamegpu_runtime_agent_HostAgentAPI.cuh`
+
+- :ref:`file_include_flamegpu_runtime_agent_HostNewAgentAPI.h`
+
+- :ref:`file_include_flamegpu_runtime_detail_curve_DeviceCurve.cuh`
+
+- :ref:`file_include_flamegpu_runtime_environment_DeviceEnvironment.cuh`
+
+- :ref:`file_include_flamegpu_runtime_messaging_MessageBruteForce_MessageBruteForceHost.h`
+
+- :ref:`file_include_flamegpu_simulation_AgentVector_Agent.h`
+
+- :ref:`file_include_flamegpu_simulation_detail_EnvironmentManager.cuh`
+
+- :ref:`file_include_flamegpu_simulation_RunPlan.h`
+
+- :ref:`file_include_flamegpu_simulation_RunPlanVector.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1type__decode`
+

@@ -1,0 +1,577 @@
+
+.. _namespace_flamegpu:
+
+Namespace flamegpu
+==================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+Detailed Description
+--------------------
+
+Collection of cuda related utility methods for internal use. Mostly to allow for graceful handling of device resets when cuda is called by dtors 
+
+This header exists to allow a convenient way to switch between curand implementations
+
+The main cuRVE header file for the CUDA Runtime :ref:`exhale_struct_structflamegpu_1_1Variable` Environment (cuRVE) Based off the following article http:// www.gamasutra.com/view/news/127915/InDepth_Quasi_CompileTime_String_Hashing.php This file contains definitions common to HostCurve and DeviceCurve
+
+CUDA does not implement atomicAdd(double*, double) for pre-pascal GPUs, which do not have the underlying hardware instruction. A CAS based software implementation is required instead, which will be much slower. This implementation is based on the reference implementation prodived by the CUDA toolkit documentation.
+
+THIS CLASS SHOULD NOT BE INCLUDED DIRECTLY Include :ref:`file_include_flamegpu_simulation_AgentVector.h` instead Use AgentVector::CAgent instead of :ref:`exhale_class_classflamegpu_1_1AgentVector__CAgent` Use AgentVector::Agent instead of :ref:`exhale_class_classflamegpu_1_1AgentVector__Agent`
+
+Prodvides a utility method to cleanup after flamegpu. Currently for the only implementation (CUDA) this resets all devices.
+
+Utility namespace for handling of NVTX profiling markers/ranges, uses if constexpr to avoid runtime cost when disabled
+
+Macro ``FLAMEGPU_USE_NVTX`` is defined via CMake to set the member constexpr 
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu__@205`
+
+- :ref:`namespace_flamegpu__detail`
+
+- :ref:`namespace_flamegpu__exception`
+
+- :ref:`namespace_flamegpu__io`
+
+- :ref:`namespace_flamegpu__util`
+
+- :ref:`namespace_flamegpu__visualiser`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1AgentData`
+
+- :ref:`exhale_struct_structflamegpu_1_1AgentFunctionData`
+
+- :ref:`exhale_struct_structflamegpu_1_1AgentLogFrame`
+
+- :ref:`exhale_struct_structflamegpu_1_1CUDAEnsemble_1_1EnsembleConfig`
+
+- :ref:`exhale_struct_structflamegpu_1_1CUDASimulation_1_1Config`
+
+- :ref:`exhale_struct_structflamegpu_1_1CUDASimulation_1_1Singletons`
+
+- :ref:`exhale_struct_structflamegpu_1_1DeviceAgentVector__impl_1_1VariableBufferPair`
+
+- :ref:`exhale_struct_structflamegpu_1_1EnvironmentData`
+
+- :ref:`exhale_struct_structflamegpu_1_1EnvironmentData_1_1MacroPropData`
+
+- :ref:`exhale_struct_structflamegpu_1_1EnvironmentData_1_1PropData`
+
+- :ref:`exhale_struct_structflamegpu_1_1ExitLogFrame`
+
+- :ref:`exhale_struct_structflamegpu_1_1HostMacroProperty__MetaData`
+
+- :ref:`exhale_struct_structflamegpu_1_1LayerData`
+
+- :ref:`exhale_struct_structflamegpu_1_1LogFrame`
+
+- :ref:`exhale_struct_structflamegpu_1_1LoggingConfig_1_1NameReductionFn`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageArray2D_1_1Data`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageArray2D_1_1MetaData`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageArray3D_1_1Data`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageArray3D_1_1MetaData`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageArray_1_1Data`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageArray_1_1MetaData`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageBruteForce_1_1Data`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageBruteForce_1_1MetaData`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageBucket_1_1Data`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageBucket_1_1MetaData`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageSpatial2D_1_1Data`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageSpatial2D_1_1GridPos2D`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageSpatial2D_1_1MetaData`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageSpatial3D_1_1Data`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageSpatial3D_1_1GridPos3D`
+
+- :ref:`exhale_struct_structflamegpu_1_1MessageSpatial3D_1_1MetaData`
+
+- :ref:`exhale_struct_structflamegpu_1_1ModelData`
+
+- :ref:`exhale_struct_structflamegpu_1_1NewAgentStorage`
+
+- :ref:`exhale_struct_structflamegpu_1_1RunLog`
+
+- :ref:`exhale_struct_structflamegpu_1_1RunLog_1_1PerformanceSpecs`
+
+- :ref:`exhale_struct_structflamegpu_1_1Simulation_1_1Config`
+
+- :ref:`exhale_struct_structflamegpu_1_1StepLogFrame`
+
+- :ref:`exhale_struct_structflamegpu_1_1SubAgentData`
+
+- :ref:`exhale_struct_structflamegpu_1_1SubEnvironmentData`
+
+- :ref:`exhale_struct_structflamegpu_1_1SubModelData`
+
+- :ref:`exhale_struct_structflamegpu_1_1sum__input__t`
+
+- :ref:`exhale_struct_structflamegpu_1_1sum__input__t_3_01char_01_4`
+
+- :ref:`exhale_struct_structflamegpu_1_1sum__input__t_3_01double_01_4`
+
+- :ref:`exhale_struct_structflamegpu_1_1sum__input__t_3_01float_01_4`
+
+- :ref:`exhale_struct_structflamegpu_1_1sum__input__t_3_01int16__t_01_4`
+
+- :ref:`exhale_struct_structflamegpu_1_1sum__input__t_3_01int32__t_01_4`
+
+- :ref:`exhale_struct_structflamegpu_1_1sum__input__t_3_01int64__t_01_4`
+
+- :ref:`exhale_struct_structflamegpu_1_1sum__input__t_3_01int8__t_01_4`
+
+- :ref:`exhale_struct_structflamegpu_1_1sum__input__t_3_01uint16__t_01_4`
+
+- :ref:`exhale_struct_structflamegpu_1_1sum__input__t_3_01uint32__t_01_4`
+
+- :ref:`exhale_struct_structflamegpu_1_1sum__input__t_3_01uint64__t_01_4`
+
+- :ref:`exhale_struct_structflamegpu_1_1sum__input__t_3_01uint8__t_01_4`
+
+- :ref:`exhale_struct_structflamegpu_1_1Variable`
+
+- :ref:`exhale_struct_structflamegpu_1_1VarOffsetStruct`
+
+- :ref:`exhale_struct_structflamegpu_1_1VarOffsetStruct_1_1OffsetLen`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentFunctionDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentInstance`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentLoggingConfig`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentRandom`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentVector`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentVector_1_1const__iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentVector_1_1const__reverse__iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentVector_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentVector_1_1reverse__iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentVector__Agent`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentVector__CAgent`
+
+- :ref:`exhale_class_classflamegpu_1_1CAgentDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1CAgentFunctionDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1CEnvironmentDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1CLayerDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1CSubAgentDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1CSubEnvironmentDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1CSubModelDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1CUDAEnsemble`
+
+- :ref:`exhale_class_classflamegpu_1_1CUDASimulation`
+
+- :ref:`exhale_class_classflamegpu_1_1DependencyGraph`
+
+- :ref:`exhale_class_classflamegpu_1_1DependencyNode`
+
+- :ref:`exhale_class_classflamegpu_1_1DeviceAgentVector__impl`
+
+- :ref:`exhale_class_classflamegpu_1_1DeviceAPI`
+
+- :ref:`exhale_class_classflamegpu_1_1DeviceAPI_1_1AgentOut`
+
+- :ref:`exhale_class_classflamegpu_1_1DeviceEnvironment`
+
+- :ref:`exhale_class_classflamegpu_1_1DeviceMacroProperty`
+
+- :ref:`exhale_class_classflamegpu_1_1EnvironmentDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1HostAgentAPI`
+
+- :ref:`exhale_class_classflamegpu_1_1HostAPI`
+
+- :ref:`exhale_class_classflamegpu_1_1HostConditionCallback`
+
+- :ref:`exhale_class_classflamegpu_1_1HostEnvironment`
+
+- :ref:`exhale_class_classflamegpu_1_1HostFunctionCallback`
+
+- :ref:`exhale_class_classflamegpu_1_1HostFunctionDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1HostMacroProperty`
+
+- :ref:`exhale_class_classflamegpu_1_1HostNewAgentAPI`
+
+- :ref:`exhale_class_classflamegpu_1_1HostRandom`
+
+- :ref:`exhale_class_classflamegpu_1_1LayerDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1LoggingConfig`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1CDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1CUDAModelHandler`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1Description`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1Filter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1Filter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1Filter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1VonNeumannFilter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1VonNeumannFilter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1VonNeumannFilter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1VonNeumannWrapFilter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1VonNeumannWrapFilter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1VonNeumannWrapFilter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1WrapFilter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1WrapFilter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1In_1_1WrapFilter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray2D_1_1Out`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1CDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1CUDAModelHandler`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1Description`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1Filter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1Filter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1Filter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1VonNeumannFilter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1VonNeumannFilter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1VonNeumannFilter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1VonNeumannWrapFilter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1VonNeumannWrapFilter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1VonNeumannWrapFilter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1WrapFilter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1WrapFilter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1In_1_1WrapFilter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray3D_1_1Out`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray_1_1CDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray_1_1CUDAModelHandler`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray_1_1Description`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray_1_1In`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray_1_1In_1_1Filter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray_1_1In_1_1Filter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray_1_1In_1_1Filter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray_1_1In_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray_1_1In_1_1WrapFilter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray_1_1In_1_1WrapFilter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray_1_1In_1_1WrapFilter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageArray_1_1Out`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBruteForce`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBruteForce_1_1CDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBruteForce_1_1CUDAModelHandler`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBruteForce_1_1Description`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBruteForce_1_1In`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBruteForce_1_1In_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBruteForce_1_1In_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBruteForce_1_1Out`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBucket`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBucket_1_1CDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBucket_1_1CUDAModelHandler`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBucket_1_1Description`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBucket_1_1In`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBucket_1_1In_1_1Filter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBucket_1_1In_1_1Filter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBucket_1_1In_1_1Filter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageBucket_1_1Out`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageNone`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageNone_1_1CUDAModelHandler`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageNone_1_1In`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageNone_1_1Out`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial2D`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial2D_1_1CDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial2D_1_1CUDAModelHandler`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial2D_1_1Description`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial2D_1_1In`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial2D_1_1In_1_1Filter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial2D_1_1In_1_1Filter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial2D_1_1In_1_1Filter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial2D_1_1In_1_1WrapFilter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial2D_1_1In_1_1WrapFilter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial2D_1_1In_1_1WrapFilter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial2D_1_1Out`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial3D`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial3D_1_1CDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial3D_1_1CUDAModelHandler`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial3D_1_1Description`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial3D_1_1In`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial3D_1_1In_1_1Filter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial3D_1_1In_1_1Filter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial3D_1_1In_1_1Filter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial3D_1_1In_1_1WrapFilter`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial3D_1_1In_1_1WrapFilter_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial3D_1_1In_1_1WrapFilter_1_1Message`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpatial3D_1_1Out`
+
+- :ref:`exhale_class_classflamegpu_1_1MessageSpecialisationHandler`
+
+- :ref:`exhale_class_classflamegpu_1_1ModelDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1ReadOnlyDeviceAPI`
+
+- :ref:`exhale_class_classflamegpu_1_1ReadOnlyDeviceEnvironment`
+
+- :ref:`exhale_class_classflamegpu_1_1ReadOnlyDeviceMacroProperty`
+
+- :ref:`exhale_class_classflamegpu_1_1RunPlan`
+
+- :ref:`exhale_class_classflamegpu_1_1RunPlanVector`
+
+- :ref:`exhale_class_classflamegpu_1_1Simulation`
+
+- :ref:`exhale_class_classflamegpu_1_1StepLoggingConfig`
+
+- :ref:`exhale_class_classflamegpu_1_1SubAgentDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1SubEnvironmentDescription`
+
+- :ref:`exhale_class_classflamegpu_1_1SubModelDescription`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_namespaceflamegpu_1a1adc39b89f4a6045c011c55a91339e4c`
+
+- :ref:`exhale_enum_namespaceflamegpu_1a2f06e5efd2a057b11a2fb53e711c443a`
+
+- :ref:`exhale_enum_namespaceflamegpu_1a167df7c66e4cd9ff9a0fbc124d6a4825`
+
+- :ref:`exhale_enum_namespaceflamegpu_1a85851c7dc9bdb27265f3ee52194f6737`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1ad1d0646758e9e727e1b5c8765b01b902`
+
+- :ref:`exhale_function_namespaceflamegpu_1a14f9e38e603f07fab8147506c76e38a0`
+
+- :ref:`exhale_function_namespaceflamegpu_1a0e9933d8e92fc85b481c5ffcec96e4c5`
+
+- :ref:`exhale_function_namespaceflamegpu_1a62702550faacab131476f2f0fd42b15d`
+
+- :ref:`exhale_function_namespaceflamegpu_1ab142b7f3311b4d53df2ec36802361c18`
+
+- :ref:`exhale_function_namespaceflamegpu_1ab6b7cc2d61ad5fc6ef4f30962f0e1c0c`
+
+- :ref:`exhale_function_namespaceflamegpu_1a98d812fe76f87a584031e516b3bd4d83`
+
+- :ref:`exhale_function_namespaceflamegpu_1a1c1e558eafa9efc336bcdac7fad3fe09`
+
+- :ref:`exhale_function_namespaceflamegpu_1ad31aa8a96f16f233806285ae39fe822c`
+
+- :ref:`exhale_function_namespaceflamegpu_1a71a0b028ba8c669fca81bc8b91c8161b`
+
+- :ref:`exhale_function_namespaceflamegpu_1ad9ab3f3957c697d1ba77d0129c4e8d42`
+
+- :ref:`exhale_function_namespaceflamegpu_1a46155a7c33d3922708b9eb440f974c43`
+
+- :ref:`exhale_function_namespaceflamegpu_1a008ad38c0accf8b9c904b89a49a80e16`
+
+- :ref:`exhale_function_namespaceflamegpu_1aef3737bc73df02c3cacdfe023e540fda`
+
+- :ref:`exhale_function_namespaceflamegpu_1af8bd0c23b13150691a8075e10e315df8`
+
+- :ref:`exhale_function_namespaceflamegpu_1ac19244e95de615218572437593f6f366`
+
+- :ref:`exhale_function_namespaceflamegpu_1aecff32308539a40d36081f141c5bcee3`
+
+- :ref:`exhale_function_namespaceflamegpu_1a7a197dc32a2a7d5896c0e6f7159dd065`
+
+- :ref:`exhale_function_namespaceflamegpu_1a39c5c7fb5befdc5ea64afdb4e97f0e60`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_namespaceflamegpu_1ae62625f2f2b70b2b5f9d218db249d8e1`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1afdb1ab69f8ad55bab90f8cf449a89f6d`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1afe2ca90ee1ba3f7638e0a640dda346b3`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1a5607538d6f1b97ef411a40c9d52f71b1`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1a677d0646677414a5fe34a580891c1296`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1a13e4b64ac18db61a5da0c453baf89b1d`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1a9bfe18618d31195e57596fba50d28af9`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1a49027ae818bd10917878571d0aab9eae`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1a327d7686ae940faa86f0119b6c7da377`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1aa38504d5d161ede66606cf62524fb9e2`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1a83d0ff667b27ea2b2ec5677bf0c24253`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1a4f33b71f99d74a889a0ac6c23ddabc15`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1aebf720d85bdb918165592c59575fe998`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespaceflamegpu_1ae222c3a1e48085efbe98bf734bf18c47`
+
+- :ref:`exhale_variable_namespaceflamegpu_1ae2461128afe905a603afcb7877188f29`
+
+- :ref:`exhale_variable_namespaceflamegpu_1a8fdfd48619c64c23a7ce5fb573bb737b`
+
+- :ref:`exhale_variable_namespaceflamegpu_1afe3afceec4bb90c840ea5482d7b07a97`
+
+- :ref:`exhale_variable_namespaceflamegpu_1abf99fff85270c03559c6846ce15c254f`
+
+- :ref:`exhale_variable_namespaceflamegpu_1ab2825ce1960a77bc8afbbd98b6305a44`
+
+- :ref:`exhale_variable_namespaceflamegpu_1ac29d48311f0cba829d4603734ba14450`
+
+- :ref:`exhale_variable_namespaceflamegpu_1abeeb7b039bde639c7627990c5f62e83d`
+
+- :ref:`exhale_variable_namespaceflamegpu_1a6c1bfc357e2e82b0e575ec2b5b6a33f5`
+
+- :ref:`exhale_variable_namespaceflamegpu_1a069e154449fb7dd97a34bc531ed9298c`
+
+- :ref:`exhale_variable_namespaceflamegpu_1a3afacc122b436ea9ab35959b1a8eff0f`

@@ -1,0 +1,68 @@
+
+.. _file_include_flamegpu_simulation_AgentLoggingConfig_Reductions.cuh:
+
+File AgentLoggingConfig_Reductions.cuh
+======================================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation>` (``include/flamegpu/simulation``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/AgentLoggingConfig_Reductions.cuh``)
+------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_AgentLoggingConfig_Reductions.cuh.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_runtime_agent_HostAgentAPI.cuh`
+
+- :ref:`file_include_flamegpu_simulation_AgentLoggingConfig.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1standard__deviation__add__impl`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1standard__deviation__add__impl_1_1binary__function`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1standard__deviation__subtract__mean__impl`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1standard__deviation__subtract__mean__impl_1_1unary__function`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_AgentLoggingConfig__Reductions_8cuh_1aacf28c3f5165c20093972ddf87a62489`
+

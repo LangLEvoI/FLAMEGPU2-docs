@@ -1,0 +1,88 @@
+
+.. _program_listing_file_include_flamegpu_runtime_environment_DeviceEnvironment.cuh:
+
+Program Listing for File DeviceEnvironment.cuh
+==============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_runtime_environment_DeviceEnvironment.cuh>` (``include/flamegpu/runtime/environment/DeviceEnvironment.cuh``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_RUNTIME_ENVIRONMENT_DEVICEENVIRONMENT_CUH_
+   #define INCLUDE_FLAMEGPU_RUNTIME_ENVIRONMENT_DEVICEENVIRONMENT_CUH_
+   
+   // #include <cuda_runtime.h>
+   #include <string>
+   #include <cassert>
+   
+   #include "flamegpu/runtime/environment/DeviceMacroProperty.cuh"
+   #include "flamegpu/detail/type_decode.h"
+   #ifndef __CUDACC_RTC__
+   #include "flamegpu/runtime/detail/curve/DeviceCurve.cuh"
+   #endif
+   
+   namespace flamegpu {
+   
+   class ReadOnlyDeviceEnvironment {
+       friend class ReadOnlyDeviceAPI;
+   
+    public:
+       template<typename T, unsigned int M>
+       __device__ __forceinline__ T getProperty(const char(&name)[M]) const;
+       template<typename T, unsigned int N = 0, unsigned int M>
+       __device__ __forceinline__ T getProperty(const char(&name)[M], unsigned int index) const;
+       template<typename T, unsigned int I = 1, unsigned int J = 1, unsigned int K = 1, unsigned int W = 1, unsigned int M>
+       __device__ __forceinline__ ReadOnlyDeviceMacroProperty<T, I, J, K, W> getMacroProperty(const char(&name)[M]) const;
+   };
+   class DeviceEnvironment : public ReadOnlyDeviceEnvironment {
+    public:
+       template<typename T, unsigned int I = 1, unsigned int J = 1, unsigned int K = 1, unsigned int W = 1, unsigned int M>
+       __device__ __forceinline__ DeviceMacroProperty<T, I, J, K, W> getMacroProperty(const char(&name)[M]) const;
+   };
+   
+   // Mash compilation of these functions from RTC builds as this requires a dynamic implementation of the function in curve_rtc
+   #ifndef __CUDACC_RTC__
+   
+   template<typename T, unsigned int M>
+   __device__ __forceinline__ T ReadOnlyDeviceEnvironment::getProperty(const char(&name)[M]) const {
+       return detail::curve::DeviceCurve::getEnvironmentProperty<T>(name);
+   }
+   template<typename T, unsigned int N, unsigned int M>
+   __device__ __forceinline__ T ReadOnlyDeviceEnvironment::getProperty(const char(&name)[M], const unsigned int index) const {
+       return detail::curve::DeviceCurve::getEnvironmentArrayProperty<T, N>(name,  index);
+   }
+   
+   template<typename T, unsigned int I, unsigned int J, unsigned int K, unsigned int W, unsigned int N>
+   __device__ __forceinline__ ReadOnlyDeviceMacroProperty<T, I, J, K, W> ReadOnlyDeviceEnvironment::getMacroProperty(const char(&name)[N]) const {
+       char * d_ptr = detail::curve::DeviceCurve::getEnvironmentMacroProperty<T, I, J, K, W>(name);
+   #if !defined(FLAMEGPU_SEATBELTS) || FLAMEGPU_SEATBELTS
+       if (!d_ptr) {
+           return ReadOnlyDeviceMacroProperty<T, I, J, K, W>(nullptr, nullptr);
+       }
+       return ReadOnlyDeviceMacroProperty<T, I, J, K, W>(reinterpret_cast<T*>(d_ptr),
+           reinterpret_cast<unsigned int*>(d_ptr + (I * J * K * W * sizeof(T))));  // Read-write flag resides in 8 bits at the end of the buffer
+   #else
+   
+       return ReadOnlyDeviceMacroProperty<T, I, J, K, W>(reinterpret_cast<T*>(d_ptr));
+   #endif
+   }
+   template<typename T, unsigned int I, unsigned int J, unsigned int K, unsigned int W, unsigned int N>
+   __device__ __forceinline__ DeviceMacroProperty<T, I, J, K, W> DeviceEnvironment::getMacroProperty(const char(&name)[N]) const {
+       char* d_ptr = detail::curve::DeviceCurve::getEnvironmentMacroProperty<T, I, J, K, W>(name);
+   #if !defined(FLAMEGPU_SEATBELTS) || FLAMEGPU_SEATBELTS
+       if (!d_ptr) {
+           return DeviceMacroProperty<T, I, J, K, W>(nullptr, nullptr);
+       }
+       return DeviceMacroProperty<T, I, J, K, W>(reinterpret_cast<T*>(d_ptr),
+           reinterpret_cast<unsigned int*>(d_ptr + (I * J * K * W * sizeof(T))));  // Read-write flag resides in 8 bits at the end of the buffer
+   #else
+       return DeviceMacroProperty<T, I, J, K, W>(reinterpret_cast<T*>(d_ptr));
+   #endif
+   }
+   #endif  // __CUDACC_RTC__
+   
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_RUNTIME_ENVIRONMENT_DEVICEENVIRONMENT_CUH_

@@ -1,0 +1,93 @@
+
+.. _program_listing_file_include_flamegpu_simulation_LoggingConfig.h:
+
+Program Listing for File LoggingConfig.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_simulation_LoggingConfig.h>` (``include/flamegpu/simulation/LoggingConfig.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_SIMULATION_LOGGINGCONFIG_H_
+   #define INCLUDE_FLAMEGPU_SIMULATION_LOGGINGCONFIG_H_
+   
+   #include <string>
+   #include <map>
+   #include <set>
+   #include <utility>
+   #include <memory>
+   
+   #include "flamegpu/util/StringPair.h"
+   #include "flamegpu/runtime/agent/HostAgentAPI.cuh"
+   #include "flamegpu/model/ModelData.h"
+   #include "flamegpu/simulation/CUDAEnsemble.h"
+   
+   namespace flamegpu {
+   
+   class AgentLoggingConfig;
+   
+   class LoggingConfig {
+       friend class AgentLoggingConfig;
+       // friend void CUDASimulation::setStepLog(const StepLoggingConfig &);
+       // friend void CUDASimulation::setExitLog(const LoggingConfig &);
+       friend void CUDAEnsemble::setStepLog(const StepLoggingConfig &);
+       friend void CUDAEnsemble::setExitLog(const LoggingConfig &);
+       friend class CUDASimulation;
+       friend unsigned int CUDAEnsemble::simulate(const RunPlanVector& plans);
+   
+    public:
+       enum Reduction{ Mean, StandardDev, Min, Max, Sum };
+       static constexpr const char *toString(const Reduction &r) {
+           switch (r) {
+           case Mean: return "mean";
+           case StandardDev:  return "standard_deviation";
+           case Min: return "min";
+           case Max: return "max";
+           case Sum: return "sum";
+           default: return "unknown";
+           }
+       }
+       typedef detail::Any (ReductionFn)(HostAgentAPI &ai, const std::string &variable_name);
+       struct NameReductionFn {
+           std::string name;
+           Reduction reduction;
+           ReductionFn *function;
+           bool operator<(const NameReductionFn &other) const {
+               if (name == other.name) {
+                   return reduction < other.reduction;
+               }
+               return name < other.name;
+           }
+       };
+       explicit LoggingConfig(const ModelDescription &model);
+       explicit LoggingConfig(const ModelData &model);
+       explicit LoggingConfig(const LoggingConfig &other);
+       AgentLoggingConfig agent(const std::string &agent_name, const std::string &agent_state = ModelData::DEFAULT_STATE);
+       void logEnvironment(const std::string &property_name);
+       void logTiming(bool doLogTiming);
+   
+    private:
+       std::shared_ptr<const ModelData> model;
+       std::set<std::string> environment;
+       std::map<util::StringPair, std::pair<std::shared_ptr<std::set<NameReductionFn>>, bool>> agents;
+       bool log_timing;
+   };
+   
+   class StepLoggingConfig : public LoggingConfig {
+       friend class CUDASimulation;
+    public:
+       explicit StepLoggingConfig(const ModelDescription &model);
+       explicit StepLoggingConfig(const ModelData &model);
+       explicit StepLoggingConfig(const StepLoggingConfig &model);
+       explicit StepLoggingConfig(const LoggingConfig &model);
+       void setFrequency(unsigned int steps);
+   
+    private:
+       unsigned int frequency;
+   };
+   
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_SIMULATION_LOGGINGCONFIG_H_

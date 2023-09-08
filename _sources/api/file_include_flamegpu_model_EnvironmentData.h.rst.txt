@@ -1,0 +1,91 @@
+
+.. _file_include_flamegpu_model_EnvironmentData.h:
+
+File EnvironmentData.h
+======================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_model>` (``include/flamegpu/model``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/model/EnvironmentData.h``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_model_EnvironmentData.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``array``
+
+- ``flamegpu/detail/Any.h`` (:ref:`file_include_flamegpu_detail_Any.h`)
+
+- ``flamegpu/model/ModelData.h`` (:ref:`file_include_flamegpu_model_ModelData.h`)
+
+- ``memory``
+
+- ``string``
+
+- ``typeindex``
+
+- ``typeinfo``
+
+- ``unordered_map``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_io_StateReader.h`
+
+- :ref:`file_include_flamegpu_model_EnvironmentDescription.h`
+
+- :ref:`file_include_flamegpu_simulation_RunPlanVector.h`
+
+- :ref:`file_include_flamegpu_visualiser_PanelVis.h`
+
+- :ref:`file_src_flamegpu_model_EnvironmentData.cpp`
+
+- :ref:`file_src_flamegpu_model_ModelData.cpp`
+
+- :ref:`file_src_flamegpu_simulation_detail_EnvironmentManager.cu`
+
+- :ref:`file_src_flamegpu_simulation_LoggingConfig.cu`
+
+- :ref:`file_src_flamegpu_simulation_Simulation.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1EnvironmentData`
+
+- :ref:`exhale_struct_structflamegpu_1_1EnvironmentData_1_1MacroPropData`
+
+- :ref:`exhale_struct_structflamegpu_1_1EnvironmentData_1_1PropData`
+

@@ -1,0 +1,16 @@
+.. _exhale_struct_structflamegpu_1_1detail_1_1curve_1_1CurveTable:
+
+Struct CurveTable
+=================
+
+- Defined in :ref:`file_include_flamegpu_runtime_detail_curve_Curve.cuh`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::detail::curve::CurveTable
+   :members:
+   :protected-members:
+   :undoc-members:

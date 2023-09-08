@@ -1,0 +1,55 @@
+
+.. _file_src_flamegpu_runtime_agent_HostAgentAPI.cu:
+
+File HostAgentAPI.cu
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_flamegpu_runtime_agent>` (``src/flamegpu/runtime/agent``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/flamegpu/runtime/agent/HostAgentAPI.cu``)
+-----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_flamegpu_runtime_agent_HostAgentAPI.cu.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/runtime/agent/DeviceAgentVector_impl.h`` (:ref:`file_include_flamegpu_runtime_agent_DeviceAgentVector_impl.h`)
+
+- ``flamegpu/runtime/agent/HostAgentAPI.cuh`` (:ref:`file_include_flamegpu_runtime_agent_HostAgentAPI.cuh`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1a7a197dc32a2a7d5896c0e6f7159dd065`
+
+- :ref:`exhale_function_namespaceflamegpu_1a39c5c7fb5befdc5ea64afdb4e97f0e60`
+

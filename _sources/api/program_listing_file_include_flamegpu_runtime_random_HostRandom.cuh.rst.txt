@@ -1,0 +1,111 @@
+
+.. _program_listing_file_include_flamegpu_runtime_random_HostRandom.cuh:
+
+Program Listing for File HostRandom.cuh
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_runtime_random_HostRandom.cuh>` (``include/flamegpu/runtime/random/HostRandom.cuh``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_RUNTIME_RANDOM_HOSTRANDOM_CUH_
+   #define INCLUDE_FLAMEGPU_RUNTIME_RANDOM_HOSTRANDOM_CUH_
+   
+   #include <random>
+   
+   #include "flamegpu/detail/StaticAssert.h"
+   #include "flamegpu/simulation/detail/RandomManager.cuh"
+   
+   namespace flamegpu {
+   
+   class HostRandom {
+       friend class HostAPI;
+    public:
+       template<typename T>
+       inline T uniform() const;
+       template<typename T>
+       inline T normal() const;
+       template<typename T>
+       inline T logNormal(T mean, T stddev) const;
+       template<typename T = unsigned int>
+       inline unsigned int poisson(double mean = 1.0f) const;
+       template<typename T>
+       inline T uniform(T min, T max) const;
+       void setSeed(uint64_t seed);
+       uint64_t getSeed() const;
+   
+    private:
+       explicit HostRandom(detail::RandomManager &_rng) : rng(_rng) { }
+       detail::RandomManager &rng;
+   };
+   
+   
+   
+   template<typename T>
+   inline T HostRandom::uniform() const {
+       static_assert(detail::StaticAssert::_Is_RealType<T>::value, "Invalid template argument for HostRandom::uniform()");
+       std::uniform_real_distribution<T> dist(0, 1);
+       return rng.getDistribution<T>(dist);
+   }
+   
+   template<typename T>
+   inline T HostRandom::normal() const {
+       static_assert(detail::StaticAssert::_Is_RealType<T>::value, "Invalid template argument for HostRandom::normal()");
+       std::normal_distribution<T> dist(0, 1);
+       return rng.getDistribution<T>(dist);
+   }
+   
+   template<typename T>
+   inline T HostRandom::logNormal(const T mean, const T stddev) const {
+       static_assert(detail::StaticAssert::_Is_RealType<T>::value, "Invalid template argument for HostRandom::logNormal(T mean, T stddev)");
+       std::lognormal_distribution<T> dist(mean, stddev);
+       return rng.getDistribution<T>(dist);
+   }
+   
+   template<typename T>
+   inline T HostRandom::uniform(const T min, const T max) const {
+       static_assert(detail::StaticAssert::_Is_IntType<T>::value, "Invalid template argument for HostRandom::uniform(T lowerBound, T max)");
+       std::uniform_int_distribution<T> dist(min, max);
+       return rng.getDistribution<T>(dist);
+   }
+   
+   template<typename T>
+   inline unsigned int HostRandom::poisson(const double mean) const {
+       static_assert(detail::StaticAssert::_Is_IntType<T>::value, "Invalid template argument for HostRandom::poisson(double mean)");
+       std::poisson_distribution<T> dist(mean);
+       return rng.getDistribution<T>(dist);
+   }
+   
+   template<>
+   inline char HostRandom::uniform(const char min, const char max) const {
+       std::uniform_int_distribution<int16_t> dist(min, max);
+       return static_cast<char>(rng.getDistribution<int16_t>(dist));
+   }
+   
+   template<>
+   inline unsigned char HostRandom::uniform(const unsigned char min, const unsigned char max) const {
+       std::uniform_int_distribution<uint16_t> dist(min, max);
+       return static_cast<unsigned char>(rng.getDistribution<uint16_t>(dist));
+   }
+   
+   template<>
+   inline signed char HostRandom::uniform(const signed char min, const signed char max) const {
+       std::uniform_int_distribution<int16_t> dist(min, max);
+       return static_cast<signed char>(rng.getDistribution<int16_t>(dist));
+   }
+   template<>
+   inline float HostRandom::uniform(const float min, const float max) const {
+       std::uniform_real_distribution<float> dist(min, max);
+       return rng.getDistribution<float>(dist);
+   }
+   template<>
+   inline double HostRandom::uniform(const double min, const double max) const {
+       std::uniform_real_distribution<double> dist(min, max);
+       return rng.getDistribution<double>(dist);
+   }
+   
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_RUNTIME_RANDOM_HOSTRANDOM_CUH_

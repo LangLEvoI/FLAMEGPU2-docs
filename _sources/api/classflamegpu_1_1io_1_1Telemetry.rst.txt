@@ -1,0 +1,25 @@
+.. _exhale_class_classflamegpu_1_1io_1_1Telemetry:
+
+Class Telemetry
+===============
+
+- Defined in :ref:`file_include_flamegpu_io_Telemetry.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``private flamegpu::detail::TestSuiteTelemetry`` (:ref:`exhale_class_classflamegpu_1_1detail_1_1TestSuiteTelemetry`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::io::Telemetry
+   :members:
+   :protected-members:
+   :undoc-members:

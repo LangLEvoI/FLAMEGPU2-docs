@@ -1,0 +1,16 @@
+.. _exhale_class_classflamegpu_1_1detail_1_1CubTemporaryMemory:
+
+Class CubTemporaryMemory
+========================
+
+- Defined in :ref:`file_include_flamegpu_simulation_detail_CubTemporaryMemory.cuh`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::detail::CubTemporaryMemory
+   :members:
+   :protected-members:
+   :undoc-members:

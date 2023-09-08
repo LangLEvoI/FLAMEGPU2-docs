@@ -1,0 +1,13 @@
+.. _exhale_define_AgentFunction__shim_8cuh_1ac3079505c2f47e1259e2bce031896995:
+
+Define FLAMEGPU_AGENT_FUNCTION_DECL
+===================================
+
+- Defined in :ref:`file_include_flamegpu_runtime_AgentFunction_shim.cuh`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: FLAMEGPU_AGENT_FUNCTION_DECL

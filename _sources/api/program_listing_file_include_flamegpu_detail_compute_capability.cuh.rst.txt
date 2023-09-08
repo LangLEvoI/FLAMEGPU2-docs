@@ -1,0 +1,44 @@
+
+.. _program_listing_file_include_flamegpu_detail_compute_capability.cuh:
+
+Program Listing for File compute_capability.cuh
+===============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_detail_compute_capability.cuh>` (``include/flamegpu/detail/compute_capability.cuh``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_DETAIL_COMPUTE_CAPABILITY_CUH_
+   #define INCLUDE_FLAMEGPU_DETAIL_COMPUTE_CAPABILITY_CUH_
+   
+   #include <vector>
+   #include <string>
+   #include <set>
+   
+   #include "flamegpu/simulation/detail/CUDAErrorChecking.cuh"
+   
+   namespace flamegpu {
+   namespace detail {
+   namespace compute_capability {
+   
+   int getComputeCapability(int deviceIndex);
+   
+   int minimumCompiledComputeCapability();
+   
+   bool checkComputeCapability(int deviceIndex);
+   
+   std::vector<int> getNVRTCSupportedComputeCapabilties();
+   
+   
+   int selectAppropraiteComputeCapability(const int target, const std::vector<int>& architectures);
+   
+   const std::string getDeviceName(int deviceIndex);
+   
+   const std::string getDeviceNames(std::set<int> devices);
+   }  // namespace compute_capability
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_DETAIL_COMPUTE_CAPABILITY_CUH_

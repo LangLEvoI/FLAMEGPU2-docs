@@ -1,0 +1,16 @@
+.. _exhale_class_classflamegpu_1_1detail_1_1curve_1_1Curve:
+
+Class Curve
+===========
+
+- Defined in :ref:`file_include_flamegpu_runtime_detail_curve_Curve.cuh`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::detail::curve::Curve
+   :members:
+   :protected-members:
+   :undoc-members:

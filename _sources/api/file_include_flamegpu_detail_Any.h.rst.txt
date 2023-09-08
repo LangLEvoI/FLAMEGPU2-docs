@@ -1,0 +1,75 @@
+
+.. _file_include_flamegpu_detail_Any.h:
+
+File Any.h
+==========
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_detail>` (``include/flamegpu/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/detail/Any.h``)
+----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_detail_Any.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cstring``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_io_JSONLogger.h`
+
+- :ref:`file_include_flamegpu_io_XMLLogger.h`
+
+- :ref:`file_include_flamegpu_model_EnvironmentData.h`
+
+- :ref:`file_include_flamegpu_model_EnvironmentDescription.h`
+
+- :ref:`file_include_flamegpu_runtime_agent_AgentInstance.h`
+
+- :ref:`file_include_flamegpu_simulation_detail_EnvironmentManager.cuh`
+
+- :ref:`file_include_flamegpu_simulation_LogFrame.h`
+
+- :ref:`file_include_flamegpu_simulation_RunPlan.h`
+
+- :ref:`file_include_flamegpu_simulation_Simulation.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1Any`
+

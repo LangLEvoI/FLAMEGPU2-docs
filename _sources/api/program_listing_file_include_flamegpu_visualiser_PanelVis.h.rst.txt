@@ -1,0 +1,205 @@
+
+.. _program_listing_file_include_flamegpu_visualiser_PanelVis.h:
+
+Program Listing for File PanelVis.h
+===================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_visualiser_PanelVis.h>` (``include/flamegpu/visualiser/PanelVis.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_VISUALISER_PANELVIS_H_
+   #define INCLUDE_FLAMEGPU_VISUALISER_PANELVIS_H_
+   #include <memory>
+   #include <string>
+   #include <utility>
+   #include <unordered_map>
+   #include <set>
+   
+   #include "flamegpu/exception/FLAMEGPUException.h"
+   #include "flamegpu/model/EnvironmentData.h"
+   #include "flamegpu/visualiser/config/ModelConfig.h"
+   
+   namespace flamegpu {
+   namespace visualiser {
+   
+   class PanelVis {
+    public:
+       PanelVis(std::shared_ptr<PanelConfig> _m, std::shared_ptr<EnvironmentData> _environment);
+       void newSection(const std::string& header_text, bool begin_open = true);
+       void newEndSection();
+       void newStaticLabel(const std::string& label_text);
+       void newSeparator();
+       template<typename T>
+       void newEnvironmentPropertySlider(const std::string &property_name, T min, T max);
+       template<typename T, flamegpu::size_type N = 0>
+       void newEnvironmentPropertySlider(const std::string& property_name, flamegpu::size_type index, T min, T max);
+       template<typename T>
+       void newEnvironmentPropertyDrag(const std::string& property_name, T min, T max, float speed);
+       template<typename T, flamegpu::size_type N = 0>
+       void newEnvironmentPropertyDrag(const std::string& property_name, flamegpu::size_type index, T min, T max, float speed);
+       template<typename T>
+       void newEnvironmentPropertyInput(const std::string& property_name, T step, T step_fast);
+       template<typename T, flamegpu::size_type N = 0>
+       void newEnvironmentPropertyInput(const std::string& property_name, flamegpu::size_type index, T step, T step_fast);
+       template<typename T>
+       void newEnvironmentPropertyToggle(const std::string& property_name);
+       template<typename T, flamegpu::size_type N = 0>
+       void newEnvironmentPropertyToggle(const std::string& property_name, flamegpu::size_type index);
+   
+    private:
+       const std::unordered_map<std::string, EnvironmentData::PropData> env_properties;
+       std::shared_ptr<PanelConfig> m;
+       std::set<std::pair<std::string, flamegpu::size_type>> added_properties;
+   };
+   template<typename T, flamegpu::size_type N>
+   void PanelVis::newEnvironmentPropertySlider(const std::string& property_name, flamegpu::size_type index, T min, T max) {
+       {  // Validate name/type/length
+           const auto it = env_properties.find(property_name);
+           if (it == env_properties.end()) {
+               THROW exception::InvalidEnvProperty("Environment property '%s' was not found, "
+                   "in PanelVis::newEnvironmentPropertySlider()\n",
+                   property_name.c_str());
+           } else if (it->second.data.type != std::type_index(typeid(T))) {
+               THROW exception::InvalidEnvPropertyType("Environment property '%s' type mismatch '%s' != '%s', "
+                   "in PanelVis::newEnvironmentPropertySlider()\n",
+                   property_name.c_str(), std::type_index(typeid(T)).name(), it->second.data.type.name());
+           } else if (N != 0 && N != it->second.data.elements) {
+               THROW exception::InvalidEnvPropertyType("Environment property '%s' length mismatch %u != %u, "
+                   "in PanelVis::newEnvironmentPropertySlider()\n",
+                   property_name.c_str(), N, it->second.data.elements);
+           } else if (index >= it->second.data.elements) {
+               THROW exception::InvalidEnvPropertyType("Environment property '%s' index out of bounds %u >= %u, "
+                   "in PanelVis::newEnvironmentPropertySlider()\n",
+                   property_name.c_str(), N, it->second.data.elements);
+           } else if (max < min) {
+               THROW exception::InvalidArgument("max < min, "
+                   "in PanelVis::newEnvironmentPropertySlider()\n",
+                   property_name.c_str());
+           } else if (!added_properties.insert({property_name, index}).second) {
+               THROW exception::InvalidEnvProperty("Environment property '%s' has already been added to the panel, "
+                   "each environment property (or property array element) can only be added to a panel once, "
+                   "in PanelVis::newEnvironmentPropertySlider()\n",
+                   property_name.c_str());
+           }
+       }
+       std::unique_ptr<PanelElement> ptr = std::unique_ptr<PanelElement>(new EnvPropertySlider<T>(property_name, index, min, max));
+       m->ui_elements.push_back(std::move(ptr));
+   }
+   template<typename T>
+   void PanelVis::newEnvironmentPropertySlider(const std::string& property_name, T min, T max) {
+       newEnvironmentPropertySlider<T, 0>(property_name, 0, min, max);
+   }
+   template<typename T, flamegpu::size_type N>
+   void PanelVis::newEnvironmentPropertyDrag(const std::string& property_name, flamegpu::size_type index, T min, T max, float speed) {
+       {  // Validate name/type/length
+           const auto it = env_properties.find(property_name);
+           if (it == env_properties.end()) {
+               THROW exception::InvalidEnvProperty("Environment property '%s' was not found, "
+                   "in PanelVis::newEnvironmentPropertyDrag()\n",
+                   property_name.c_str());
+           } else if (it->second.data.type != std::type_index(typeid(T))) {
+               THROW exception::InvalidEnvPropertyType("Environment property '%s' type mismatch '%s' != '%s', "
+                   "in PanelVis::newEnvironmentPropertyDrag()\n",
+                   property_name.c_str(), std::type_index(typeid(T)).name(), it->second.data.type.name());
+           } else if (N != 0 && N != it->second.data.elements) {
+               THROW exception::InvalidEnvPropertyType("Environment property '%s' length mismatch %u != %u, "
+                   "in PanelVis::newEnvironmentPropertyDrag()\n",
+                   property_name.c_str(), N, it->second.data.elements);
+           } else if (index >= it->second.data.elements) {
+               THROW exception::InvalidEnvPropertyType("Environment property '%s' index out of bounds %u >= %u, "
+                   "in PanelVis::newEnvironmentPropertyDrag()\n",
+                   property_name.c_str(), N, it->second.data.elements);
+           } else if (max < min) {
+               THROW exception::InvalidArgument("max < min, "
+                   "in PanelVis::newEnvironmentPropertyDrag()\n",
+                   property_name.c_str());
+           } else if (!added_properties.insert({property_name, index}).second) {
+               THROW exception::InvalidEnvProperty("Environment property '%s' has already been added to the panel, "
+                   "each environment property (or property array element) can only be added to a panel once, "
+                   "in PanelVis::newEnvironmentPropertyDrag()\n",
+                   property_name.c_str());
+           }
+       }
+       std::unique_ptr<PanelElement> ptr = std::make_unique<EnvPropertyDrag<T>>(property_name, index, min, max, speed);
+       m->ui_elements.push_back(std::move(ptr));
+   }
+   template<typename T>
+   void PanelVis::newEnvironmentPropertyDrag(const std::string& property_name, T min, T max, float speed) {
+       newEnvironmentPropertyDrag<T, 0>(property_name, 0, min, max, speed);
+   }
+   template<typename T, flamegpu::size_type N>
+   void PanelVis::newEnvironmentPropertyInput(const std::string& property_name, flamegpu::size_type index, T step, T step_fast) {
+       {  // Validate name/type/length
+           const auto it = env_properties.find(property_name);
+           if (it == env_properties.end()) {
+               THROW exception::InvalidEnvProperty("Environment property '%s' was not found, "
+                   "in PanelVis::newEnvironmentPropertyInput()\n",
+                   property_name.c_str());
+           } else if (it->second.data.type != std::type_index(typeid(T))) {
+               THROW exception::InvalidEnvPropertyType("Environment property '%s' type mismatch '%s' != '%s', "
+                   "in PanelVis::newEnvironmentPropertyInput()\n",
+                   property_name.c_str(), std::type_index(typeid(T)).name(), it->second.data.type.name());
+           } else if (N != 0 && N != it->second.data.elements) {
+               THROW exception::InvalidEnvPropertyType("Environment property '%s' length mismatch %u != %u, "
+                   "in PanelVis::newEnvironmentPropertyInput()\n",
+                   property_name.c_str(), N, it->second.data.elements);
+           } else if (index >= it->second.data.elements) {
+               THROW exception::InvalidEnvPropertyType("Environment property '%s' index out of bounds %u >= %u, "
+                   "in PanelVis::newEnvironmentPropertyInput()\n",
+                   property_name.c_str(), N, it->second.data.elements);
+           } else if (!added_properties.insert({property_name, index}).second) {
+               THROW exception::InvalidEnvProperty("Environment property '%s' has already been added to the panel, "
+                   "each environment property (or property array element) can only be added to a panel once, "
+                   "in PanelVis::newEnvironmentPropertyInput()\n",
+                   property_name.c_str());
+           }
+       }
+       std::unique_ptr<PanelElement> ptr = std::make_unique<EnvPropertyInput<T>>(property_name, index, step, step_fast);
+       m->ui_elements.push_back(std::move(ptr));
+   }
+   template<typename T>
+   void PanelVis::newEnvironmentPropertyInput(const std::string& property_name, T step, T step_fast) {
+       newEnvironmentPropertyInput<T, 0>(property_name, 0, step, step_fast);
+   }
+   template<typename T, flamegpu::size_type N>
+   void PanelVis::newEnvironmentPropertyToggle(const std::string& property_name, flamegpu::size_type index) {
+       static_assert(std::is_integral<T>::value, "PanelVis::newEnvironmentPropertyToggle() only supports integer type properties.");
+       {  // Validate name/type/length
+           const auto it = env_properties.find(property_name);
+           if (it == env_properties.end()) {
+               THROW exception::InvalidEnvProperty("Environment property '%s' was not found, "
+                   "in PanelVis::newEnvironmentToggle()\n",
+                   property_name.c_str());
+           } else if (it->second.data.type != std::type_index(typeid(T))) {
+               THROW exception::InvalidEnvPropertyType("Environment property '%s' type mismatch '%s' != '%s', "
+                   "in PanelVis::newEnvironmentToggle()\n",
+                   property_name.c_str(), std::type_index(typeid(T)).name(), it->second.data.type.name());
+           } else if (N != 0 && N != it->second.data.elements) {
+               THROW exception::InvalidEnvPropertyType("Environment property '%s' length mismatch %u != %u, "
+                   "in PanelVis::newEnvironmentToggle()\n",
+                   property_name.c_str(), N, it->second.data.elements);
+           } else if (index >= it->second.data.elements) {
+               THROW exception::InvalidEnvPropertyType("Environment property '%s' index out of bounds %u >= %u, "
+                   "in PanelVis::newEnvironmentToggle()\n",
+                   property_name.c_str(), N, it->second.data.elements);
+           } else if (!added_properties.insert({property_name, index}).second) {
+               THROW exception::InvalidEnvProperty("Environment property '%s' has already been added to the panel, "
+                   "each environment property (or property array element) can only be added to a panel once, "
+                   "in PanelVis::newEnvironmentToggle()\n",
+                   property_name.c_str());
+           }
+       }
+       std::unique_ptr<PanelElement> ptr = std::make_unique<EnvPropertyToggle<T>>(property_name, index);
+       m->ui_elements.push_back(std::move(ptr));
+   }
+   template<typename T>
+   void PanelVis::newEnvironmentPropertyToggle(const std::string& property_name) {
+       newEnvironmentPropertyToggle<T, 0>(property_name, 0);
+   }
+   }  // namespace visualiser
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_VISUALISER_PANELVIS_H_

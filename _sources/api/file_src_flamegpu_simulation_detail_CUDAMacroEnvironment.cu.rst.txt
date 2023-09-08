@@ -1,0 +1,58 @@
+
+.. _file_src_flamegpu_simulation_detail_CUDAMacroEnvironment.cu:
+
+File CUDAMacroEnvironment.cu
+============================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_flamegpu_simulation_detail>` (``src/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/flamegpu/simulation/detail/CUDAMacroEnvironment.cu``)
+-----------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_flamegpu_simulation_detail_CUDAMacroEnvironment.cu.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/detail/cuda.cuh`` (:ref:`file_include_flamegpu_detail_cuda.cuh`)
+
+- ``flamegpu/model/AgentFunctionData.cuh`` (:ref:`file_include_flamegpu_model_AgentFunctionData.cuh`)
+
+- ``flamegpu/model/EnvironmentDescription.h`` (:ref:`file_include_flamegpu_model_EnvironmentDescription.h`)
+
+- ``flamegpu/model/SubEnvironmentData.h`` (:ref:`file_include_flamegpu_model_SubEnvironmentData.h`)
+
+- ``flamegpu/runtime/detail/curve/curve_rtc.cuh`` (:ref:`file_include_flamegpu_runtime_detail_curve_curve_rtc.cuh`)
+
+- ``flamegpu/simulation/CUDASimulation.h`` (:ref:`file_include_flamegpu_simulation_CUDASimulation.h`)
+
+- ``flamegpu/simulation/detail/CUDAMacroEnvironment.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAMacroEnvironment.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+

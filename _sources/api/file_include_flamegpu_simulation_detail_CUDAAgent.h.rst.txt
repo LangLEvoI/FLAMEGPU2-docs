@@ -1,0 +1,97 @@
+
+.. _file_include_flamegpu_simulation_detail_CUDAAgent.h:
+
+File CUDAAgent.h
+================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation_detail>` (``include/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/detail/CUDAAgent.h``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_detail_CUDAAgent.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/detail/JitifyCache.h`` (:ref:`file_include_flamegpu_detail_JitifyCache.h`)
+
+- ``flamegpu/model/AgentFunctionData.cuh`` (:ref:`file_include_flamegpu_model_AgentFunctionData.cuh`)
+
+- ``flamegpu/model/SubAgentData.h`` (:ref:`file_include_flamegpu_model_SubAgentData.h`)
+
+- ``flamegpu/runtime/detail/curve/curve_rtc.cuh`` (:ref:`file_include_flamegpu_runtime_detail_curve_curve_rtc.cuh`)
+
+- ``flamegpu/simulation/detail/AgentInterface.h`` (:ref:`file_include_flamegpu_simulation_detail_AgentInterface.h`)
+
+- ``flamegpu/simulation/detail/CUDAAgentStateList.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAAgentStateList.h`)
+
+- ``flamegpu/simulation/detail/EnvironmentManager.cuh`` (:ref:`file_include_flamegpu_simulation_detail_EnvironmentManager.cuh`)
+
+- ``list``
+
+- ``map``
+
+- ``memory``
+
+- ``mutex``
+
+- ``string``
+
+- ``unordered_map``
+
+- ``utility``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_runtime_agent_HostAgentAPI.cuh`
+
+- :ref:`file_src_flamegpu_runtime_agent_DeviceAgentVector_impl.cu`
+
+- :ref:`file_src_flamegpu_simulation_CUDASimulation.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAAgent.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAAgentStateList.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAMessage.cu`
+
+- :ref:`file_src_flamegpu_visualiser_AgentVis.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAAgent`
+

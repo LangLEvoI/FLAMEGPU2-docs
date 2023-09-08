@@ -1,0 +1,13 @@
+.. _exhale_define_CUDAScatter_8cuh_1af7d2b03256f2cab4bb43e5205e14f106:
+
+Define INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDASCATTER_CUH_
+==========================================================
+
+- Defined in :ref:`file_include_flamegpu_simulation_detail_CUDAScatter.cuh`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDASCATTER_CUH_

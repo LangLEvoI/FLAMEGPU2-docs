@@ -1,0 +1,62 @@
+
+.. _program_listing_file_include_flamegpu_simulation_detail_SimLogger.h:
+
+Program Listing for File SimLogger.h
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_simulation_detail_SimLogger.h>` (``include/flamegpu/simulation/detail/SimLogger.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_SIMULATION_DETAIL_SIMLOGGER_H_
+   #define INCLUDE_FLAMEGPU_SIMULATION_DETAIL_SIMLOGGER_H_
+   
+   #include <vector>
+   #include <thread>
+   #include <mutex>
+   #include <queue>
+   #include <string>
+   #include <condition_variable>
+   
+   #include "flamegpu/simulation/LogFrame.h"
+   
+   namespace flamegpu {
+   class RunPlanVector;
+   class CUDAEnsemble;
+   namespace detail {
+   
+   class SimLogger {
+       friend class flamegpu::CUDAEnsemble;
+       SimLogger(const std::vector<RunLog> &run_logs,
+           const RunPlanVector &run_plans,
+           const std::string &out_directory,
+           const std::string &out_format,
+           std::queue<unsigned int> &log_export_queue,
+           std::mutex &log_export_queue_mutex,
+           std::condition_variable &log_export_queue_cdn,
+           bool _export_step,
+           bool _export_exit,
+           bool _export_step_time,
+           bool _export_exit_time);
+       std::thread thread;
+       void start();
+       // External references
+       const std::vector<RunLog> &run_logs;
+       const RunPlanVector &run_plans;
+       const std::string &out_directory;
+       const std::string &out_format;
+       std::queue<unsigned int> &log_export_queue;
+       std::mutex &log_export_queue_mutex;
+       std::condition_variable &log_export_queue_cdn;
+       bool export_step;
+       bool export_exit;
+       bool export_step_time;
+       bool export_exit_time;
+   };
+   
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_SIMULATION_DETAIL_SIMLOGGER_H_

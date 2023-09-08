@@ -1,0 +1,13 @@
+.. _exhale_define_wddm_8cuh_1ac989c101663ad6f80a14ae2ea1c6d587:
+
+Define INCLUDE_FLAMEGPU_DETAIL_WDDM_CUH_
+========================================
+
+- Defined in :ref:`file_include_flamegpu_detail_wddm.cuh`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: INCLUDE_FLAMEGPU_DETAIL_WDDM_CUH_

@@ -1,0 +1,72 @@
+
+.. _program_listing_file_include_flamegpu_detail_SteadyClockTimer.h:
+
+Program Listing for File SteadyClockTimer.h
+===========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_detail_SteadyClockTimer.h>` (``include/flamegpu/detail/SteadyClockTimer.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_DETAIL_STEADYCLOCKTIMER_H_
+   #define INCLUDE_FLAMEGPU_DETAIL_STEADYCLOCKTIMER_H_
+   
+   #include <chrono>
+   
+   #include "flamegpu/detail/Timer.h"
+   #include "flamegpu/exception/FLAMEGPUException.h"
+   
+   
+   namespace flamegpu {
+   namespace detail {
+   
+   class SteadyClockTimer : public virtual Timer {
+    public:
+       SteadyClockTimer() :
+           startTime(),
+           stopTime(),
+           startEventRecorded(false),
+           stopEventRecorded(false) { }
+   
+       ~SteadyClockTimer() { }
+   
+       void start() override {
+           this->startTime = std::chrono::steady_clock::now();
+           this->startEventRecorded = true;
+           this->stopEventRecorded = false;
+       }
+   
+       void stop() override {
+           this->stopTime = std::chrono::steady_clock::now();
+           this->stopEventRecorded = true;
+       }
+   
+       float getElapsedMilliseconds() override {
+           if (!startEventRecorded) {
+               THROW exception::TimerException("start() must be called prior to getElapsed*");
+           }
+           if (!stopEventRecorded) {
+               THROW exception::TimerException("stop() must be called prior to getElapsed*");
+           }
+           std::chrono::duration<double> elapsed = this->stopTime - this->startTime;
+           float ms = static_cast<float>(std::chrono::duration_cast<std::chrono::milliseconds>(elapsed).count());
+           return ms;
+       }
+   
+       float getElapsedSeconds() override {
+           return this->getElapsedMilliseconds() / 1000.0f;
+       }
+   
+    private:
+       std::chrono::time_point<std::chrono::steady_clock> startTime;
+       std::chrono::time_point<std::chrono::steady_clock> stopTime;
+       bool startEventRecorded;
+       bool stopEventRecorded;
+   };
+   
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_DETAIL_STEADYCLOCKTIMER_H_

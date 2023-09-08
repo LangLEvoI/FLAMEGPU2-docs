@@ -1,0 +1,13 @@
+.. _exhale_define_compute__capability_8cuh_1ad60d966cdaec1b57d058f524aa17011b:
+
+Define INCLUDE_FLAMEGPU_DETAIL_COMPUTE_CAPABILITY_CUH_
+======================================================
+
+- Defined in :ref:`file_include_flamegpu_detail_compute_capability.cuh`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: INCLUDE_FLAMEGPU_DETAIL_COMPUTE_CAPABILITY_CUH_

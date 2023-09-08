@@ -1,0 +1,125 @@
+
+.. _program_listing_file_include_flamegpu_runtime_messaging_MessageSpatial2D_MessageSpatial2DHost.h:
+
+Program Listing for File MessageSpatial2DHost.h
+===============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_runtime_messaging_MessageSpatial2D_MessageSpatial2DHost.h>` (``include/flamegpu/runtime/messaging/MessageSpatial2D/MessageSpatial2DHost.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_RUNTIME_MESSAGING_MESSAGESPATIAL2D_MESSAGESPATIAL2DHOST_H_
+   #define INCLUDE_FLAMEGPU_RUNTIME_MESSAGING_MESSAGESPATIAL2D_MESSAGESPATIAL2DHOST_H_
+   
+   #include <memory>
+   #include <string>
+   
+   #include "flamegpu/model/Variable.h"
+   #include "flamegpu/runtime/messaging/MessageSpatial2D.h"
+   #include "flamegpu/runtime/messaging/MessageBruteForce/MessageBruteForceHost.h"
+   
+   namespace flamegpu {
+   
+   
+   class MessageSpatial2D::CUDAModelHandler : public MessageSpecialisationHandler {
+    public:
+        explicit CUDAModelHandler(detail::CUDAMessage &a);
+        ~CUDAModelHandler() override;
+       void init(detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream) override;
+       void buildIndex(detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream) override;
+       void allocateMetaDataDevicePtr(cudaStream_t stream) override;
+       void freeMetaDataDevicePtr() override;
+       const void *getMetaDataDevicePtr() const override { return d_data; }
+   
+    private:
+       void resizeCubTemp(cudaStream_t stream);
+       void resizeKeysVals(unsigned int newSize);
+       unsigned int binCount = 0;
+       size_t d_CUB_temp_storage_bytes = 0;
+       unsigned int *d_CUB_temp_storage = nullptr;
+       unsigned int *d_histogram = nullptr;
+       unsigned int *d_keys = nullptr, *d_vals = nullptr;
+       size_t d_keys_vals_storage_bytes = 0;
+       MetaData hd_data;
+       MetaData *d_data = nullptr;
+       detail::CUDAMessage &sim_message;
+   };
+   
+   struct MessageSpatial2D::Data : public MessageBruteForce::Data {
+       friend class ModelDescription;
+       friend struct ModelData;
+       float radius;
+       float minX;
+       float minY;
+       float maxX;
+       float maxY;
+       virtual ~Data() = default;
+   
+       std::unique_ptr<MessageSpecialisationHandler> getSpecialisationHander(detail::CUDAMessage &owner) const override;
+   
+       std::type_index getType() const override;
+       flamegpu::MessageSortingType getSortingType() const override;
+   
+    protected:
+       Data *clone(const std::shared_ptr<const ModelData> &newParent) override;
+       Data(std::shared_ptr<const ModelData> model, const Data &other);
+       Data(std::shared_ptr<const ModelData> model, const std::string &message_name);
+   };
+   
+   class MessageSpatial2D::CDescription : public MessageBruteForce::CDescription {
+       friend struct Data;
+   
+    public:
+       explicit CDescription(std::shared_ptr<Data> data);
+       explicit CDescription(std::shared_ptr<const Data> data);
+       CDescription(const CDescription& other_agent) = default;
+       CDescription(CDescription&& other_agent) = default;
+       CDescription& operator=(const CDescription& other_agent) = default;
+       CDescription& operator=(CDescription&& other_agent) = default;
+       bool operator==(const CDescription& rhs) const;
+       bool operator!=(const CDescription& rhs) const;
+   
+       float getRadius() const;
+       float getMinX() const;
+       float getMinY() const;
+       float getMaxX() const;
+       float getMaxY() const;
+   
+    protected:
+       void setRadius(float r);
+       void setMinX(float x);
+       void setMinY(float y);
+       void setMin(float x, float y);
+       void setMaxX(float x);
+       void setMaxY(float y);
+       void setMax(float x, float y);
+   };
+   class MessageSpatial2D::Description : public CDescription {
+    public:
+       explicit Description(std::shared_ptr<Data> data);
+       Description(const Description& other_message) = default;
+       Description(Description && other_message) = default;
+       Description& operator=(const Description & other_message) = default;
+       Description& operator=(Description && other_message) = default;
+   
+       using MessageBruteForce::CDescription::setPersistent;
+       using MessageBruteForce::CDescription::newVariable;
+   #ifdef SWIG
+       using MessageBruteForce::CDescription::newVariableArray;
+   #endif
+   
+       using MessageSpatial2D::CDescription::setRadius;
+       using MessageSpatial2D::CDescription::setMinX;
+       using MessageSpatial2D::CDescription::setMinY;
+       using MessageSpatial2D::CDescription::setMin;
+       using MessageSpatial2D::CDescription::setMaxX;
+       using MessageSpatial2D::CDescription::setMaxY;
+       using MessageSpatial2D::CDescription::setMax;
+   };
+   
+   }  // namespace flamegpu
+   
+   
+   #endif  // INCLUDE_FLAMEGPU_RUNTIME_MESSAGING_MESSAGESPATIAL2D_MESSAGESPATIAL2DHOST_H_

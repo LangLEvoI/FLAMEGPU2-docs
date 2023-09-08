@@ -1,0 +1,47 @@
+
+.. _namespace_flamegpu__detail__StaticAssert:
+
+Namespace flamegpu::detail::StaticAssert
+========================================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+Detailed Description
+--------------------
+
+These are taken from MSVCs std to allow us to perform static assertions Although this is not a class static_assert is a reserved keyword, hence CapitolCase 
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1StaticAssert_1_1__Cat__base`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1StaticAssert_1_1__Is__IntType`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1StaticAssert_1_1__Is__RealType`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1StaticAssert_1_1integral__constant`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1StaticAssert_1_1is__same`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1StaticAssert_1_1is__same_3_01__Ty1_00_01__Ty1_01_4`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_namespaceflamegpu_1_1detail_1_1StaticAssert_1a3cd8bb106aa7af28c329dcaabf65fe4f`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1_1detail_1_1StaticAssert_1ab6c9bbfbdc8c7089b3b86d19a066eebc`

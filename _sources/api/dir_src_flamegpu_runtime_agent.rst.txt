@@ -1,0 +1,21 @@
+.. _dir_src_flamegpu_runtime_agent:
+
+
+Directory agent
+===============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src_flamegpu_runtime>` (``src/flamegpu/runtime``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``src/flamegpu/runtime/agent``
+
+
+Files
+-----
+
+- :ref:`file_src_flamegpu_runtime_agent_DeviceAgentVector_impl.cu`
+- :ref:`file_src_flamegpu_runtime_agent_HostAgentAPI.cu`
+
+

@@ -1,0 +1,13 @@
+.. _exhale_define_HostAgentAPI_8cuh_1aebeab779536e0a99e81d374c5dd906cc:
+
+Define INCLUDE_FLAMEGPU_RUNTIME_AGENT_HOSTAGENTAPI_CUH_
+=======================================================
+
+- Defined in :ref:`file_include_flamegpu_runtime_agent_HostAgentAPI.cuh`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: INCLUDE_FLAMEGPU_RUNTIME_AGENT_HOSTAGENTAPI_CUH_

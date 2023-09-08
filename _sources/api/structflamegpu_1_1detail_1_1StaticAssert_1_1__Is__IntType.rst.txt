@@ -1,0 +1,25 @@
+.. _exhale_struct_structflamegpu_1_1detail_1_1StaticAssert_1_1__Is__IntType:
+
+Template Struct _Is_IntType
+===========================
+
+- Defined in :ref:`file_include_flamegpu_detail_StaticAssert.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public flamegpu::detail::StaticAssert::_Cat_base< is_same< _Ty, unsigned char >::value||is_same< _Ty, char >::value||is_same< _Ty, signed char >::value||is_same< _Ty, uint16_t >::value||is_same< _Ty, int16_t >::value||is_same< _Ty, uint32_t >::value||is_same< _Ty, int32_t >::value||is_same< _Ty, uint64_t >::value||is_same< _Ty, int64_t >::value >`` (:ref:`exhale_struct_structflamegpu_1_1detail_1_1StaticAssert_1_1__Cat__base`)
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::detail::StaticAssert::_Is_IntType
+   :members:
+   :protected-members:
+   :undoc-members:

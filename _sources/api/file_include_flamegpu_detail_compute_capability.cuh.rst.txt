@@ -1,0 +1,94 @@
+
+.. _file_include_flamegpu_detail_compute_capability.cuh:
+
+File compute_capability.cuh
+===========================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_detail>` (``include/flamegpu/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/detail/compute_capability.cuh``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_detail_compute_capability.cuh.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/simulation/detail/CUDAErrorChecking.cuh`` (:ref:`file_include_flamegpu_simulation_detail_CUDAErrorChecking.cuh`)
+
+- ``set``
+
+- ``string``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_flamegpu_detail_compute_capability.cu`
+
+- :ref:`file_src_flamegpu_detail_JitifyCache.cu`
+
+- :ref:`file_src_flamegpu_simulation_CUDAEnsemble.cu`
+
+- :ref:`file_src_flamegpu_simulation_CUDASimulation.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAAgent.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+- :ref:`namespace_flamegpu__detail__compute_capability`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1_1compute__capability_1af9dcaeeff2fdedfdf76c2b18b2e65b27`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1_1compute__capability_1a7f0af4d63855635deb3c7677c49e5267`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1_1compute__capability_1ae0606d5a9a000e6ddb22d78393f898a7`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1_1compute__capability_1a0c075ac82e862f3994d0d84db60278b6`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1_1compute__capability_1af76856b0a2e5d3e398aaaa3a72b4e374`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1_1compute__capability_1afc15d3bff48761ebeedca2d4614f1b51`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1_1compute__capability_1abb3b3d68d537e51a33f598049605397d`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_compute__capability_8cuh_1ad60d966cdaec1b57d058f524aa17011b`
+

@@ -1,0 +1,25 @@
+.. _exhale_class_classflamegpu_1_1detail_1_1SteadyClockTimer:
+
+Class SteadyClockTimer
+======================
+
+- Defined in :ref:`file_include_flamegpu_detail_SteadyClockTimer.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public flamegpu::detail::Timer`` (:ref:`exhale_class_classflamegpu_1_1detail_1_1Timer`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::detail::SteadyClockTimer
+   :members:
+   :protected-members:
+   :undoc-members:

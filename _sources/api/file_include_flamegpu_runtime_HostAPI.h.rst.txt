@@ -1,0 +1,93 @@
+
+.. _file_include_flamegpu_runtime_HostAPI.h:
+
+File HostAPI.h
+==============
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_runtime>` (``include/flamegpu/runtime``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/runtime/HostAPI.h``)
+---------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_runtime_HostAPI.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cuda_runtime.h``
+
+- ``flamegpu/detail/cuda.cuh`` (:ref:`file_include_flamegpu_detail_cuda.cuh`)
+
+- ``flamegpu/runtime/HostAPI_macros.h`` (:ref:`file_include_flamegpu_runtime_HostAPI_macros.h`)
+
+- ``flamegpu/runtime/agent/HostNewAgentAPI.h`` (:ref:`file_include_flamegpu_runtime_agent_HostNewAgentAPI.h`)
+
+- ``flamegpu/runtime/environment/HostEnvironment.cuh`` (:ref:`file_include_flamegpu_runtime_environment_HostEnvironment.cuh`)
+
+- ``flamegpu/runtime/random/HostRandom.cuh`` (:ref:`file_include_flamegpu_runtime_random_HostRandom.cuh`)
+
+- ``flamegpu/simulation/CUDASimulation.h`` (:ref:`file_include_flamegpu_simulation_CUDASimulation.h`)
+
+- ``flamegpu/simulation/detail/CUDAErrorChecking.cuh`` (:ref:`file_include_flamegpu_simulation_detail_CUDAErrorChecking.cuh`)
+
+- ``functional``
+
+- ``memory``
+
+- ``string``
+
+- ``unordered_map``
+
+- ``utility``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_flamegpu.h`
+
+- :ref:`file_include_flamegpu_runtime_agent_HostAgentAPI.cuh`
+
+- :ref:`file_src_flamegpu_runtime_HostAPI.cu`
+
+- :ref:`file_src_flamegpu_simulation_CUDASimulation.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAFatAgent.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1HostAPI`
+

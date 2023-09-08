@@ -1,0 +1,73 @@
+
+.. _file_include_flamegpu_runtime_agent_AgentInstance.h:
+
+File AgentInstance.h
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_runtime_agent>` (``include/flamegpu/runtime/agent``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/runtime/agent/AgentInstance.h``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_runtime_agent_AgentInstance.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/detail/Any.h`` (:ref:`file_include_flamegpu_detail_Any.h`)
+
+- ``flamegpu/model/AgentData.h`` (:ref:`file_include_flamegpu_model_AgentData.h`)
+
+- ``flamegpu/simulation/AgentVector.h`` (:ref:`file_include_flamegpu_simulation_AgentVector.h`)
+
+- ``map``
+
+- ``memory``
+
+- ``string``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_flamegpu.h`
+
+- :ref:`file_include_flamegpu_model_AgentDescription.h`
+
+- :ref:`file_src_flamegpu_simulation_AgentInstance.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1AgentInstance`
+

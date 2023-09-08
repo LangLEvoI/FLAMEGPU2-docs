@@ -1,0 +1,16 @@
+.. _exhale_struct_structflamegpu_1_1detail_1_1type__decode:
+
+Template Struct type_decode
+===========================
+
+- Defined in :ref:`file_include_flamegpu_detail_type_decode.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::detail::type_decode
+   :members:
+   :protected-members:
+   :undoc-members:

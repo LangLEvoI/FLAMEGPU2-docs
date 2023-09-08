@@ -1,0 +1,16 @@
+.. _exhale_struct_structflamegpu_1_1detail_1_1Dims:
+
+Template Struct Dims
+====================
+
+- Defined in :ref:`file_src_flamegpu_simulation_CUDASimulation.cu`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::detail::Dims
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,70 @@
+
+.. _file_src_flamegpu_simulation_detail_CUDAMessage.cu:
+
+File CUDAMessage.cu
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_flamegpu_simulation_detail>` (``src/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/flamegpu/simulation/detail/CUDAMessage.cu``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_flamegpu_simulation_detail_CUDAMessage.cu.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cub/cub.cuh``
+
+- ``cuda_runtime.h``
+
+- ``device_launch_parameters.h``
+
+- ``flamegpu/model/AgentDescription.h`` (:ref:`file_include_flamegpu_model_AgentDescription.h`)
+
+- ``flamegpu/model/AgentFunctionDescription.h`` (:ref:`file_include_flamegpu_model_AgentFunctionDescription.h`)
+
+- ``flamegpu/runtime/detail/curve/HostCurve.cuh`` (:ref:`file_include_flamegpu_runtime_detail_curve_HostCurve.cuh`)
+
+- ``flamegpu/runtime/messaging.h`` (:ref:`file_include_flamegpu_runtime_messaging.h`)
+
+- ``flamegpu/runtime/messaging/MessageBruteForce.h`` (:ref:`file_include_flamegpu_runtime_messaging_MessageBruteForce.h`)
+
+- ``flamegpu/simulation/detail/CUDAAgent.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAAgent.h`)
+
+- ``flamegpu/simulation/detail/CUDAErrorChecking.cuh`` (:ref:`file_include_flamegpu_simulation_detail_CUDAErrorChecking.cuh`)
+
+- ``flamegpu/simulation/detail/CUDAMessage.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAMessage.h`)
+
+- ``flamegpu/simulation/detail/CUDAMessageList.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAMessageList.h`)
+
+- ``flamegpu/simulation/detail/CUDAScatter.cuh`` (:ref:`file_include_flamegpu_simulation_detail_CUDAScatter.cuh`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+

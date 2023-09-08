@@ -1,0 +1,83 @@
+
+.. _file_include_flamegpu_simulation_Simulation.h:
+
+File Simulation.h
+=================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation>` (``include/flamegpu/simulation``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/Simulation.h``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_Simulation.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``ctime``
+
+- ``flamegpu/defines.h`` (:ref:`file_include_flamegpu_defines.h`)
+
+- ``flamegpu/detail/Any.h`` (:ref:`file_include_flamegpu_detail_Any.h`)
+
+- ``flamegpu/simulation/detail/AgentInterface.h`` (:ref:`file_include_flamegpu_simulation_detail_AgentInterface.h`)
+
+- ``memory``
+
+- ``string``
+
+- ``unordered_map``
+
+- ``utility``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_io_StateReader.h`
+
+- :ref:`file_include_flamegpu_simulation_CUDASimulation.h`
+
+- :ref:`file_include_flamegpu_simulation_detail_RandomManager.cuh`
+
+- :ref:`file_src_flamegpu_runtime_HostAPI.cu`
+
+- :ref:`file_src_flamegpu_simulation_Simulation.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1Simulation_1_1Config`
+
+- :ref:`exhale_class_classflamegpu_1_1Simulation`
+

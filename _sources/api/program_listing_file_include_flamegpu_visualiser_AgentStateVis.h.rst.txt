@@ -1,0 +1,64 @@
+
+.. _program_listing_file_include_flamegpu_visualiser_AgentStateVis.h:
+
+Program Listing for File AgentStateVis.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_visualiser_AgentStateVis.h>` (``include/flamegpu/visualiser/AgentStateVis.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_VISUALISER_AGENTSTATEVIS_H_
+   #define INCLUDE_FLAMEGPU_VISUALISER_AGENTSTATEVIS_H_
+   #ifdef FLAMEGPU_VISUALISATION
+   
+   #include <string>
+   #include <memory>
+   
+   // @todo - All vis headers should live in the vis repo.
+   #include "flamegpu/visualiser/config/AgentStateConfig.h"
+   #include "flamegpu/visualiser/config/Stock.h"
+   
+   namespace flamegpu {
+   namespace visualiser {
+   
+   struct Color;
+   class ColorFunction;
+   struct AgentVisData;
+   
+   struct AgentStateVisData {
+       AgentStateVisData(std::shared_ptr<const AgentVisData> parent, const std::string& state_name);
+       std::shared_ptr<const AgentVisData>  parent;
+       const std::string state_name;
+       AgentStateConfig config;
+       AgentStateConfigFlags configFlags;
+       bool visible = true;
+   };
+   
+   class AgentStateVis {
+       friend struct AgentVisData;
+       friend class AgentVis;
+   
+    public:
+       explicit AgentStateVis(std::shared_ptr<AgentStateVisData> data);
+       void setModel(const std::string &modelPath, const std::string &texturePath = "");
+       void setModel(const Stock::Models::Model &model);
+       void setKeyFrameModel(const std::string& modelPathA, const std::string& modelPathB, const std::string& texturePath = "");
+       void setKeyFrameModel(const Stock::Models::KeyFrameModel& model);
+       void setModelScale(float xLen, float yLen, float zLen);
+       void setModelScale(float maxLen);
+       void setVisible(bool isVisible);
+       void setColor(const ColorFunction& cf);
+       void clearColor();
+   
+    private:
+       std::shared_ptr<AgentStateVisData> data;
+   };
+   
+   }  // namespace visualiser
+   }  // namespace flamegpu
+   
+   #endif  // FLAMEGPU_VISUALISATION
+   #endif  // INCLUDE_FLAMEGPU_VISUALISER_AGENTSTATEVIS_H_

@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1_1compute__capability_1af9dcaeeff2fdedfdf76c2b18b2e65b27:
+
+Function flamegpu::detail::compute_capability::checkComputeCapability
+=====================================================================
+
+- Defined in :ref:`file_include_flamegpu_detail_compute_capability.cuh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::compute_capability::checkComputeCapability(int)

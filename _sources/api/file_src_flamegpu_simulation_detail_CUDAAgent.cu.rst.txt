@@ -1,0 +1,95 @@
+
+.. _file_src_flamegpu_simulation_detail_CUDAAgent.cu:
+
+File CUDAAgent.cu
+=================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_flamegpu_simulation_detail>` (``src/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/flamegpu/simulation/detail/CUDAAgent.cu``)
+------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_flamegpu_simulation_detail_CUDAAgent.cu.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cub/cub.cuh``
+
+- ``cuda_runtime.h``
+
+- ``device_launch_parameters.h``
+
+- ``filesystem``
+
+- ``flamegpu/detail/compute_capability.cuh`` (:ref:`file_include_flamegpu_detail_compute_capability.cuh`)
+
+- ``flamegpu/detail/cuda.cuh`` (:ref:`file_include_flamegpu_detail_cuda.cuh`)
+
+- ``flamegpu/model/AgentDescription.h`` (:ref:`file_include_flamegpu_model_AgentDescription.h`)
+
+- ``flamegpu/model/AgentFunctionDescription.h`` (:ref:`file_include_flamegpu_model_AgentFunctionDescription.h`)
+
+- ``flamegpu/runtime/agent/DeviceAgentVector_impl.h`` (:ref:`file_include_flamegpu_runtime_agent_DeviceAgentVector_impl.h`)
+
+- ``flamegpu/runtime/detail/curve/HostCurve.cuh`` (:ref:`file_include_flamegpu_runtime_detail_curve_HostCurve.cuh`)
+
+- ``flamegpu/runtime/detail/curve/curve_rtc.cuh`` (:ref:`file_include_flamegpu_runtime_detail_curve_curve_rtc.cuh`)
+
+- ``flamegpu/simulation/CUDASimulation.h`` (:ref:`file_include_flamegpu_simulation_CUDASimulation.h`)
+
+- ``flamegpu/simulation/detail/CUDAAgent.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAAgent.h`)
+
+- ``flamegpu/simulation/detail/CUDAAgentStateList.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAAgentStateList.h`)
+
+- ``flamegpu/simulation/detail/CUDAErrorChecking.cuh`` (:ref:`file_include_flamegpu_simulation_detail_CUDAErrorChecking.cuh`)
+
+- ``flamegpu/simulation/detail/CUDAFatAgent.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAFatAgent.h`)
+
+- ``flamegpu/simulation/detail/CUDAScatter.cuh`` (:ref:`file_include_flamegpu_simulation_detail_CUDAScatter.cuh`)
+
+- ``flamegpu/util/nvtx.h`` (:ref:`file_include_flamegpu_util_nvtx.h`)
+
+- ``flamegpu/version.h`` (:ref:`file_include_flamegpu_version.h`)
+
+- ``fstream``
+
+- ``iostream``
+
+- ``string``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a51dd031c7a938c4c09838d15248e3d5d`
+

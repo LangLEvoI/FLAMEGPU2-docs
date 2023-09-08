@@ -1,0 +1,129 @@
+
+.. _file_include_flamegpu_simulation_CUDASimulation.h:
+
+File CUDASimulation.h
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation>` (``include/flamegpu/simulation``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/CUDASimulation.h``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_CUDASimulation.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``atomic``
+
+- ``cuda.h``
+
+- ``flamegpu/exception/FLAMEGPUDeviceException.cuh`` (:ref:`file_include_flamegpu_exception_FLAMEGPUDeviceException.cuh`)
+
+- ``flamegpu/runtime/agent/HostNewAgentAPI.h`` (:ref:`file_include_flamegpu_runtime_agent_HostNewAgentAPI.h`)
+
+- ``flamegpu/runtime/detail/curve/HostCurve.cuh`` (:ref:`file_include_flamegpu_runtime_detail_curve_HostCurve.cuh`)
+
+- ``flamegpu/simulation/CUDAEnsemble.h`` (:ref:`file_include_flamegpu_simulation_CUDAEnsemble.h`)
+
+- ``flamegpu/simulation/Simulation.h`` (:ref:`file_include_flamegpu_simulation_Simulation.h`)
+
+- ``flamegpu/simulation/detail/CUDAMacroEnvironment.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAMacroEnvironment.h`)
+
+- ``flamegpu/simulation/detail/CUDAScatter.cuh`` (:ref:`file_include_flamegpu_simulation_detail_CUDAScatter.cuh`)
+
+- ``flamegpu/simulation/detail/EnvironmentManager.cuh`` (:ref:`file_include_flamegpu_simulation_detail_EnvironmentManager.cuh`)
+
+- ``flamegpu/simulation/detail/RandomManager.cuh`` (:ref:`file_include_flamegpu_simulation_detail_RandomManager.cuh`)
+
+- ``flamegpu/visualiser/ModelVis.h`` (:ref:`file_include_flamegpu_visualiser_ModelVis.h`)
+
+- ``jitify/jitify.hpp``
+
+- ``map``
+
+- ``memory``
+
+- ``set``
+
+- ``string``
+
+- ``unordered_map``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_flamegpu.h`
+
+- :ref:`file_include_flamegpu_runtime_agent_HostAgentAPI.cuh`
+
+- :ref:`file_include_flamegpu_runtime_HostAPI.h`
+
+- :ref:`file_src_flamegpu_io_JSONStateReader.cpp`
+
+- :ref:`file_src_flamegpu_io_JSONStateWriter.cpp`
+
+- :ref:`file_src_flamegpu_io_XMLStateReader.cpp`
+
+- :ref:`file_src_flamegpu_io_XMLStateWriter.cpp`
+
+- :ref:`file_src_flamegpu_runtime_HostAPI.cu`
+
+- :ref:`file_src_flamegpu_simulation_CUDAEnsemble.cu`
+
+- :ref:`file_src_flamegpu_simulation_CUDASimulation.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAAgent.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAMacroEnvironment.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAScanCompaction.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_RandomManager.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_SimRunner.cu`
+
+- :ref:`file_src_flamegpu_visualiser_ModelVis.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1CUDASimulation_1_1Config`
+
+- :ref:`exhale_struct_structflamegpu_1_1CUDASimulation_1_1Singletons`
+
+- :ref:`exhale_class_classflamegpu_1_1CUDASimulation`
+

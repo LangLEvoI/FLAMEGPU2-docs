@@ -1,0 +1,16 @@
+.. _exhale_class_classflamegpu_1_1HostConditionCallback:
+
+Class HostConditionCallback
+===========================
+
+- Defined in :ref:`file_include_flamegpu_runtime_HostFunctionCallback.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::HostConditionCallback
+   :members:
+   :protected-members:
+   :undoc-members:

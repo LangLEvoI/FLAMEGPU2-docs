@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1_1wddm_1a54675b333821503c2d45012182ca8b5b:
+
+Function flamegpu::detail::wddm::deviceIsWDDM()
+===============================================
+
+- Defined in :ref:`file_include_flamegpu_detail_wddm.cuh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::wddm::deviceIsWDDM()

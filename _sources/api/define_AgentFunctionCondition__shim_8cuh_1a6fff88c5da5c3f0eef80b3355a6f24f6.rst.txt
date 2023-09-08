@@ -1,0 +1,13 @@
+.. _exhale_define_AgentFunctionCondition__shim_8cuh_1a6fff88c5da5c3f0eef80b3355a6f24f6:
+
+Define FLAMEGPU_AGENT_FUNCTION_CONDITION_DECL
+=============================================
+
+- Defined in :ref:`file_include_flamegpu_runtime_AgentFunctionCondition_shim.cuh`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: FLAMEGPU_AGENT_FUNCTION_CONDITION_DECL

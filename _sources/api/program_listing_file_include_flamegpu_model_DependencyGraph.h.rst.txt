@@ -1,0 +1,52 @@
+
+.. _program_listing_file_include_flamegpu_model_DependencyGraph.h:
+
+Program Listing for File DependencyGraph.h
+==========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_model_DependencyGraph.h>` (``include/flamegpu/model/DependencyGraph.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_MODEL_DEPENDENCYGRAPH_H_
+   #define INCLUDE_FLAMEGPU_MODEL_DEPENDENCYGRAPH_H_
+   
+   #include <functional>
+   #include <string>
+   #include <vector>
+   
+   #include "DependencyNode.h"
+   #include "ModelDescription.h"
+   #include "flamegpu/model/AgentFunctionDescription.h"
+   #include "flamegpu/model/HostFunctionDescription.h"
+   #include "flamegpu/model/SubModelDescription.h"
+   
+   namespace flamegpu {
+   
+   class DependencyGraph {
+    public:
+       explicit DependencyGraph(ModelData* _model);
+       explicit DependencyGraph(const DependencyGraph& other);
+       bool operator==(const DependencyGraph& rhs);
+       void addRoot(DependencyNode& root);
+       void generateLayers();
+       void generateDOTDiagram(std::string outputFileName) const;
+       bool validateDependencyGraph() const;
+       std::string getConstructedLayersString() const;
+   
+    private:
+       std::vector<DependencyNode*> roots;
+       bool doesFunctionExistInStack(DependencyNode* function, std::vector<DependencyNode*>& functionStack) const;
+       bool validateSubTree(DependencyNode* node, std::vector<DependencyNode*>& functionStack) const;
+       void checkForUnattachedFunctions();
+       LayerDescription newModelLayer();
+       static std::string getNodeName(DependencyNode* node);
+       std::vector<std::vector<std::string>> constructedLayers;
+       ModelData* model;
+   };
+   
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_MODEL_DEPENDENCYGRAPH_H_

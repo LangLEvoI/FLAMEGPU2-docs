@@ -1,0 +1,25 @@
+.. _exhale_class_classflamegpu_1_1CSubAgentDescription:
+
+Class CSubAgentDescription
+==========================
+
+- Defined in :ref:`file_include_flamegpu_model_SubAgentDescription.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public flamegpu::SubAgentDescription`` (:ref:`exhale_class_classflamegpu_1_1SubAgentDescription`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::CSubAgentDescription
+   :members:
+   :protected-members:
+   :undoc-members:

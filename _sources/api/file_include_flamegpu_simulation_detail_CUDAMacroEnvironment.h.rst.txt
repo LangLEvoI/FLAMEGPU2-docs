@@ -1,0 +1,89 @@
+
+.. _file_include_flamegpu_simulation_detail_CUDAMacroEnvironment.h:
+
+File CUDAMacroEnvironment.h
+===========================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation_detail>` (``include/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/detail/CUDAMacroEnvironment.h``)
+--------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_detail_CUDAMacroEnvironment.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``array``
+
+- ``cuda_runtime.h``
+
+- ``flamegpu/detail/cuda.cuh`` (:ref:`file_include_flamegpu_detail_cuda.cuh`)
+
+- ``flamegpu/runtime/detail/curve/HostCurve.cuh`` (:ref:`file_include_flamegpu_runtime_detail_curve_HostCurve.cuh`)
+
+- ``flamegpu/runtime/environment/HostMacroProperty.cuh`` (:ref:`file_include_flamegpu_runtime_environment_HostMacroProperty.cuh`)
+
+- ``flamegpu/simulation/detail/CUDAErrorChecking.cuh`` (:ref:`file_include_flamegpu_simulation_detail_CUDAErrorChecking.cuh`)
+
+- ``map``
+
+- ``memory``
+
+- ``string``
+
+- ``typeindex``
+
+- ``utility``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_runtime_environment_HostEnvironment.cuh`
+
+- :ref:`file_include_flamegpu_simulation_CUDASimulation.h`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAMacroEnvironment.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+- :ref:`namespace_flamegpu__detail__curve`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAMacroEnvironment_1_1MacroEnvProp`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAMacroEnvironment`
+

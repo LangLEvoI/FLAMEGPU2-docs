@@ -1,0 +1,97 @@
+
+.. _program_listing_file_include_flamegpu_runtime_messaging_MessageArray2D_MessageArray2DHost.h:
+
+Program Listing for File MessageArray2DHost.h
+=============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_runtime_messaging_MessageArray2D_MessageArray2DHost.h>` (``include/flamegpu/runtime/messaging/MessageArray2D/MessageArray2DHost.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_RUNTIME_MESSAGING_MESSAGEARRAY2D_MESSAGEARRAY2DHOST_H_
+   #define INCLUDE_FLAMEGPU_RUNTIME_MESSAGING_MESSAGEARRAY2D_MESSAGEARRAY2DHOST_H_
+   
+   #include <string>
+   #include <memory>
+   #include <array>
+   
+   #include "flamegpu/model/Variable.h"
+   #include "flamegpu/runtime/messaging/MessageArray2D.h"
+   #include "flamegpu/runtime/messaging/MessageBruteForce/MessageBruteForceHost.h"
+   
+   
+   namespace flamegpu {
+   
+   class MessageArray2D::CUDAModelHandler : public MessageSpecialisationHandler {
+    public:
+        explicit CUDAModelHandler(detail::CUDAMessage &a);
+       ~CUDAModelHandler() { }
+       void init(detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream) override;
+       void buildIndex(detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream) override;
+       void allocateMetaDataDevicePtr(cudaStream_t stream) override;
+       void freeMetaDataDevicePtr() override;
+       const void *getMetaDataDevicePtr() const override { return d_metadata; }
+   
+    private:
+       MetaData hd_metadata;
+       MetaData *d_metadata;
+       detail::CUDAMessage &sim_message;
+       unsigned int *d_write_flag;
+       size_type d_write_flag_len;
+   };
+   
+   struct MessageArray2D::Data : public MessageBruteForce::Data {
+       friend class ModelDescription;
+       friend struct ModelData;
+       std::array<size_type, 2> dimensions;
+       virtual ~Data() = default;
+   
+       std::unique_ptr<MessageSpecialisationHandler> getSpecialisationHander(detail::CUDAMessage &owner) const override;
+   
+       std::type_index getType() const override;
+   
+    protected:
+       Data *clone(const std::shared_ptr<const ModelData> &newParent) override;
+       Data(std::shared_ptr<const ModelData> model, const Data &other);
+       Data(std::shared_ptr<const ModelData> model, const std::string &message_name);
+   };
+   
+   class MessageArray2D::CDescription : public MessageBruteForce::CDescription {
+       friend struct Data;
+   
+    public:
+       explicit CDescription(std::shared_ptr<Data> data);
+       explicit CDescription(std::shared_ptr<const Data> data);
+       CDescription(const CDescription& other_agent) = default;
+       CDescription(CDescription&& other_agent) = default;
+       CDescription& operator=(const CDescription& other_agent) = default;
+       CDescription& operator=(CDescription&& other_agent) = default;
+       bool operator==(const CDescription& rhs) const;
+       bool operator!=(const CDescription& rhs) const;
+   
+       std::array<size_type, 2> getDimensions() const;
+       size_type getDimX() const;
+       size_type getDimY() const;
+   };
+   class MessageArray2D::Description : public CDescription {
+    public:
+       explicit Description(std::shared_ptr<Data> data);
+       Description(const Description& other_message) = default;
+       Description(Description&& other_message) = default;
+       Description& operator=(const Description& other_message) = default;
+       Description& operator=(Description&& other_message) = default;
+   
+       using MessageBruteForce::CDescription::setPersistent;
+       using MessageBruteForce::CDescription::newVariable;
+   #ifdef SWIG
+       using MessageBruteForce::CDescription::newVariableArray;
+   #endif
+        void setDimensions(size_type len_x, size_type len_y);
+        void setDimensions(const std::array<size_type, 2> &dims);
+   };
+   
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_RUNTIME_MESSAGING_MESSAGEARRAY2D_MESSAGEARRAY2DHOST_H_

@@ -1,0 +1,26 @@
+.. _exhale_class_classflamegpu_1_1detail_1_1Timer:
+
+Class Timer
+===========
+
+- Defined in :ref:`file_include_flamegpu_detail_Timer.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public flamegpu::detail::CUDAEventTimer`` (:ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAEventTimer`)
+- ``public flamegpu::detail::SteadyClockTimer`` (:ref:`exhale_class_classflamegpu_1_1detail_1_1SteadyClockTimer`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::detail::Timer
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,78 @@
+
+.. _file_include_flamegpu_runtime_environment_HostMacroProperty.cuh:
+
+File HostMacroProperty.cuh
+==========================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_runtime_environment>` (``include/flamegpu/runtime/environment``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/runtime/environment/HostMacroProperty.cuh``)
+---------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_runtime_environment_HostMacroProperty.cuh.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``algorithm``
+
+- ``array``
+
+- ``cmath``
+
+- ``cstdint``
+
+- ``memory``
+
+- ``string``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_runtime_environment_HostEnvironment.cuh`
+
+- :ref:`file_include_flamegpu_simulation_detail_CUDAMacroEnvironment.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1HostMacroProperty__MetaData`
+
+- :ref:`exhale_class_classflamegpu_1_1HostMacroProperty`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_HostMacroProperty_8cuh_1a70cfaf63c6acc69015cd98275824f801`
+

@@ -1,0 +1,69 @@
+
+.. _file_include_flamegpu_simulation_detail_AgentInterface.h:
+
+File AgentInterface.h
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation_detail>` (``include/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/detail/AgentInterface.h``)
+--------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_detail_AgentInterface.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/defines.h`` (:ref:`file_include_flamegpu_defines.h`)
+
+- ``flamegpu/model/ModelData.h`` (:ref:`file_include_flamegpu_model_ModelData.h`)
+
+- ``memory``
+
+- ``string``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_runtime_agent_HostAgentAPI.cuh`
+
+- :ref:`file_include_flamegpu_simulation_detail_CUDAAgent.h`
+
+- :ref:`file_include_flamegpu_simulation_Simulation.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1AgentInterface`
+

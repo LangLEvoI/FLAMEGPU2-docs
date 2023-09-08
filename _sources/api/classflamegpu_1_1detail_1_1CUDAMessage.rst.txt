@@ -1,0 +1,16 @@
+.. _exhale_class_classflamegpu_1_1detail_1_1CUDAMessage:
+
+Class CUDAMessage
+=================
+
+- Defined in :ref:`file_include_flamegpu_simulation_detail_CUDAMessage.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::detail::CUDAMessage
+   :members:
+   :protected-members:
+   :undoc-members:

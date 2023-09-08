@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1_1compute__capability_1abb3b3d68d537e51a33f598049605397d:
+
+Function flamegpu::detail::compute_capability::selectAppropraiteComputeCapability
+=================================================================================
+
+- Defined in :ref:`file_include_flamegpu_detail_compute_capability.cuh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::compute_capability::selectAppropraiteComputeCapability(const int, const std::vector<int>&)

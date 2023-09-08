@@ -1,0 +1,61 @@
+
+.. _program_listing_file_include_flamegpu_model_SubAgentDescription.h:
+
+Program Listing for File SubAgentDescription.h
+==============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_model_SubAgentDescription.h>` (``include/flamegpu/model/SubAgentDescription.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_MODEL_SUBAGENTDESCRIPTION_H_
+   #define INCLUDE_FLAMEGPU_MODEL_SUBAGENTDESCRIPTION_H_
+   
+   #include <memory>
+   #include <string>
+   
+   
+   namespace flamegpu {
+   
+   struct ModelData;
+   struct SubModelData;
+   struct SubAgentData;
+   
+   
+   class CSubAgentDescription {
+       friend struct SubAgentData;
+   
+    public:
+       explicit CSubAgentDescription(std::shared_ptr<SubAgentData> data);
+       explicit CSubAgentDescription(std::shared_ptr<const SubAgentData> data);
+       CSubAgentDescription(const CSubAgentDescription& other_agent) = default;
+       CSubAgentDescription(CSubAgentDescription&& other_agent) = default;
+       CSubAgentDescription& operator=(const CSubAgentDescription& other_agent) = default;
+       CSubAgentDescription& operator=(CSubAgentDescription&& other_agent) = default;
+       bool operator==(const CSubAgentDescription& rhs) const;
+       bool operator!=(const CSubAgentDescription& rhs) const;
+   
+       std::string getStateMapping(const std::string& sub_state_name) const;
+       std::string getVariableMapping(const std::string& sub_variable_name) const;
+   
+    protected:
+       std::shared_ptr<SubAgentData> subagent;
+   };
+   
+   class SubAgentDescription : public CSubAgentDescription {
+    public:
+       explicit SubAgentDescription(std::shared_ptr<SubAgentData> data);
+       SubAgentDescription(const SubAgentDescription& other_agent) = default;
+       SubAgentDescription(SubAgentDescription&& other_agent) = default;
+       SubAgentDescription& operator=(const SubAgentDescription& other_agent) = default;
+       SubAgentDescription& operator=(SubAgentDescription&& other_agent) = default;
+   
+       void mapState(const std::string &sub_state_name, const std::string &master_state_name);
+       void mapVariable(const std::string &sub_variable_name, const std::string &master_variable_name);
+   };
+   
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_MODEL_SUBAGENTDESCRIPTION_H_

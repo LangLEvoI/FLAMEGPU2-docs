@@ -1,0 +1,116 @@
+
+.. _file_include_flamegpu_runtime_agent_HostAgentAPI.cuh:
+
+File HostAgentAPI.cuh
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_runtime_agent>` (``include/flamegpu/runtime/agent``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/runtime/agent/HostAgentAPI.cuh``)
+----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_runtime_agent_HostAgentAPI.cuh.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``algorithm``
+
+- ``cub/cub.cuh``
+
+- ``flamegpu/detail/type_decode.h`` (:ref:`file_include_flamegpu_detail_type_decode.h`)
+
+- ``flamegpu/model/AgentDescription.h`` (:ref:`file_include_flamegpu_model_AgentDescription.h`)
+
+- ``flamegpu/runtime/HostAPI.h`` (:ref:`file_include_flamegpu_runtime_HostAPI.h`)
+
+- ``flamegpu/runtime/agent/DeviceAgentVector.h`` (:ref:`file_include_flamegpu_runtime_agent_DeviceAgentVector.h`)
+
+- ``flamegpu/runtime/agent/DeviceAgentVector_impl.h`` (:ref:`file_include_flamegpu_runtime_agent_DeviceAgentVector_impl.h`)
+
+- ``flamegpu/simulation/AgentLoggingConfig_Reductions.cuh`` (:ref:`file_include_flamegpu_simulation_AgentLoggingConfig_Reductions.cuh`)
+
+- ``flamegpu/simulation/AgentLoggingConfig_SumReturn.h`` (:ref:`file_include_flamegpu_simulation_AgentLoggingConfig_SumReturn.h`)
+
+- ``flamegpu/simulation/CUDASimulation.h`` (:ref:`file_include_flamegpu_simulation_CUDASimulation.h`)
+
+- ``flamegpu/simulation/detail/AgentInterface.h`` (:ref:`file_include_flamegpu_simulation_detail_AgentInterface.h`)
+
+- ``flamegpu/simulation/detail/CUDAAgent.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAAgent.h`)
+
+- ``functional``
+
+- ``memory``
+
+- ``string``
+
+- ``thrust/count.h``
+
+- ``thrust/device_ptr.h``
+
+- ``thrust/execution_policy.h``
+
+- ``thrust/sort.h``
+
+- ``utility``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_flamegpu.h`
+
+- :ref:`file_include_flamegpu_simulation_AgentLoggingConfig.h`
+
+- :ref:`file_include_flamegpu_simulation_LoggingConfig.h`
+
+- :ref:`file_src_flamegpu_runtime_agent_HostAgentAPI.cu`
+
+- :ref:`file_src_flamegpu_runtime_HostAPI.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1HostAgentAPI`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_HostAgentAPI_8cuh_1ad9d5573357effdcf7430c6c2024becc4`
+
+- :ref:`exhale_define_HostAgentAPI_8cuh_1a64629b6c7aa246731d1657c3ad70996a`
+
+- :ref:`exhale_define_HostAgentAPI_8cuh_1aebeab779536e0a99e81d374c5dd906cc`
+

@@ -1,0 +1,91 @@
+
+.. _program_listing_file_include_flamegpu_simulation_CUDAEnsemble.h:
+
+Program Listing for File CUDAEnsemble.h
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_simulation_CUDAEnsemble.h>` (``include/flamegpu/simulation/CUDAEnsemble.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_SIMULATION_CUDAENSEMBLE_H_
+   #define INCLUDE_FLAMEGPU_SIMULATION_CUDAENSEMBLE_H_
+   
+   #include <string>
+   #include <memory>
+   #include <set>
+   #include <vector>
+   
+   #include "flamegpu/defines.h"
+   
+   namespace flamegpu {
+   
+   struct ModelData;
+   class ModelDescription;
+   class RunPlanVector;
+   class LoggingConfig;
+   class StepLoggingConfig;
+   struct RunLog;
+   class CUDAEnsemble {
+    public:
+       struct EnsembleConfig {
+           EnsembleConfig();
+           std::string out_directory = "";
+           std::string out_format = "json";
+           unsigned int concurrent_runs = 4;
+           std::set<int> devices;
+           flamegpu::Verbosity verbosity = Verbosity::Default;
+           bool silence_unknown_args = false;
+           bool timing = false;
+           enum ErrorLevel { Off = 0, Slow = 1, Fast = 2 };
+           ErrorLevel error_level = Slow;
+           bool truncate_log_files = false;
+   #ifdef _MSC_VER
+           bool block_standby = true;
+   #else
+           const bool block_standby = false;
+   #endif
+   
+           bool telemetry = false;
+       };
+       explicit CUDAEnsemble(const ModelDescription& model, int argc = 0, const char** argv = nullptr)
+   #ifdef SWIG
+           : CUDAEnsemble(model, argc, argv, true)
+   #else
+           : CUDAEnsemble(model, argc, argv, false)
+   #endif
+       { }
+       ~CUDAEnsemble();
+   
+       unsigned int simulate(const RunPlanVector &plan);
+   
+       EnsembleConfig &Config() { return config; }
+       const EnsembleConfig &getConfig() const { return config; }
+       /*
+        * Override current config with args passed via CLI
+        * @note Config values not passed via CLI will remain as their current values (and not be reset to default)
+        */
+       void initialise(int argc, const char** argv);
+       void setStepLog(const StepLoggingConfig &stepConfig);
+       void setExitLog(const LoggingConfig &exitConfig);
+       double getEnsembleElapsedTime() const { return ensemble_elapsed_time; }
+       const std::vector<RunLog> &getLogs();
+   
+    private:
+       CUDAEnsemble(const ModelDescription& model, int argc, const char** argv, bool _isSWIG);
+       void printHelp(const char *executable);
+       int checkArgs(int argc, const char** argv);
+       EnsembleConfig config;
+       std::shared_ptr<const StepLoggingConfig> step_log_config;
+       std::shared_ptr<const LoggingConfig> exit_log_config;
+       std::vector<RunLog> run_logs;
+       const std::shared_ptr<const ModelData> model;
+       double ensemble_elapsed_time = 0.;
+       const bool isSWIG;
+   };
+   
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_SIMULATION_CUDAENSEMBLE_H_

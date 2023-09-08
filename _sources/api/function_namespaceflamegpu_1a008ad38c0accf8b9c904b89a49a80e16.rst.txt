@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1a008ad38c0accf8b9c904b89a49a80e16:
+
+Template Function flamegpu::getAgentVariableSumFunc
+===================================================
+
+- Defined in :ref:`file_include_flamegpu_simulation_AgentLoggingConfig.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::getAgentVariableSumFunc(HostAgentAPI&, const std::string&)

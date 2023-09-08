@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1util_1_1nvtx_1adf60f078081462ee25d17335e84da620:
+
+Function flamegpu::util::nvtx::push
+===================================
+
+- Defined in :ref:`file_include_flamegpu_util_nvtx.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::util::nvtx::push(const char *)

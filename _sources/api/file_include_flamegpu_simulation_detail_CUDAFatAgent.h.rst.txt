@@ -1,0 +1,81 @@
+
+.. _file_include_flamegpu_simulation_detail_CUDAFatAgent.h:
+
+File CUDAFatAgent.h
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation_detail>` (``include/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/detail/CUDAFatAgent.h``)
+------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_detail_CUDAFatAgent.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/model/SubAgentData.h`` (:ref:`file_include_flamegpu_model_SubAgentData.h`)
+
+- ``flamegpu/simulation/detail/CUDAAgentStateList.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAAgentStateList.h`)
+
+- ``flamegpu/simulation/detail/CUDAFatAgentStateList.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAFatAgentStateList.h`)
+
+- ``memory``
+
+- ``mutex``
+
+- ``set``
+
+- ``string``
+
+- ``unordered_map``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAAgent.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAFatAgent.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAFatAgent_1_1AgentState`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAFatAgent_1_1AgentState__hash`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAFatAgent_1_1NewBuffer`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAFatAgent`
+

@@ -1,0 +1,63 @@
+
+.. _file_src_flamegpu_simulation_detail_CUDAFatAgent.cu:
+
+File CUDAFatAgent.cu
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_flamegpu_simulation_detail>` (``src/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/flamegpu/simulation/detail/CUDAFatAgent.cu``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_flamegpu_simulation_detail_CUDAFatAgent.cu.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cub/cub.cuh``
+
+- ``flamegpu/detail/cuda.cuh`` (:ref:`file_include_flamegpu_detail_cuda.cuh`)
+
+- ``flamegpu/runtime/HostAPI.h`` (:ref:`file_include_flamegpu_runtime_HostAPI.h`)
+
+- ``flamegpu/simulation/detail/CUDAFatAgent.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAFatAgent.h`)
+
+- ``flamegpu/simulation/detail/CUDAScatter.cuh`` (:ref:`file_include_flamegpu_simulation_detail_CUDAScatter.cuh`)
+
+- ``flamegpu/util/nvtx.h`` (:ref:`file_include_flamegpu_util_nvtx.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a2b3ed80110a116bc60c58799d0b1889f`
+

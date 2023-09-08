@@ -1,0 +1,13 @@
+.. _exhale_define_AgentLoggingConfig__Reductions_8cuh_1aacf28c3f5165c20093972ddf87a62489:
+
+Define INCLUDE_FLAMEGPU_SIMULATION_AGENTLOGGINGCONFIG_REDUCTIONS_CUH_
+=====================================================================
+
+- Defined in :ref:`file_include_flamegpu_simulation_AgentLoggingConfig_Reductions.cuh`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: INCLUDE_FLAMEGPU_SIMULATION_AGENTLOGGINGCONFIG_REDUCTIONS_CUH_

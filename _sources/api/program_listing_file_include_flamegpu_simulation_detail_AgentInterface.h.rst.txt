@@ -1,0 +1,42 @@
+
+.. _program_listing_file_include_flamegpu_simulation_detail_AgentInterface.h:
+
+Program Listing for File AgentInterface.h
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_simulation_detail_AgentInterface.h>` (``include/flamegpu/simulation/detail/AgentInterface.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_SIMULATION_DETAIL_AGENTINTERFACE_H_
+   #define INCLUDE_FLAMEGPU_SIMULATION_DETAIL_AGENTINTERFACE_H_
+   
+   #include <string>
+   #include <memory>
+   
+   #include "flamegpu/model/ModelData.h"
+   #include "flamegpu/defines.h"
+   
+   
+   namespace flamegpu {
+   class DeviceAgentVector_impl;
+   class CAgentDescription;
+   namespace detail {
+   class AgentInterface {
+    public:
+       virtual ~AgentInterface() = default;
+       virtual CAgentDescription getAgentDescription() const = 0;
+       virtual void *getStateVariablePtr(const std::string &state_name, const std::string &variable_name) = 0;
+       virtual flamegpu::size_type getStateSize(const std::string &state_name) const = 0;
+       virtual id_t nextID(unsigned int count) = 0;
+       virtual void setPopulationVec(const std::string &state_name, const std::shared_ptr<DeviceAgentVector_impl>& d_vec) = 0;
+       virtual std::shared_ptr<DeviceAgentVector_impl> getPopulationVec(const std::string& state_name) = 0;
+       virtual void resetPopulationVecs() = 0;
+   };
+   
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_SIMULATION_DETAIL_AGENTINTERFACE_H_

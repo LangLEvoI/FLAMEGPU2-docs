@@ -1,0 +1,32 @@
+
+.. _program_listing_file_include_flamegpu_detail_TestSuiteTelemetry.h:
+
+Program Listing for File TestSuiteTelemetry.h
+=============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_detail_TestSuiteTelemetry.h>` (``include/flamegpu/detail/TestSuiteTelemetry.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_DETAIL_TESTSUITETELEMETRY_H_
+   #define INCLUDE_FLAMEGPU_DETAIL_TESTSUITETELEMETRY_H_
+   
+   #include <cstdio>
+   #include <string>
+   
+   #include "flamegpu/io/Telemetry.h"
+   
+   namespace flamegpu {
+   namespace detail {
+   
+   class TestSuiteTelemetry : private flamegpu::io::Telemetry {
+    public:
+   static bool sendResults(std::string reportName, std::string outcome, unsigned int total, unsigned int selected, unsigned int skipped, unsigned int passed, unsigned int failed, bool verbose, bool isSWIG);
+   };
+   
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_DETAIL_TESTSUITETELEMETRY_H_

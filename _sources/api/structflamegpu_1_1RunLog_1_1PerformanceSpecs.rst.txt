@@ -1,0 +1,22 @@
+.. _exhale_struct_structflamegpu_1_1RunLog_1_1PerformanceSpecs:
+
+Struct RunLog::PerformanceSpecs
+===============================
+
+- Defined in :ref:`file_include_flamegpu_simulation_LogFrame.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_struct_structflamegpu_1_1RunLog`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::RunLog::PerformanceSpecs
+   :members:
+   :protected-members:
+   :undoc-members:

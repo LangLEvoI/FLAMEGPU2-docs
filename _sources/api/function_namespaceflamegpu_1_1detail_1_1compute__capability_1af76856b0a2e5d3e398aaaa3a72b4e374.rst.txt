@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1_1compute__capability_1af76856b0a2e5d3e398aaaa3a72b4e374:
+
+Function flamegpu::detail::compute_capability::getNVRTCSupportedComputeCapabilties
+==================================================================================
+
+- Defined in :ref:`file_include_flamegpu_detail_compute_capability.cuh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::compute_capability::getNVRTCSupportedComputeCapabilties()

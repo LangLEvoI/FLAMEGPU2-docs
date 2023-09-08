@@ -1,0 +1,23 @@
+.. _dir_src_flamegpu_detail:
+
+
+Directory detail
+================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src_flamegpu>` (``src/flamegpu``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``src/flamegpu/detail``
+
+
+Files
+-----
+
+- :ref:`file_src_flamegpu_detail_compute_capability.cu`
+- :ref:`file_src_flamegpu_detail_JitifyCache.cu`
+- :ref:`file_src_flamegpu_detail_TestSuiteTelemetry.cpp`
+- :ref:`file_src_flamegpu_detail_wddm.cu`
+
+

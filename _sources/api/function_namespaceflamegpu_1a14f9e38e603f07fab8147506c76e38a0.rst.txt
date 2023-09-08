@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1a14f9e38e603f07fab8147506c76e38a0:
+
+Template Function flamegpu::agent_function_wrapper
+==================================================
+
+- Defined in :ref:`file_include_flamegpu_runtime_AgentFunction.cuh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::agent_function_wrapper(exception::DeviceExceptionBuffer *, const detail::curve::CurveTable *__restrict__, const char *, id_t *, const unsigned int, const void *, const void *, detail::curandState *, unsigned int *, unsigned int *, unsigned int *)

@@ -1,0 +1,13 @@
+.. _exhale_define_HostMacroProperty_8cuh_1a70cfaf63c6acc69015cd98275824f801:
+
+Define INCLUDE_FLAMEGPU_RUNTIME_ENVIRONMENT_HOSTMACROPROPERTY_CUH_
+==================================================================
+
+- Defined in :ref:`file_include_flamegpu_runtime_environment_HostMacroProperty.cuh`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: INCLUDE_FLAMEGPU_RUNTIME_ENVIRONMENT_HOSTMACROPROPERTY_CUH_

@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1_1compute__capability_1a0c075ac82e862f3994d0d84db60278b6:
+
+Function flamegpu::detail::compute_capability::getDeviceNames
+=============================================================
+
+- Defined in :ref:`file_include_flamegpu_detail_compute_capability.cuh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::compute_capability::getDeviceNames(std::set<int>)

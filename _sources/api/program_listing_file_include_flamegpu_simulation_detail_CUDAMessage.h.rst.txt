@@ -1,0 +1,82 @@
+
+.. _program_listing_file_include_flamegpu_simulation_detail_CUDAMessage.h:
+
+Program Listing for File CUDAMessage.h
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_simulation_detail_CUDAMessage.h>` (``include/flamegpu/simulation/detail/CUDAMessage.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAMESSAGE_H_
+   #define INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAMESSAGE_H_
+   
+   #include <memory>
+   #include <utility>
+   #include <string>
+   
+   // include sub classes
+   #include "flamegpu/simulation/detail/CUDAMessageList.h"
+   #include "flamegpu/runtime/messaging/MessageBruteForce/MessageBruteForceHost.h"
+   
+   // forward declare classes from other modules
+   
+   namespace flamegpu {
+   class CUDASimulation;
+   struct AgentFunctionData;
+   struct MessageData;
+   class MessageSpecialisationHandler;
+   namespace detail {
+   class CUDAScatter;
+   class CUDAAgent;
+   namespace curve {
+   class HostCurve;
+   class Curve;
+   }  // namespace curve
+   class CUDAMessage {
+    public:
+       explicit CUDAMessage(const MessageBruteForce::Data& description, const CUDASimulation& cudaSimulation);
+       virtual ~CUDAMessage(void);
+       const MessageBruteForce::Data& getMessageData() const;
+       unsigned int getMaximumListSize() const;
+       unsigned int getMessageCount() const;
+       void setMessageCount(unsigned int _message_count);
+       void init(detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void resize(unsigned int newSize, detail::CUDAScatter &scatter, cudaStream_t stream, unsigned int streamId, unsigned int keepLen = 0);
+       void mapReadRuntimeVariables(const AgentFunctionData& func, const CUDAAgent& cuda_agent) const;
+       void mapWriteRuntimeVariables(const AgentFunctionData& func, const CUDAAgent& cuda_agent, unsigned int writeLen, cudaStream_t stream) const;
+       void *getReadPtr(const std::string &var_name);
+       const CUDAMessageMap &getReadList() { return message_list->getReadList(); }
+       const CUDAMessageMap &getWriteList() { return message_list->getWriteList(); }
+       void swap(bool isOptional, unsigned int newMessageCount, detail::CUDAScatter &scatter, cudaStream_t stream, unsigned int streamId);
+       void swap();
+       bool getTruncateMessageListFlag() const { return truncate_messagelist_flag; }
+       void setTruncateMessageListFlag() { truncate_messagelist_flag = true; }
+       void clearTruncateMessageListFlag() { truncate_messagelist_flag = false; }
+       bool getPBMConstructionRequiredFlag() const  { return pbm_construction_required; }
+       void setPBMConstructionRequiredFlag() { pbm_construction_required = true; }
+       void clearPBMConstructionRequiredFlag() { pbm_construction_required = false; }
+       void buildIndex(detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       const void *getMetaDataDevicePtr() const;
+   
+    protected:
+       void zeroAllMessageData(cudaStream_t stream);
+   
+    private:
+       const MessageBruteForce::Data& message_description;
+       std::unique_ptr<CUDAMessageList> message_list;  // CUDAMessageMap message_list;
+       unsigned int message_count;
+       unsigned int max_list_size;
+       bool truncate_messagelist_flag;
+       bool pbm_construction_required;
+       std::unique_ptr<MessageSpecialisationHandler> specialisation_handler;
+   
+       const CUDASimulation& cudaSimulation;
+   };
+   
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAMESSAGE_H_

@@ -1,0 +1,28 @@
+.. _exhale_class_classflamegpu_1_1detail_1_1curve_1_1CurveRTCHost:
+
+Class CurveRTCHost
+==================
+
+- Defined in :ref:`file_include_flamegpu_runtime_detail_curve_curve_rtc.cuh`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1curve_1_1CurveRTCHost_1_1RTCEnvMacroPropertyProperties`
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1curve_1_1CurveRTCHost_1_1RTCEnvVariableProperties`
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1curve_1_1CurveRTCHost_1_1RTCVariableProperties`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::detail::curve::CurveRTCHost
+   :members:
+   :protected-members:
+   :undoc-members:

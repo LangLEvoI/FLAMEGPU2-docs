@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1util_1aec2a487b13e1a5c9c2fe292c5cda4fb0:
+
+Function flamegpu::util::clearRTCDiskCache
+==========================================
+
+- Defined in :ref:`file_src_flamegpu_util_cleanup.cu`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::util::clearRTCDiskCache()

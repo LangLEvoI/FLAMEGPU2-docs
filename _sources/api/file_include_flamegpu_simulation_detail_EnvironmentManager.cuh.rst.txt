@@ -1,0 +1,110 @@
+
+.. _file_include_flamegpu_simulation_detail_EnvironmentManager.cuh:
+
+File EnvironmentManager.cuh
+===========================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation_detail>` (``include/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/detail/EnvironmentManager.cuh``)
+--------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_detail_EnvironmentManager.cuh.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cuda_runtime.h``
+
+- ``flamegpu/defines.h`` (:ref:`file_include_flamegpu_defines.h`)
+
+- ``flamegpu/detail/Any.h`` (:ref:`file_include_flamegpu_detail_Any.h`)
+
+- ``flamegpu/detail/type_decode.h`` (:ref:`file_include_flamegpu_detail_type_decode.h`)
+
+- ``flamegpu/exception/FLAMEGPUException.h`` (:ref:`file_include_flamegpu_exception_FLAMEGPUException.h`)
+
+- ``flamegpu/runtime/detail/curve/HostCurve.cuh`` (:ref:`file_include_flamegpu_runtime_detail_curve_HostCurve.cuh`)
+
+- ``functional``
+
+- ``map``
+
+- ``memory``
+
+- ``set``
+
+- ``string``
+
+- ``unordered_map``
+
+- ``utility``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_runtime_environment_HostEnvironment.cuh`
+
+- :ref:`file_include_flamegpu_simulation_CUDASimulation.h`
+
+- :ref:`file_include_flamegpu_simulation_detail_CUDAAgent.h`
+
+- :ref:`file_src_flamegpu_io_JSONStateWriter.cpp`
+
+- :ref:`file_src_flamegpu_io_XMLStateWriter.cpp`
+
+- :ref:`file_src_flamegpu_runtime_detail_curve_curve_rtc.cpp`
+
+- :ref:`file_src_flamegpu_simulation_detail_EnvironmentManager.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1EnvironmentManager_1_1DefragProp`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1EnvironmentManager_1_1EnvProp`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1EnvironmentManager_1_1MappedProp`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1EnvironmentManager`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_EnvironmentManager_8cuh_1ad7769b9c612267ca56e7a7366e4583dd`
+

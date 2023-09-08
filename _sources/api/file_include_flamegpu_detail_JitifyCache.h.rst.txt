@@ -1,0 +1,75 @@
+
+.. _file_include_flamegpu_detail_JitifyCache.h:
+
+File JitifyCache.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_detail>` (``include/flamegpu/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/detail/JitifyCache.h``)
+------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_detail_JitifyCache.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``jitify/jitify.hpp``
+
+- ``map``
+
+- ``memory``
+
+- ``mutex``
+
+- ``string``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_simulation_detail_CUDAAgent.h`
+
+- :ref:`file_src_flamegpu_detail_JitifyCache.cu`
+
+- :ref:`file_src_flamegpu_util_cleanup.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1JitifyCache_1_1CachedProgram`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1JitifyCache`
+

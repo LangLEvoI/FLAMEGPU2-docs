@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespaceflamegpu_1ae62625f2f2b70b2b5f9d218db249d8e1:
+
+Typedef flamegpu::AgentFunctionConditionWrapper
+===============================================
+
+- Defined in :ref:`file_include_flamegpu_runtime_AgentFunctionCondition.cuh`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: flamegpu::AgentFunctionConditionWrapper

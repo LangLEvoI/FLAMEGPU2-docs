@@ -1,0 +1,24 @@
+
+.. _program_listing_file_src_flamegpu_runtime_random_HostRandom.cu:
+
+Program Listing for File HostRandom.cu
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_src_flamegpu_runtime_random_HostRandom.cu>` (``src/flamegpu/runtime/random/HostRandom.cu``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "flamegpu/runtime/random/HostRandom.cuh"
+   
+   namespace flamegpu {
+   
+   void HostRandom::setSeed(const uint64_t seed) {
+       rng.reseed(seed);
+   }
+   uint64_t HostRandom::getSeed() const {
+       return static_cast<uint64_t>(rng.seed());
+   }
+   
+   }  // namespace flamegpu

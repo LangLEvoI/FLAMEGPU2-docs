@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1aa3219b89ee653bb03ca64a7ab0fc4719:
+
+Function flamegpu::detail::gpuAssert(cudaError_t, const char \*, int)
+=====================================================================
+
+- Defined in :ref:`file_include_flamegpu_simulation_detail_CUDAErrorChecking.cuh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::gpuAssert(cudaError_t, const char *, int)

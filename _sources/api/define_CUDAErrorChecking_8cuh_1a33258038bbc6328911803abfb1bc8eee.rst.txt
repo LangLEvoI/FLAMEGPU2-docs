@@ -1,0 +1,13 @@
+.. _exhale_define_CUDAErrorChecking_8cuh_1a33258038bbc6328911803abfb1bc8eee:
+
+Define INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAERRORCHECKING_CUH_
+================================================================
+
+- Defined in :ref:`file_include_flamegpu_simulation_detail_CUDAErrorChecking.cuh`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAERRORCHECKING_CUH_

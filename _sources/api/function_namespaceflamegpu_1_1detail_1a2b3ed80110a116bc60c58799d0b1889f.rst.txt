@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1a2b3ed80110a116bc60c58799d0b1889f:
+
+Function flamegpu::detail::allocateIDs
+======================================
+
+- Defined in :ref:`file_src_flamegpu_simulation_detail_CUDAFatAgent.cu`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::allocateIDs(id_t *, unsigned int, id_t, id_t)

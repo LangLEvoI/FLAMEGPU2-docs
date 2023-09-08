@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1a419933d0a6877bbedcaa3de1488e2216:
+
+Function flamegpu::detail::init_curand
+======================================
+
+- Defined in :ref:`file_src_flamegpu_simulation_detail_RandomManager.cu`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::init_curand(detail::curandState *, unsigned int, uint64_t, flamegpu::size_type)

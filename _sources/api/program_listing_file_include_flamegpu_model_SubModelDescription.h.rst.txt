@@ -1,0 +1,67 @@
+
+.. _program_listing_file_include_flamegpu_model_SubModelDescription.h:
+
+Program Listing for File SubModelDescription.h
+==============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_model_SubModelDescription.h>` (``include/flamegpu/model/SubModelDescription.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_MODEL_SUBMODELDESCRIPTION_H_
+   #define INCLUDE_FLAMEGPU_MODEL_SUBMODELDESCRIPTION_H_
+   #include <string>
+   #include <memory>
+   
+   #include "flamegpu/model/LayerDescription.h"
+   #include "flamegpu/model/DependencyNode.h"
+   
+   namespace flamegpu {
+   
+   class CSubAgentDescription;
+   class SubAgentDescription;
+   class CSubEnvironmentDescription;
+   class SubEnvironmentDescription;
+   struct ModelData;
+   struct SubModelData;
+   
+   class CSubModelDescription : public DependencyNode {
+       friend struct SubModelData;
+       friend void LayerDescription::addSubModel(const CSubModelDescription&);
+   
+    public:
+       explicit CSubModelDescription(std::shared_ptr<SubModelData> data);
+       explicit CSubModelDescription(std::shared_ptr<const SubModelData> data);
+       CSubModelDescription(const CSubModelDescription& other_agent) = default;
+       CSubModelDescription(CSubModelDescription&& other_agent) = default;
+       CSubModelDescription& operator=(const CSubModelDescription& other_agent) = default;
+       CSubModelDescription& operator=(CSubModelDescription&& other_agent) = default;
+       bool operator==(const CSubModelDescription& rhs) const;
+       bool operator!=(const CSubModelDescription& rhs) const;
+       unsigned int getMaxSteps() const;
+       const std::string getName() const;
+   
+    protected:
+       std::shared_ptr<SubModelData> submodel;
+   };
+   class SubModelDescription : public CSubModelDescription {
+    public:
+       explicit SubModelDescription(std::shared_ptr<SubModelData> data);
+       SubModelDescription(const SubModelDescription& other_agent) = default;
+       SubModelDescription(SubModelDescription&& other_agent) = default;
+       SubModelDescription& operator=(const SubModelDescription& other_agent) = default;
+       SubModelDescription& operator=(SubModelDescription&& other_agent) = default;
+   
+       SubAgentDescription bindAgent(const std::string &sub_agent_name, const std::string &master_agent_name, bool auto_map_vars = false, bool auto_map_states = true);
+       SubAgentDescription SubAgent(const std::string &sub_agent_name);
+       CSubAgentDescription getSubAgent(const std::string &sub_agent_name) const;
+       SubEnvironmentDescription SubEnvironment(bool auto_map = false);
+       CSubEnvironmentDescription getSubEnvironment() const;
+       void setMaxSteps(unsigned int max_steps);
+   };
+   
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_MODEL_SUBMODELDESCRIPTION_H_

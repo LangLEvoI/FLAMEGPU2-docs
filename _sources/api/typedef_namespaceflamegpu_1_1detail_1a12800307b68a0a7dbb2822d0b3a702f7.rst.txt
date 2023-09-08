@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespaceflamegpu_1_1detail_1a12800307b68a0a7dbb2822d0b3a702f7:
+
+Typedef flamegpu::detail::StateMemoryMap
+========================================
+
+- Defined in :ref:`file_include_flamegpu_simulation_detail_GenericMemoryVector.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: flamegpu::detail::StateMemoryMap

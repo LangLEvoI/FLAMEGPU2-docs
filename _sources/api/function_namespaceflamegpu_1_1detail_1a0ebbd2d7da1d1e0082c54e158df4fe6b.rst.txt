@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1a0ebbd2d7da1d1e0082c54e158df4fe6b:
+
+Function flamegpu::detail::scatter_new_agents
+=============================================
+
+- Defined in :ref:`file_src_flamegpu_simulation_detail_CUDAScatter.cu`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::scatter_new_agents(const unsigned int, const unsigned int, CUDAScatter::ScatterData *, const unsigned int, const unsigned int)

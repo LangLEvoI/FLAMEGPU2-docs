@@ -1,0 +1,25 @@
+.. _exhale_struct_structflamegpu_1_1StepLogFrame:
+
+Struct StepLogFrame
+===================
+
+- Defined in :ref:`file_include_flamegpu_simulation_LogFrame.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public flamegpu::LogFrame`` (:ref:`exhale_struct_structflamegpu_1_1LogFrame`)
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::StepLogFrame
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,63 @@
+
+.. _file_include_flamegpu_detail_TestSuiteTelemetry.h:
+
+File TestSuiteTelemetry.h
+=========================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_detail>` (``include/flamegpu/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/detail/TestSuiteTelemetry.h``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_detail_TestSuiteTelemetry.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cstdio``
+
+- ``flamegpu/io/Telemetry.h`` (:ref:`file_include_flamegpu_io_Telemetry.h`)
+
+- ``string``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_flamegpu_detail_TestSuiteTelemetry.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1TestSuiteTelemetry`
+

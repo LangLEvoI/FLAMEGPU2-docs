@@ -1,0 +1,28 @@
+
+.. _program_listing_file_include_flamegpu_detail_wddm.cuh:
+
+Program Listing for File wddm.cuh
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_detail_wddm.cuh>` (``include/flamegpu/detail/wddm.cuh``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_DETAIL_WDDM_CUH_
+   #define INCLUDE_FLAMEGPU_DETAIL_WDDM_CUH_
+   
+   namespace flamegpu {
+   namespace detail {
+   namespace wddm {
+   
+   bool deviceIsWDDM(int deviceIndex);
+   
+   bool deviceIsWDDM();
+   
+   }  // namespace wddm
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_DETAIL_WDDM_CUH_

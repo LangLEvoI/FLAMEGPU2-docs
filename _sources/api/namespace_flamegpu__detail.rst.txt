@@ -1,0 +1,194 @@
+
+.. _namespace_flamegpu__detail:
+
+Namespace flamegpu::detail
+==========================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu__detail__@154`
+
+- :ref:`namespace_flamegpu__detail__compute_capability`
+
+- :ref:`namespace_flamegpu__detail__cuda`
+
+- :ref:`namespace_flamegpu__detail__curve`
+
+- :ref:`namespace_flamegpu__detail__cxxname`
+
+- :ref:`namespace_flamegpu__detail__StaticAssert`
+
+- :ref:`namespace_flamegpu__detail__wddm`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1AgentVariable`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1AgentVariableHash`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1Any`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAFatAgent_1_1AgentState`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAFatAgent_1_1AgentState__hash`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAFatAgent_1_1NewBuffer`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAMacroEnvironment_1_1MacroEnvProp`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAScanCompactionConfig`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAScanCompactionPtrs`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAScatter_1_1InversionIterator`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAScatter_1_1ScatterData`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1CUDAScatter_1_1StreamData`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1Dims`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1EnvironmentManager_1_1DefragProp`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1EnvironmentManager_1_1EnvProp`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1EnvironmentManager_1_1MappedProp`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1JitifyCache_1_1CachedProgram`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1SharedBlock`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1SimRunner_1_1ErrorDetail`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1standard__deviation__add__impl`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1standard__deviation__add__impl_1_1binary__function`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1standard__deviation__subtract__mean__impl`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1standard__deviation__subtract__mean__impl_1_1unary__function`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1type__decode`
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1VariableBuffer`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1AgentInterface`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CubTemporaryMemory`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAAgent`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAAgentStateList`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAEventTimer`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAFatAgent`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAFatAgentStateList`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAMacroEnvironment`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAMessage`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAMessageList`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAScanCompaction`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1CUDAScatter`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1EnvironmentManager`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1GenericMemoryVector`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1JitifyCache`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1MemoryVector`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1RandomManager`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1SignalHandlers`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1SimLogger`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1SimRunner`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1SteadyClockTimer`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1TestSuiteTelemetry`
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1Timer`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a2b3ed80110a116bc60c58799d0b1889f`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a09c6bdb2a8c16c9b3a1cc2c1d2f47bef`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a51dd031c7a938c4c09838d15248e3d5d`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1aa3219b89ee653bb03ca64a7ab0fc4719`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a9ba953de2543141a9af9414adbf943cf`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a6b99385f65506854d317cc1a27d486ff`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a419933d0a6877bbedcaa3de1488e2216`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1addf923315be7428b40babe312ebaa20b`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a5a0d93b73a06fc52c85ed73e29ef2b00`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1aeef1d2a6d0f532fb6992a5630c15508e`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a50ecc81102123a357ab5e0f48d4c4fc5`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a0ebbd2d7da1d1e0082c54e158df4fe6b`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a6e197109c62ecf2538e8710ef5bff51d`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a3deccf1a44e498f8fb4e6ff4efd30606`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_namespaceflamegpu_1_1detail_1aea675236a91735a8b1474f255af53f0f`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1_1detail_1a3244d1e124bb3b9b62bc13480c080bd1`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1_1detail_1a22cad826da222ea86c6a2fe84dfeb72d`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1_1detail_1a12800307b68a0a7dbb2822d0b3a702f7`
+
+- :ref:`exhale_typedef_namespaceflamegpu_1_1detail_1af3855ec58aee3d213032029ee4dee37d`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespaceflamegpu_1_1detail_1a61d3d707a6620585758c1efd3cea54a2`
+
+- :ref:`exhale_variable_namespaceflamegpu_1_1detail_1a5e169c9830e27f3e46a57d103144d5d3`
+
+- :ref:`exhale_variable_namespaceflamegpu_1_1detail_1aae8849dcffeb32b7742994d953b7a726`
+
+- :ref:`exhale_variable_namespaceflamegpu_1_1detail_1a4a219a49a5e05388630e16350ba5c1f3`

@@ -1,0 +1,16 @@
+.. _exhale_struct_structflamegpu_1_1visualiser_1_1ModelVisData:
+
+Struct ModelVisData
+===================
+
+- Defined in :ref:`file_include_flamegpu_visualiser_ModelVis.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::visualiser::ModelVisData
+   :members:
+   :protected-members:
+   :undoc-members:

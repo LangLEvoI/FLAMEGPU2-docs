@@ -1,0 +1,25 @@
+.. _exhale_struct_structflamegpu_1_1detail_1_1StaticAssert_1_1is__same:
+
+Template Struct is_same
+=======================
+
+- Defined in :ref:`file_include_flamegpu_detail_StaticAssert.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public flamegpu::detail::StaticAssert::integral_constant< bool, false >`` (:ref:`exhale_struct_structflamegpu_1_1detail_1_1StaticAssert_1_1integral__constant`)
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::detail::StaticAssert::is_same
+   :members:
+   :protected-members:
+   :undoc-members:

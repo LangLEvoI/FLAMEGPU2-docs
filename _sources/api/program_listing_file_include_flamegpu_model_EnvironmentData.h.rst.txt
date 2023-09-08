@@ -1,0 +1,103 @@
+
+.. _program_listing_file_include_flamegpu_model_EnvironmentData.h:
+
+Program Listing for File EnvironmentData.h
+==========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_model_EnvironmentData.h>` (``include/flamegpu/model/EnvironmentData.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_MODEL_ENVIRONMENTDATA_H_
+   #define INCLUDE_FLAMEGPU_MODEL_ENVIRONMENTDATA_H_
+   
+   #include <memory>
+   #include <array>
+   #include <string>
+   #include <typeinfo>
+   #include <typeindex>
+   #include <unordered_map>
+   
+   #include "flamegpu/detail/Any.h"
+   #include "flamegpu/model/ModelData.h"
+   
+   namespace flamegpu {
+   
+   struct EnvironmentData {
+       friend class ModelDescription;
+       friend class std::shared_ptr<ModelData> ModelData::clone() const;
+       // friend class CUDASimulation;
+   
+       // friend class detail::SimRunner;
+       // friend unsigned int CUDAEnsemble::simulate(const RunPlanVector& plans);
+       struct PropData {
+           PropData(bool _is_const, const detail::Any& _data)
+               : isConst(_is_const)
+               , data(_data) { }
+           bool isConst;
+           const detail::Any data;
+           bool operator==(const PropData& rhs) const {
+               if (this == &rhs)
+                   return true;
+               if (this->isConst != rhs.isConst
+                   || this->data.elements != rhs.data.elements
+                   || this->data.length != rhs.data.length
+                   || this->data.type != rhs.data.type)
+                   return false;
+               if (this->data.ptr == rhs.data.ptr)
+                   return true;
+               for (size_t i = 0; i < this->data.length; ++i) {
+                   if (static_cast<const char*>(this->data.ptr)[i] != static_cast<const char*>(rhs.data.ptr)[i])
+                       return false;
+               }
+               return true;
+           }
+           bool operator!=(const PropData& rhs) const {
+               return !operator==(rhs);
+           }
+       };
+       struct MacroPropData {
+           MacroPropData(const std::type_index& _type, const size_t _type_size, const std::array<unsigned int, 4>& _elements)
+               : type(_type)
+               , type_size(_type_size)
+               , elements(_elements) { }
+           std::type_index type;
+           size_t type_size;
+           std::array<unsigned int, 4> elements;
+           bool operator==(const MacroPropData& rhs) const {
+               if (this == &rhs)
+                   return true;
+               if (this->type != rhs.type
+                   || this->type_size != rhs.type_size
+                   || this->elements[0] != rhs.elements[0]
+                   || this->elements[1] != rhs.elements[1]
+                   || this->elements[2] != rhs.elements[2]
+                   || this->elements[3] != rhs.elements[3])
+                   return false;
+               for (size_t i = 0; i < this->elements.size(); ++i) {
+                   if (this->elements[i] != rhs.elements[i])
+                       return false;
+               }
+               return true;
+           }
+           bool operator!=(const MacroPropData& rhs) const {
+               return !operator==(rhs);
+           }
+       };
+       std::weak_ptr<const ModelData> model;
+       std::unordered_map<std::string, PropData> properties{};
+       std::unordered_map<std::string, MacroPropData> macro_properties{};
+       bool operator==(const EnvironmentData&rhs) const;
+       bool operator!=(const EnvironmentData&rhs) const;
+       EnvironmentData(const EnvironmentData&other) = delete;
+   
+    protected:
+       EnvironmentData(std::shared_ptr<const ModelData> model, const EnvironmentData&other);
+       explicit EnvironmentData(std::shared_ptr<const ModelData> model);
+   };
+   
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_MODEL_ENVIRONMENTDATA_H_

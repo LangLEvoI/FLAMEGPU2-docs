@@ -1,0 +1,82 @@
+
+.. _file_include_flamegpu_runtime_detail_curve_DeviceCurve.cuh:
+
+File DeviceCurve.cuh
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_runtime_detail_curve>` (``include/flamegpu/runtime/detail/curve``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/runtime/detail/curve/DeviceCurve.cuh``)
+----------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_runtime_detail_curve_DeviceCurve.cuh.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/detail/type_decode.h`` (:ref:`file_include_flamegpu_detail_type_decode.h`)
+
+- ``flamegpu/exception/FLAMEGPUDeviceException_device.cuh`` (:ref:`file_include_flamegpu_exception_FLAMEGPUDeviceException_device.cuh`)
+
+- ``flamegpu/runtime/detail/SharedBlock.h`` (:ref:`file_include_flamegpu_runtime_detail_SharedBlock.h`)
+
+- ``flamegpu/runtime/detail/curve/Curve.cuh`` (:ref:`file_include_flamegpu_runtime_detail_curve_Curve.cuh`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_runtime_AgentFunction.cuh`
+
+- :ref:`file_include_flamegpu_runtime_AgentFunctionCondition.cuh`
+
+- :ref:`file_include_flamegpu_runtime_DeviceAPI.cuh`
+
+- :ref:`file_include_flamegpu_runtime_environment_DeviceEnvironment.cuh`
+
+- :ref:`file_include_flamegpu_runtime_messaging_MessageBruteForce_MessageBruteForceDevice.cuh`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+- :ref:`namespace_flamegpu__detail__curve`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1curve_1_1DeviceCurve`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_DeviceCurve_8cuh_1ac857abbb40712ca7f6563e5a7da2003b`
+

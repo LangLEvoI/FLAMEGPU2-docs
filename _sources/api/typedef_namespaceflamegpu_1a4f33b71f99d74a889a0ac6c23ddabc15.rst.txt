@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespaceflamegpu_1a4f33b71f99d74a889a0ac6c23ddabc15:
+
+Typedef flamegpu::size_type
+===========================
+
+- Defined in :ref:`file_include_flamegpu_defines.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: flamegpu::size_type

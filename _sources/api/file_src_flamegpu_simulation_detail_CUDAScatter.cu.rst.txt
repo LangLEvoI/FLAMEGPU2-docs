@@ -1,0 +1,79 @@
+
+.. _file_src_flamegpu_simulation_detail_CUDAScatter.cu:
+
+File CUDAScatter.cu
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_flamegpu_simulation_detail>` (``src/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/flamegpu/simulation/detail/CUDAScatter.cu``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_flamegpu_simulation_detail_CUDAScatter.cu.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cassert``
+
+- ``cub/cub.cuh``
+
+- ``cuda_runtime.h``
+
+- ``flamegpu/detail/cuda.cuh`` (:ref:`file_include_flamegpu_detail_cuda.cuh`)
+
+- ``flamegpu/simulation/detail/CUDAErrorChecking.cuh`` (:ref:`file_include_flamegpu_simulation_detail_CUDAErrorChecking.cuh`)
+
+- ``flamegpu/simulation/detail/CUDAFatAgentStateList.h`` (:ref:`file_include_flamegpu_simulation_detail_CUDAFatAgentStateList.h`)
+
+- ``flamegpu/simulation/detail/CUDAScatter.cuh`` (:ref:`file_include_flamegpu_simulation_detail_CUDAScatter.cuh`)
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a09c6bdb2a8c16c9b3a1cc2c1d2f47bef`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1addf923315be7428b40babe312ebaa20b`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a5a0d93b73a06fc52c85ed73e29ef2b00`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1aeef1d2a6d0f532fb6992a5630c15508e`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a50ecc81102123a357ab5e0f48d4c4fc5`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a0ebbd2d7da1d1e0082c54e158df4fe6b`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a6e197109c62ecf2538e8710ef5bff51d`
+

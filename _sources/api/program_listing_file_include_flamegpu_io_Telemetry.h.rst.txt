@@ -1,0 +1,57 @@
+
+.. _program_listing_file_include_flamegpu_io_Telemetry.h:
+
+Program Listing for File Telemetry.h
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_io_Telemetry.h>` (``include/flamegpu/io/Telemetry.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_IO_TELEMETRY_H_
+   #define INCLUDE_FLAMEGPU_IO_TELEMETRY_H_
+   
+   #include <string>
+   #include <map>
+   
+   namespace flamegpu {
+   
+   // forward declare friendship classes
+   class CUDASimulation;
+   class CUDAEnsemble;
+   
+   namespace io {
+   
+   class Telemetry {
+       // Mark friend classes to allow access to methods not intended for users to call directly.
+       friend class flamegpu::CUDASimulation;
+       friend class flamegpu::CUDAEnsemble;
+    public:
+   static void enable();
+   
+   static void disable();
+   
+   static bool isEnabled();
+   
+   static void suppressNotice();
+   
+    protected:
+   /*
+    * The remote endpoint which telemetry is pushed to.
+    */
+   constexpr static char TELEMETRY_ENDPOINT[] = "https://nom.telemetrydeck.com/v1/";
+   
+   static std::string generateData(std::string event_name, std::map<std::string, std::string> payload_items, bool isSWIG);
+   
+   static bool sendData(std::string telemetry_data);
+   
+   static void encourageUsage();
+   
+   static bool isTestMode();
+   };
+   }  // namespace io
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_IO_TELEMETRY_H_

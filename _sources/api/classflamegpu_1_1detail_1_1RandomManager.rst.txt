@@ -1,0 +1,16 @@
+.. _exhale_class_classflamegpu_1_1detail_1_1RandomManager:
+
+Class RandomManager
+===================
+
+- Defined in :ref:`file_include_flamegpu_simulation_detail_RandomManager.cuh`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::detail::RandomManager
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,122 @@
+
+.. _file_include_flamegpu_simulation_detail_CUDAErrorChecking.cuh:
+
+File CUDAErrorChecking.cuh
+==========================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation_detail>` (``include/flamegpu/simulation/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/detail/CUDAErrorChecking.cuh``)
+-------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_detail_CUDAErrorChecking.cuh.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cuda.h``
+
+- ``cuda_runtime.h``
+
+- ``flamegpu/exception/FLAMEGPUException.h`` (:ref:`file_include_flamegpu_exception_FLAMEGPUException.h`)
+
+- ``string``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_detail_compute_capability.cuh`
+
+- :ref:`file_include_flamegpu_detail_CUDAEventTimer.cuh`
+
+- :ref:`file_include_flamegpu_runtime_environment_HostEnvironment.cuh`
+
+- :ref:`file_include_flamegpu_runtime_HostAPI.h`
+
+- :ref:`file_include_flamegpu_runtime_messaging_MessageBruteForce_MessageBruteForceHost.h`
+
+- :ref:`file_include_flamegpu_simulation_detail_CUDAMacroEnvironment.h`
+
+- :ref:`file_src_flamegpu_detail_compute_capability.cu`
+
+- :ref:`file_src_flamegpu_detail_wddm.cu`
+
+- :ref:`file_src_flamegpu_exception_FLAMEGPUDeviceException.cu`
+
+- :ref:`file_src_flamegpu_runtime_detail_curve_curve_rtc.cpp`
+
+- :ref:`file_src_flamegpu_runtime_detail_curve_HostCurve.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CubTemporaryMemory.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAAgent.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAAgentStateList.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAMessage.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAMessageList.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAScanCompaction.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAScatter.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_EnvironmentManager.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_RandomManager.cu`
+
+- :ref:`file_src_flamegpu_util_cleanup.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1aa3219b89ee653bb03ca64a7ab0fc4719`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a9ba953de2543141a9af9414adbf943cf`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a6b99385f65506854d317cc1a27d486ff`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_CUDAErrorChecking_8cuh_1a3f6ea8e9ef58125936d50d7e1181aa7a`
+
+- :ref:`exhale_define_CUDAErrorChecking_8cuh_1a05a1b794ed7313e0763388e626530d99`
+
+- :ref:`exhale_define_CUDAErrorChecking_8cuh_1aab94d05ca41ffb1aec281d2fee3014a5`
+
+- :ref:`exhale_define_CUDAErrorChecking_8cuh_1a33258038bbc6328911803abfb1bc8eee`
+

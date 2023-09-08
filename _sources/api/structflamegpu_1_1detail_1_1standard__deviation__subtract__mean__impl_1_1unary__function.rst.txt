@@ -1,0 +1,22 @@
+.. _exhale_struct_structflamegpu_1_1detail_1_1standard__deviation__subtract__mean__impl_1_1unary__function:
+
+Template Struct standard_deviation_subtract_mean_impl::unary_function
+=====================================================================
+
+- Defined in :ref:`file_include_flamegpu_simulation_AgentLoggingConfig_Reductions.cuh`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_struct_structflamegpu_1_1detail_1_1standard__deviation__subtract__mean__impl`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::detail::standard_deviation_subtract_mean_impl::unary_function
+   :members:
+   :protected-members:
+   :undoc-members:

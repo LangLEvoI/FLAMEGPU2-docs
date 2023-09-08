@@ -1,0 +1,16 @@
+.. _exhale_struct_structflamegpu_1_1detail_1_1CUDAScanCompactionPtrs:
+
+Struct CUDAScanCompactionPtrs
+=============================
+
+- Defined in :ref:`file_include_flamegpu_simulation_detail_CUDAScanCompaction.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::detail::CUDAScanCompactionPtrs
+   :members:
+   :protected-members:
+   :undoc-members:

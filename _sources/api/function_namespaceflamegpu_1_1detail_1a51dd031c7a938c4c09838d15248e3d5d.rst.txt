@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1a51dd031c7a938c4c09838d15248e3d5d:
+
+Function flamegpu::detail::generateCollisionFlags
+=================================================
+
+- Defined in :ref:`file_src_flamegpu_simulation_detail_CUDAAgent.cu`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::generateCollisionFlags(const id_t *, id_t *, unsigned int, id_t)

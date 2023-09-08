@@ -1,0 +1,92 @@
+
+.. _file_include_flamegpu_runtime_detail_curve_HostCurve.cuh:
+
+File HostCurve.cuh
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_runtime_detail_curve>` (``include/flamegpu/runtime/detail/curve``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/runtime/detail/curve/HostCurve.cuh``)
+--------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_runtime_detail_curve_HostCurve.cuh.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cstdio``
+
+- ``cstring``
+
+- ``flamegpu/exception/FLAMEGPUDeviceException.cuh`` (:ref:`file_include_flamegpu_exception_FLAMEGPUDeviceException.cuh`)
+
+- ``flamegpu/runtime/detail/curve/Curve.cuh`` (:ref:`file_include_flamegpu_runtime_detail_curve_Curve.cuh`)
+
+- ``mutex``
+
+- ``shared_mutex``
+
+- ``string``
+
+- ``typeindex``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_simulation_CUDASimulation.h`
+
+- :ref:`file_include_flamegpu_simulation_detail_CUDAMacroEnvironment.h`
+
+- :ref:`file_include_flamegpu_simulation_detail_EnvironmentManager.cuh`
+
+- :ref:`file_src_flamegpu_runtime_detail_curve_HostCurve.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAAgent.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAMessage.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+- :ref:`namespace_flamegpu__detail__curve`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1detail_1_1curve_1_1HostCurve`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_HostCurve_8cuh_1a825e691ebeb0c259e8ae491505933d42`
+

@@ -1,0 +1,60 @@
+
+.. _program_listing_file_include_flamegpu_model_SubEnvironmentDescription.h:
+
+Program Listing for File SubEnvironmentDescription.h
+====================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_model_SubEnvironmentDescription.h>` (``include/flamegpu/model/SubEnvironmentDescription.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_MODEL_SUBENVIRONMENTDESCRIPTION_H_
+   #define INCLUDE_FLAMEGPU_MODEL_SUBENVIRONMENTDESCRIPTION_H_
+   
+   #include <memory>
+   #include <string>
+   
+   namespace flamegpu {
+   
+   struct ModelData;
+   struct SubModelData;
+   struct SubEnvironmentData;
+   
+   class CSubEnvironmentDescription {
+       friend struct SubEnvironmentData;
+   
+    public:
+       explicit CSubEnvironmentDescription(std::shared_ptr<SubEnvironmentData> data);
+       explicit CSubEnvironmentDescription(std::shared_ptr<const SubEnvironmentData> data);
+       CSubEnvironmentDescription(const CSubEnvironmentDescription& other_agent) = default;
+       CSubEnvironmentDescription(CSubEnvironmentDescription&& other_agent) = default;
+       CSubEnvironmentDescription& operator=(const CSubEnvironmentDescription& other_agent) = default;
+       CSubEnvironmentDescription& operator=(CSubEnvironmentDescription&& other_agent) = default;
+       bool operator==(const CSubEnvironmentDescription& rhs) const;
+       bool operator!=(const CSubEnvironmentDescription& rhs) const;
+       std::string getPropertyMapping(const std::string& sub_property_name) const;
+       std::string getMacroPropertyMapping(const std::string& sub_property_name) const;
+   
+    protected:
+       std::shared_ptr<SubEnvironmentData> subenvironment;
+   };
+   class SubEnvironmentDescription : public CSubEnvironmentDescription {
+    public:
+       explicit SubEnvironmentDescription(std::shared_ptr<SubEnvironmentData> data);
+       SubEnvironmentDescription(const SubEnvironmentDescription& other_agent) = default;
+       SubEnvironmentDescription(SubEnvironmentDescription&& other_agent) = default;
+       SubEnvironmentDescription& operator=(const SubEnvironmentDescription& other_agent) = default;
+       SubEnvironmentDescription& operator=(SubEnvironmentDescription&& other_agent) = default;
+   
+       void autoMap();
+       void autoMapProperties();
+       void autoMapMacroProperties();
+       void mapProperty(const std::string &sub_property_name, const std::string &master_property_name);
+       void mapMacroProperty(const std::string& sub_property_name, const std::string& master_property_name);
+   };
+   
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_MODEL_SUBENVIRONMENTDESCRIPTION_H_

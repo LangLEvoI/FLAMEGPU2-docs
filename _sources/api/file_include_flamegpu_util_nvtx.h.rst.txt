@@ -1,0 +1,103 @@
+
+.. _file_include_flamegpu_util_nvtx.h:
+
+File nvtx.h
+===========
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_util>` (``include/flamegpu/util``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/util/nvtx.h``)
+---------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_util_nvtx.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cstdint``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_runtime_messaging_MessageSpatial3D_MessageSpatial3DHost.h`
+
+- :ref:`file_src_flamegpu_detail_JitifyCache.cu`
+
+- :ref:`file_src_flamegpu_runtime_detail_curve_HostCurve.cu`
+
+- :ref:`file_src_flamegpu_runtime_HostAPI.cu`
+
+- :ref:`file_src_flamegpu_runtime_messaging_MessageBucket.cu`
+
+- :ref:`file_src_flamegpu_runtime_messaging_MessageSpatial2D.cu`
+
+- :ref:`file_src_flamegpu_simulation_CUDASimulation.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CubTemporaryMemory.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAAgent.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAFatAgent.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_EnvironmentManager.cu`
+
+- :ref:`file_src_flamegpu_simulation_Simulation.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__util`
+
+- :ref:`namespace_flamegpu__util__nvtx`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1util_1_1nvtx_1_1Range`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1_1util_1_1nvtx_1ab909a4af7be046b5bacf9e0210ec8c44`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1util_1_1nvtx_1adf60f078081462ee25d17335e84da620`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespaceflamegpu_1_1util_1_1nvtx_1ae10adf9792fc2b0b7633eb6de2264822`
+
+- :ref:`exhale_variable_namespaceflamegpu_1_1util_1_1nvtx_1a7387cf44905d30baa6d0ea9028040a2d`
+
+- :ref:`exhale_variable_namespaceflamegpu_1_1util_1_1nvtx_1ad8741a3a413fbc84d63b882881705bbc`
+

@@ -1,0 +1,67 @@
+
+.. _file_src_flamegpu_io_XMLStateWriter.cpp:
+
+File XMLStateWriter.cpp
+=======================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_flamegpu_io>` (``src/flamegpu/io``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/flamegpu/io/XMLStateWriter.cpp``)
+---------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_flamegpu_io_XMLStateWriter.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/exception/FLAMEGPUException.h`` (:ref:`file_include_flamegpu_exception_FLAMEGPUException.h`)
+
+- ``flamegpu/io/XMLStateWriter.h`` (:ref:`file_include_flamegpu_io_XMLStateWriter.h`)
+
+- ``flamegpu/model/AgentDescription.h`` (:ref:`file_include_flamegpu_model_AgentDescription.h`)
+
+- ``flamegpu/simulation/AgentVector.h`` (:ref:`file_include_flamegpu_simulation_AgentVector.h`)
+
+- ``flamegpu/simulation/CUDASimulation.h`` (:ref:`file_include_flamegpu_simulation_CUDASimulation.h`)
+
+- ``flamegpu/simulation/detail/EnvironmentManager.cuh`` (:ref:`file_include_flamegpu_simulation_detail_EnvironmentManager.cuh`)
+
+- ``sstream``
+
+- ``tinyxml2/tinyxml2.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__io`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_XMLStateWriter_8cpp_1afa12b43d02fbd77db41a70be0733552a`
+

@@ -1,0 +1,63 @@
+
+.. _file_src_flamegpu_simulation_AgentLoggingConfig.cu:
+
+File AgentLoggingConfig.cu
+==========================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_flamegpu_simulation>` (``src/flamegpu/simulation``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/flamegpu/simulation/AgentLoggingConfig.cu``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_flamegpu_simulation_AgentLoggingConfig.cu.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/model/AgentData.h`` (:ref:`file_include_flamegpu_model_AgentData.h`)
+
+- ``flamegpu/simulation/AgentLoggingConfig.h`` (:ref:`file_include_flamegpu_simulation_AgentLoggingConfig.h`)
+
+- ``utility``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespaceflamegpu_1_1detail_1a61d3d707a6620585758c1efd3cea54a2`
+
+- :ref:`exhale_variable_namespaceflamegpu_1_1detail_1a5e169c9830e27f3e46a57d103144d5d3`
+
+- :ref:`exhale_variable_namespaceflamegpu_1_1detail_1aae8849dcffeb32b7742994d953b7a726`
+
+- :ref:`exhale_variable_namespaceflamegpu_1_1detail_1a4a219a49a5e05388630e16350ba5c1f3`
+

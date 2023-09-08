@@ -1,0 +1,13 @@
+.. _exhale_define_HostAPI__macros_8h_1ab68d3bcdcb4f213159622b8aa7b141b4:
+
+Define FLAMEGPU_HOST_FUNCTION_DEF
+=================================
+
+- Defined in :ref:`file_include_flamegpu_runtime_HostAPI_macros.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: FLAMEGPU_HOST_FUNCTION_DEF

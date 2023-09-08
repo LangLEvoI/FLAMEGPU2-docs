@@ -1,0 +1,91 @@
+
+.. _program_listing_file_include_flamegpu_simulation_detail_CUDAFatAgent.h:
+
+Program Listing for File CUDAFatAgent.h
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_simulation_detail_CUDAFatAgent.h>` (``include/flamegpu/simulation/detail/CUDAFatAgent.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAFATAGENT_H_
+   #define INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAFATAGENT_H_
+   
+   #include <memory>
+   #include <unordered_map>
+   #include <set>
+   #include <mutex>
+   #include <string>
+   
+   
+   #include "flamegpu/simulation/detail/CUDAAgentStateList.h"
+   #include "flamegpu/simulation/detail/CUDAFatAgentStateList.h"
+   #include "flamegpu/model/SubAgentData.h"
+   
+   namespace flamegpu {
+   class HostAPI;
+   namespace detail {
+   
+   
+   class CUDAFatAgent {
+       struct AgentState{
+           const unsigned int agent;
+           const std::string state;
+           bool operator==(const AgentState &other) const {
+               return (agent == other.agent && state == other.state);
+           }
+       };
+       struct AgentState_hash {
+           std::size_t operator()(const AgentState& k) const noexcept {
+               return ((std::hash<unsigned int>()(k.agent)
+                   ^ (std::hash<std::string>()(k.state) << 1)) >> 1);
+           }
+       };
+   
+    public:
+       explicit CUDAFatAgent(const AgentData& description);
+       ~CUDAFatAgent();
+       void addSubAgent(
+         const AgentData &description,
+         unsigned int master_fat_index,
+         const std::shared_ptr<SubAgentData> &mapping);
+       std::unordered_map<std::string, std::shared_ptr<CUDAFatAgentStateList>> getStateMap(unsigned int fat_index);
+       void processDeath(unsigned int agent_fat_id, const std::string &state_name, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void transitionState(unsigned int agent_fat_id, const std::string &_src, const std::string &_dest, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void processFunctionCondition(unsigned int agent_fat_id, const std::string &state_name, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void setConditionState(unsigned int agent_fat_id, const std::string &state_name, unsigned int numberOfDisabled);
+       void *allocNewBuffer(size_t total_agent_size, unsigned int new_agents, size_t varCount);
+       void freeNewBuffer(void *buff);
+       unsigned int getMappedAgentCount() const;
+       id_t nextID(unsigned int count = 1);
+       id_t *getDeviceNextID();
+       void notifyDeviceBirths(unsigned int newCount);
+       void assignIDs(HostAPI& hostapi, CUDAScatter& scatter, cudaStream_t stream, unsigned int streamId);
+       void markIDsUnset() { agent_ids_have_init = false; }
+       void resetIDCounter();
+   
+    private:
+       std::unordered_map<AgentState, std::shared_ptr<CUDAFatAgentStateList>, AgentState_hash> states;
+       std::set<std::shared_ptr<CUDAFatAgentStateList>> states_unique;
+   
+       struct NewBuffer {
+           size_t size;
+           void *data;
+           bool in_use;
+           bool operator<(const NewBuffer &other) const { return size < other.size; }
+       };
+       std::multiset<NewBuffer> d_newLists;
+       std::mutex d_newLists_mutex;
+       unsigned int mappedAgentCount;
+       id_t _nextID;
+       id_t *d_nextID;
+       id_t hd_nextID;
+       bool agent_ids_have_init = true;
+   };
+   
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAFATAGENT_H_

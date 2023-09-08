@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespaceflamegpu_1_1detail_1a22cad826da222ea86c6a2fe84dfeb72d:
+
+Typedef flamegpu::detail::curandState
+=====================================
+
+- Defined in :ref:`file_include_flamegpu_detail_curand.cuh`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: flamegpu::detail::curandState

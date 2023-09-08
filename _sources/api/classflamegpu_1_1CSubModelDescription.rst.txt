@@ -1,0 +1,31 @@
+.. _exhale_class_classflamegpu_1_1CSubModelDescription:
+
+Class CSubModelDescription
+==========================
+
+- Defined in :ref:`file_include_flamegpu_model_SubModelDescription.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public flamegpu::DependencyNode`` (:ref:`exhale_class_classflamegpu_1_1DependencyNode`)
+
+
+Derived Type
+************
+
+- ``public flamegpu::SubModelDescription`` (:ref:`exhale_class_classflamegpu_1_1SubModelDescription`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::CSubModelDescription
+   :members:
+   :protected-members:
+   :undoc-members:

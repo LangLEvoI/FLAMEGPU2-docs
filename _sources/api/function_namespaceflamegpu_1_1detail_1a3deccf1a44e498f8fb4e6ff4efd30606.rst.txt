@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1_1detail_1a3deccf1a44e498f8fb4e6ff4efd30606:
+
+Function flamegpu::detail::sm
+=============================
+
+- Defined in :ref:`file_include_flamegpu_runtime_detail_SharedBlock.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::detail::sm()

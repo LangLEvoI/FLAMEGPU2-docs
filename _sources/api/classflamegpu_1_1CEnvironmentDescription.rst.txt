@@ -1,0 +1,25 @@
+.. _exhale_class_classflamegpu_1_1CEnvironmentDescription:
+
+Class CEnvironmentDescription
+=============================
+
+- Defined in :ref:`file_include_flamegpu_model_EnvironmentDescription.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public flamegpu::EnvironmentDescription`` (:ref:`exhale_class_classflamegpu_1_1EnvironmentDescription`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::CEnvironmentDescription
+   :members:
+   :protected-members:
+   :undoc-members:

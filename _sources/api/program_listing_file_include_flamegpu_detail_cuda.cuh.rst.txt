@@ -1,0 +1,117 @@
+
+.. _program_listing_file_include_flamegpu_detail_cuda.cuh:
+
+Program Listing for File cuda.cuh
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_detail_cuda.cuh>` (``include/flamegpu/detail/cuda.cuh``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_DETAIL_CUDA_CUH_
+   #define INCLUDE_FLAMEGPU_DETAIL_CUDA_CUH_
+   
+   #include <cuda_runtime.h>
+   #include <cuda.h>
+   #include <limits>
+   #include "flamegpu/exception/FLAMEGPUException.h"
+   
+   namespace flamegpu {
+   namespace detail {
+   namespace cuda {
+   
+   inline cudaError_t cudaFree(void* devPtr) {
+       cudaError_t status = cudaSuccess;
+       // Check the pointer attribtues to detect if it is a valid ptr for the current context.
+       // @todo - version which checks the device ordinal is a match for the active context too, potenitally flip-flopping the device.
+       cudaPointerAttributes attributes = {};
+       status = cudaPointerGetAttributes(&attributes, devPtr);
+       // valid device pointers have a type of cudaMemoryTypeDevice (2), or we could check the device is non negative (and matching the current device index?), or the devicePointer will be non null.
+       if (status == cudaSuccess && attributes.type == cudaMemoryTypeDevice) {
+           status = ::cudaFree(devPtr);
+           // Forward any status on
+           return status;
+       }
+       // If the pointer attribtues were not correct, return cudaSuccess to avoid bad error checking.
+       return cudaSuccess;
+   }
+   
+   inline cudaError_t cudaFreeHost(void* devPtr) {
+       cudaError_t status = cudaSuccess;
+       // Check the pointer attribtues to detect if it is a valid ptr for the current context.
+       // @todo - version which checks the device ordinal is a match for the active context too, potenitally flip-flopping the device.
+       cudaPointerAttributes attributes = {};
+       status = cudaPointerGetAttributes(&attributes, devPtr);
+       // valid pointers allocated using cudaMallocHost have a type of cudaMemoryTypeHost
+       if (status == cudaSuccess && attributes.type == cudaMemoryTypeHost) {
+           status = ::cudaFreeHost(devPtr);
+           // Forward on any cuda errors returned.
+           return status;
+       }
+       // If the pointer attribtues were not correct, return cudaSuccess to avoid bad error checking.
+       return cudaSuccess;
+   }
+   
+   inline bool cuDevicePrimaryContextIsActive(int ordinal) {
+       // Throw an exception if a negative device ordinal is passed
+       if (ordinal < 0) {
+           THROW exception::InvalidCUDAdevice("CUDA Device ordinals must be non-negative integers, in detail::cuda::cuDevicePrimaryContextIsActive()");
+       }
+   
+       int deviceCount = 0;
+       CUresult cuErr = CUDA_SUCCESS;
+       // Get the device count, possible errors are all about bad context / state  deinitialisation, so eat those silently.
+       cuErr = cuDeviceGetCount(&deviceCount);
+       if (cuErr == CUDA_SUCCESS) {
+           // If the device count is 0, throw.
+           if (deviceCount == 0) {
+               THROW exception::InvalidCUDAdevice("Error no CUDA devices found!, in detail::cuda::cuDevicePrimaryContextIsActive()");
+           }
+           // If the ordinal is invalid, throw
+           if (ordinal >= deviceCount) {
+               THROW exception::InvalidCUDAdevice("Requested CUDA device %d is not valid, only %d CUDA devices available!, in detail::cuda::cuDevicePrimaryContextIsActive()", ordinal, deviceCount);
+           }
+           // Get the CUdevice handle, silently dismissing any cuErrors as they are falsey
+           CUdevice deviceHandle;
+           cuErr = cuDeviceGet(&deviceHandle, ordinal);
+           if (cuErr == CUDA_SUCCESS) {
+               // Get the status of the primary context, again silently treating any cuda driver api errors returned as false-y values as they are effectively what we are checking for with this method.
+               unsigned int primaryCtxflags = 0;
+               int primaryCtxIsActive = false;
+               cuErr = cuDevicePrimaryCtxGetState(deviceHandle, &primaryCtxflags, &primaryCtxIsActive);
+               if (cuErr == CUDA_SUCCESS) {
+                   return primaryCtxIsActive;
+               }
+           }
+       }
+       // If we could not return the active state, return false.
+       return false;
+   }
+   
+   #if __CUDACC_VER_MAJOR__ >= 12
+   
+   inline std::uint64_t cuGetCurrentContextUniqueID() {
+       static_assert(sizeof(unsigned long long int) == sizeof(std::uint64_t));  // NOLINT
+       CUresult cuErr = CUDA_SUCCESS;
+       // Get the handle to the current context
+       CUcontext ctx = NULL;
+       cuErr = cuCtxGetCurrent(&ctx);
+       if (cuErr == CUDA_SUCCESS) {
+           // Getand return the unique id
+           unsigned long long int ctxid = std::numeric_limits<std::uint64_t>::max();  // NOLINT
+           cuErr = cuCtxGetId(ctx, &ctxid);
+           if (cuErr == CUDA_SUCCESS) {
+               return static_cast<std::uint64_t>(ctxid);
+           }
+       }
+       return std::numeric_limits<std::uint64_t>::max();
+   }
+   #endif  // __CUDACC_VER_MAJOR__ >= 12
+   
+   }  // namespace cuda
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_DETAIL_CUDA_CUH_

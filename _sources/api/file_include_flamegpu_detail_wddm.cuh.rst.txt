@@ -1,0 +1,66 @@
+
+.. _file_include_flamegpu_detail_wddm.cuh:
+
+File wddm.cuh
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_detail>` (``include/flamegpu/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/detail/wddm.cuh``)
+-------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_detail_wddm.cuh.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_flamegpu_detail_wddm.cu`
+
+- :ref:`file_src_flamegpu_simulation_CUDASimulation.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+- :ref:`namespace_flamegpu__detail__wddm`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1_1wddm_1aadd153aff3aadf89010e0e515dc18a56`
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1_1wddm_1a54675b333821503c2d45012182ca8b5b`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_wddm_8cuh_1ac989c101663ad6f80a14ae2ea1c6d587`
+

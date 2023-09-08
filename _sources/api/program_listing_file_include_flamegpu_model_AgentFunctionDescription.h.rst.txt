@@ -1,0 +1,138 @@
+
+.. _program_listing_file_include_flamegpu_model_AgentFunctionDescription.h:
+
+Program Listing for File AgentFunctionDescription.h
+===================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_model_AgentFunctionDescription.h>` (``include/flamegpu/model/AgentFunctionDescription.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_MODEL_AGENTFUNCTIONDESCRIPTION_H_
+   #define INCLUDE_FLAMEGPU_MODEL_AGENTFUNCTIONDESCRIPTION_H_
+   
+   #include <string>
+   #include <memory>
+   #include <vector>
+   
+   #include "flamegpu/model/ModelDescription.h"
+   #include "flamegpu/model/AgentDescription.h"
+   #include "flamegpu/model/DependencyNode.h"
+   #include "flamegpu/model/Variable.h"
+   #include "flamegpu/model/LayerDescription.h"
+   #include "flamegpu/runtime/messaging/MessageBruteForce.h"
+   #include "flamegpu/runtime/detail/curve/curve_rtc.cuh"
+   
+   #ifdef _MSC_VER
+   #pragma warning(push, 2)
+   #include "jitify/jitify.hpp"
+   #pragma warning(pop)
+   #else
+   #include "jitify/jitify.hpp"
+   #endif
+   
+   namespace flamegpu {
+   
+   struct ModelData;
+   struct AgentFunctionData;
+   class AgentFunctionDescription;
+   
+   class CAgentFunctionDescription : public DependencyNode {
+       friend struct AgentFunctionData;
+       friend void LayerDescription::addAgentFunction(const CAgentFunctionDescription&);
+       friend class DependencyGraph;
+       friend class DependencyNode;
+   
+    public:
+        explicit CAgentFunctionDescription(std::shared_ptr<AgentFunctionData> data);
+        explicit CAgentFunctionDescription(std::shared_ptr<const AgentFunctionData> data);
+        CAgentFunctionDescription(const CAgentFunctionDescription& other_function) = default;
+        CAgentFunctionDescription(CAgentFunctionDescription&& other_function) = default;
+        CAgentFunctionDescription& operator=(const CAgentFunctionDescription& other_function) = default;
+        CAgentFunctionDescription& operator=(CAgentFunctionDescription&& other_function) = default;
+        bool operator==(const CAgentFunctionDescription& rhs) const;
+        bool operator!=(const CAgentFunctionDescription& rhs) const;
+   
+        std::string getName() const;
+        std::string getInitialState() const;
+        std::string getEndState() const;
+        MessageBruteForce::CDescription getMessageInput() const;
+        MessageBruteForce::CDescription getMessageOutput() const;
+        bool getMessageOutputOptional() const;
+        CAgentDescription getAgentOutput() const;
+        std::string getAgentOutputState() const;
+        bool getAllowAgentDeath() const;
+        bool hasMessageInput() const;
+        bool hasMessageOutput() const;
+        bool hasAgentOutput() const;
+        bool hasFunctionCondition() const;
+        AgentFunctionWrapper* getFunctionPtr() const;
+        AgentFunctionConditionWrapper* getConditionPtr() const;
+        bool isRTC() const;
+   
+    protected:
+        std::shared_ptr<AgentFunctionData> function;
+   };
+   
+   
+   class AgentFunctionDescription : public CAgentFunctionDescription {
+    public:
+       explicit AgentFunctionDescription(std::shared_ptr<AgentFunctionData> data);
+       AgentFunctionDescription(const AgentFunctionDescription& other_agent) = default;
+       AgentFunctionDescription(AgentFunctionDescription&& other_agent) = default;
+       AgentFunctionDescription& operator=(const AgentFunctionDescription &other_function) = default;
+       AgentFunctionDescription& operator=(AgentFunctionDescription &&other_function) = default;
+   
+       void setInitialState(const std::string &init_state);
+       void setEndState(const std::string &end_state);
+       void setMessageInput(const std::string &message_name);
+       void setMessageInput(MessageBruteForce::CDescription message);
+       void setMessageOutput(const std::string &message_name);
+       void setMessageOutput(MessageBruteForce::CDescription message);
+       void setMessageOutputOptional(bool output_is_optional);
+       void setAgentOutput(const std::string &agent_name, const std::string state = ModelData::DEFAULT_STATE);
+       void setAgentOutput(AgentDescription &agent, const std::string state = ModelData::DEFAULT_STATE);
+       void setAllowAgentDeath(bool has_death);
+       template<typename AgentFunctionCondition>
+       void setFunctionCondition(AgentFunctionCondition);
+       void setRTCFunctionCondition(std::string func_cond_src);
+       void setRTCFunctionConditionFile(const std::string& file_path);
+   
+       MessageBruteForce::Description MessageInput();
+       MessageBruteForce::Description MessageOutput();
+       bool &MessageOutputOptional();
+       bool &AllowAgentDeath();
+       AgentDescription AgentOutput();
+   };
+   
+   
+   template<typename AgentFunction>
+   AgentFunctionDescription AgentDescription::newFunction(const std::string &function_name, AgentFunction) {
+       if (agent->functions.find(function_name) == agent->functions.end()) {
+           AgentFunctionWrapper *f = AgentFunction::fnPtr();
+           std::string in_t = detail::curve::CurveRTCHost::demangle(AgentFunction::inType().name());
+           std::string out_t = detail::curve::CurveRTCHost::demangle(AgentFunction::outType().name());
+           if (in_t == "flamegpu::MessageSpatial3D" || in_t == "flamegpu::MessageSpatial2D" || out_t == "flamegpu::MessageSpatial3D" || out_t == "flamegpu::MessageSpatial2D") {
+               if (agent->variables.find("_auto_sort_bin_index") == agent->variables.end()) {
+                   agent->variables.emplace("_auto_sort_bin_index", Variable(1, std::vector<unsigned int> {0}));
+               }
+           }
+           auto rtn = std::shared_ptr<AgentFunctionData>(new AgentFunctionData(this->agent->shared_from_this(), function_name, f, in_t, out_t));
+           agent->functions.emplace(function_name, rtn);
+           return AgentFunctionDescription(rtn);
+       }
+       THROW exception::InvalidAgentFunc("Agent ('%s') already contains function '%s', "
+           "in AgentDescription::newFunction().",
+           agent->name.c_str(), function_name.c_str());
+   }
+   
+   template<typename AgentFunctionCondition>
+   void AgentFunctionDescription::setFunctionCondition(AgentFunctionCondition) {
+       function->condition = AgentFunctionCondition::fnPtr();
+   }
+   
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_MODEL_AGENTFUNCTIONDESCRIPTION_H_

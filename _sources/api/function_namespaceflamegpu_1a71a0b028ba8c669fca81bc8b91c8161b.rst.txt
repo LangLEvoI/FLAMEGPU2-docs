@@ -1,0 +1,13 @@
+.. _exhale_function_namespaceflamegpu_1a71a0b028ba8c669fca81bc8b91c8161b:
+
+Template Function flamegpu::getAgentVariableMeanFunc
+====================================================
+
+- Defined in :ref:`file_include_flamegpu_simulation_AgentLoggingConfig.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: flamegpu::getAgentVariableMeanFunc(HostAgentAPI&, const std::string&)

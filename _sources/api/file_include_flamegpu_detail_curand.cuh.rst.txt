@@ -1,0 +1,74 @@
+
+.. _file_include_flamegpu_detail_curand.cuh:
+
+File curand.cuh
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_detail>` (``include/flamegpu/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/detail/curand.cuh``)
+---------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_detail_curand.cuh.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``curand_kernel.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_runtime_AgentFunction.cuh`
+
+- :ref:`file_include_flamegpu_runtime_random_AgentRandom.cuh`
+
+- :ref:`file_include_flamegpu_simulation_detail_RandomManager.cuh`
+
+- :ref:`file_src_flamegpu_simulation_CUDASimulation.cu`
+
+- :ref:`file_src_flamegpu_simulation_detail_RandomManager.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_curand_8cuh_1a63b7cca3f62e1a5015b2116f5c81d976`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_namespaceflamegpu_1_1detail_1a22cad826da222ea86c6a2fe84dfeb72d`
+

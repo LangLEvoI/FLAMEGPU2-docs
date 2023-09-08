@@ -1,0 +1,13 @@
+.. _exhale_define_CUDAEventTimer_8cuh_1a8198d183b0ccfb69bfc71410d4718809:
+
+Define INCLUDE_FLAMEGPU_DETAIL_CUDAEVENTTIMER_CUH_
+==================================================
+
+- Defined in :ref:`file_include_flamegpu_detail_CUDAEventTimer.cuh`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: INCLUDE_FLAMEGPU_DETAIL_CUDAEVENTTIMER_CUH_

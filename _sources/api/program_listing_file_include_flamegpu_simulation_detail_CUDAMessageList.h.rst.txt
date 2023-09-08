@@ -1,0 +1,59 @@
+
+.. _program_listing_file_include_flamegpu_simulation_detail_CUDAMessageList.h:
+
+Program Listing for File CUDAMessageList.h
+==========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_simulation_detail_CUDAMessageList.h>` (``include/flamegpu/simulation/detail/CUDAMessageList.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAMESSAGELIST_H_
+   #define INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAMESSAGELIST_H_
+   
+   #include <string>
+   #include <map>
+   #include <utility>
+   
+   namespace flamegpu {
+   namespace detail {
+   
+   class CUDAScatter;
+   class CUDAMessage;
+   
+   typedef std::map <std::string, void*> CUDAMessageMap;
+   typedef std::pair <std::string, void*> CUDAMessageMapPair;
+   
+   class CUDAMessageList {
+    public:
+       explicit CUDAMessageList(CUDAMessage& cuda_message, detail::CUDAScatter &scatter, cudaStream_t stream, unsigned int streamId);
+       virtual ~CUDAMessageList();
+   
+       void cleanupAllocatedData();
+       void* getReadMessageListVariablePointer(std::string variable_name);
+       void* getWriteMessageListVariablePointer(std::string variable_name);
+       void resize(CUDAScatter& scatter, cudaStream_t stream, unsigned int streamId = 0, unsigned int keep_len = 0);
+       void zeroMessageData(cudaStream_t stream);
+       virtual void swap();
+       virtual unsigned int scatter(unsigned int newCount, detail::CUDAScatter &scatter, cudaStream_t stream, unsigned int streamId, bool append);
+       virtual unsigned int scatterAll(unsigned int newCount, detail::CUDAScatter &scatter, cudaStream_t stream, unsigned int streamId);
+       const CUDAMessageMap &getReadList() { return d_list; }
+       const CUDAMessageMap &getWriteList() { return d_swap_list; }
+   
+    protected:
+       void allocateDeviceMessageList(CUDAMessageMap &memory_map);
+       void releaseDeviceMessageList(CUDAMessageMap &memory_map);
+       void zeroDeviceMessageList_async(CUDAMessageMap &memory_map, cudaStream_t stream, unsigned int skip_offset = 0);
+   
+    private:
+       CUDAMessageMap d_list;
+       CUDAMessageMap d_swap_list;
+       const CUDAMessage& message;
+   };
+   
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAMESSAGELIST_H_

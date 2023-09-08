@@ -1,0 +1,16 @@
+.. _exhale_class_classflamegpu_1_1detail_1_1SimLogger:
+
+Class SimLogger
+===============
+
+- Defined in :ref:`file_include_flamegpu_simulation_detail_SimLogger.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::detail::SimLogger
+   :members:
+   :protected-members:
+   :undoc-members:

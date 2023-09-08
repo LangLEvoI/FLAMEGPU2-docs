@@ -1,0 +1,72 @@
+
+.. _program_listing_file_include_flamegpu_simulation_detail_CUDAAgentStateList.h:
+
+Program Listing for File CUDAAgentStateList.h
+=============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_simulation_detail_CUDAAgentStateList.h>` (``include/flamegpu/simulation/detail/CUDAAgentStateList.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAAGENTSTATELIST_H_
+   #define INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAAGENTSTATELIST_H_
+   
+   #include <string>
+   #include <memory>
+   #include <map>
+   #include <list>
+   
+   #include "flamegpu/simulation/detail/CUDAFatAgentStateList.h"
+   
+   namespace flamegpu {
+   struct VarOffsetStruct;
+   namespace detail {
+   class CUDAScatter;
+   class CUDAAgent;
+   
+   class CUDAAgentStateList {
+    public:
+       CUDAAgentStateList(
+           const std::shared_ptr<CUDAFatAgentStateList> &fat_list,
+           CUDAAgent& cuda_agent,
+           unsigned int _fat_index,
+           const AgentData& description,
+           bool _isSubStateList = false);
+       CUDAAgentStateList(
+           const std::shared_ptr<CUDAFatAgentStateList> &fat_list,
+           CUDAAgent& cuda_agent,
+           unsigned int _fat_index,
+           const AgentData& description,
+           bool _isSubStateList,
+           const SubAgentData::Mapping &mapping);
+       void resize(unsigned int minimumSize, bool retainData, cudaStream_t stream);
+       unsigned int getSize() const;
+       unsigned int getAllocatedSize() const;
+       void *getVariablePointer(const std::string &variable_name);
+       void setAgentData(const AgentVector &data, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void getAgentData(AgentVector&data) const;
+       void scatterHostCreation(unsigned int newSize, char *const d_inBuff, const VarOffsetStruct &offsets, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void scatterSort_async(detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       unsigned int scatterNew(void * d_newBuff, unsigned int newSize, detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       bool getIsSubStatelist();
+       void initUnmappedVars(detail::CUDAScatter &scatter, unsigned int streamId, cudaStream_t stream);
+       void initExcludedVars(unsigned int count, unsigned int offset, CUDAScatter& scatter, unsigned int streamId, cudaStream_t stream);
+       void clear();
+       void setAgentCount(unsigned int newSize);
+       std::list<std::shared_ptr<VariableBuffer>> getUnboundVariableBuffers();
+   
+    private:
+       std::map<std::string, std::shared_ptr<VariableBuffer>> variables;
+       const unsigned int fat_index;
+       CUDAAgent &agent;
+       const std::shared_ptr<CUDAFatAgentStateList> parent_list;
+       const bool isSubStateList;
+       std::list<std::shared_ptr<VariableBuffer>> unmappedBuffers;
+   };
+   
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_SIMULATION_DETAIL_CUDAAGENTSTATELIST_H_

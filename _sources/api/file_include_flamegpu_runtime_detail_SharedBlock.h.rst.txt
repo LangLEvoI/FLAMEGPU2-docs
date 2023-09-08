@@ -1,0 +1,72 @@
+
+.. _file_include_flamegpu_runtime_detail_SharedBlock.h:
+
+File SharedBlock.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_runtime_detail>` (``include/flamegpu/runtime/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/runtime/detail/SharedBlock.h``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_runtime_detail_SharedBlock.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/runtime/detail/curve/Curve.cuh`` (:ref:`file_include_flamegpu_runtime_detail_curve_Curve.cuh`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_exception_FLAMEGPUDeviceException_device.cuh`
+
+- :ref:`file_include_flamegpu_runtime_AgentFunction.cuh`
+
+- :ref:`file_include_flamegpu_runtime_detail_curve_DeviceCurve.cuh`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+- :ref:`namespace_flamegpu__exception`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structflamegpu_1_1detail_1_1SharedBlock`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceflamegpu_1_1detail_1a3deccf1a44e498f8fb4e6ff4efd30606`
+

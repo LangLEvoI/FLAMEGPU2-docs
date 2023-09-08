@@ -1,0 +1,107 @@
+
+.. _file_include_flamegpu_simulation_AgentVector.h:
+
+File AgentVector.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_flamegpu_simulation>` (``include/flamegpu/simulation``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/flamegpu/simulation/AgentVector.h``)
+----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_flamegpu_simulation_AgentVector.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``flamegpu/defines.h`` (:ref:`file_include_flamegpu_defines.h`)
+
+- ``flamegpu/model/AgentData.h`` (:ref:`file_include_flamegpu_model_AgentData.h`)
+
+- ``flamegpu/simulation/AgentVector_Agent.h`` (:ref:`file_include_flamegpu_simulation_AgentVector_Agent.h`)
+
+- ``flamegpu/simulation/detail/MemoryVector.h`` (:ref:`file_include_flamegpu_simulation_detail_MemoryVector.h`)
+
+- ``map``
+
+- ``memory``
+
+- ``string``
+
+- ``utility``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_flamegpu_flamegpu.h`
+
+- :ref:`file_include_flamegpu_model_AgentDescription.h`
+
+- :ref:`file_include_flamegpu_runtime_agent_AgentInstance.h`
+
+- :ref:`file_include_flamegpu_runtime_agent_DeviceAgentVector.h`
+
+- :ref:`file_include_flamegpu_runtime_agent_DeviceAgentVector_impl.h`
+
+- :ref:`file_include_flamegpu_simulation_AgentVector_Agent.h`
+
+- :ref:`file_src_flamegpu_io_JSONStateReader.cpp`
+
+- :ref:`file_src_flamegpu_io_JSONStateWriter.cpp`
+
+- :ref:`file_src_flamegpu_io_XMLStateReader.cpp`
+
+- :ref:`file_src_flamegpu_io_XMLStateWriter.cpp`
+
+- :ref:`file_src_flamegpu_simulation_AgentInstance.cpp`
+
+- :ref:`file_src_flamegpu_simulation_AgentVector.cpp`
+
+- :ref:`file_src_flamegpu_simulation_detail_CUDAAgentStateList.cu`
+
+- :ref:`file_src_flamegpu_simulation_Simulation.cu`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classflamegpu_1_1AgentVector`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentVector_1_1const__iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentVector_1_1const__reverse__iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentVector_1_1iterator`
+
+- :ref:`exhale_class_classflamegpu_1_1AgentVector_1_1reverse__iterator`
+

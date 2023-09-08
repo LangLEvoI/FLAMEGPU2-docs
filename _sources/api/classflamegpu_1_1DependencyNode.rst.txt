@@ -1,0 +1,27 @@
+.. _exhale_class_classflamegpu_1_1DependencyNode:
+
+Class DependencyNode
+====================
+
+- Defined in :ref:`file_include_flamegpu_model_DependencyNode.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public flamegpu::CAgentFunctionDescription`` (:ref:`exhale_class_classflamegpu_1_1CAgentFunctionDescription`)
+- ``public flamegpu::CSubModelDescription`` (:ref:`exhale_class_classflamegpu_1_1CSubModelDescription`)
+- ``public flamegpu::HostFunctionDescription`` (:ref:`exhale_class_classflamegpu_1_1HostFunctionDescription`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: flamegpu::DependencyNode
+   :members:
+   :protected-members:
+   :undoc-members:

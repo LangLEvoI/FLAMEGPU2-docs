@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespaceflamegpu_1_1detail_1_1StaticAssert_1ab6c9bbfbdc8c7089b3b86d19a066eebc:
+
+Typedef flamegpu::detail::StaticAssert::true_type
+=================================================
+
+- Defined in :ref:`file_include_flamegpu_detail_StaticAssert.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: flamegpu::detail::StaticAssert::true_type

@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespaceflamegpu_1afdb1ab69f8ad55bab90f8cf449a89f6d:
+
+Typedef flamegpu::AgentFunctionWrapper
+======================================
+
+- Defined in :ref:`file_include_flamegpu_runtime_AgentFunction.cuh`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: flamegpu::AgentFunctionWrapper

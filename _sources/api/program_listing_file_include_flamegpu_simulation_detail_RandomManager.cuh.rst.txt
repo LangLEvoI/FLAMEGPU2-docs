@@ -1,0 +1,88 @@
+
+.. _program_listing_file_include_flamegpu_simulation_detail_RandomManager.cuh:
+
+Program Listing for File RandomManager.cuh
+==========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_flamegpu_simulation_detail_RandomManager.cuh>` (``include/flamegpu/simulation/detail/RandomManager.cuh``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef INCLUDE_FLAMEGPU_SIMULATION_DETAIL_RANDOMMANAGER_CUH_
+   #define INCLUDE_FLAMEGPU_SIMULATION_DETAIL_RANDOMMANAGER_CUH_
+   
+   #include <cstdint>
+   #include <random>
+   #include <string>
+   
+   #include "flamegpu/defines.h"
+   #include "flamegpu/detail/curand.cuh"
+   #include "flamegpu/simulation/Simulation.h"
+   
+   namespace flamegpu {
+   // forward declare classes
+   class CUDASimulation;
+   namespace detail {
+   
+   
+   class RandomManager {
+       friend class HostRandom;
+       friend void Simulation::applyConfig();
+       friend class CUDASimulation;  // bool CUDASimulation::step(const Simulation&)
+    public:
+       RandomManager();
+   
+        ~RandomManager();
+       uint64_t seedFromTime();
+       void reseed(uint64_t seed);
+       detail::curandState*resize(size_type _length, cudaStream_t stream);
+       void setGrowthModifier(float);
+       float getGrowthModifier();
+       void setShrinkModifier(float);
+       float getShrinkModifier();
+       template<typename T, typename dist>
+       T getDistribution(dist &distribution);
+       size_type size();
+       uint64_t seed();
+       detail::curandState*cudaRandomState();
+   
+    private:
+        detail::curandState*d_random_state = nullptr;
+       uint64_t mSeed = 0;
+       size_type length = 0;
+       const size_type min_length = 1024;
+       float shrinkModifier = 1.0f;
+       float growthModifier = 1.5f;
+       void resizeDeviceArray(size_type _length, cudaStream_t stream);
+       detail::curandState *h_max_random_state = nullptr;
+       size_type h_max_random_size = 0;
+       std::mt19937_64 host_rng;
+   
+       bool deviceInitialised;
+       void free();
+   
+       void freeHost();
+       void freeDevice();
+   
+       void reseedHost();
+   
+       void reseedDevice();
+   
+    public:
+       // Public deleted creates better compiler errors
+       RandomManager(RandomManager const&) = delete;
+       void operator=(RandomManager const&) = delete;
+   };
+   
+   
+   template<typename T, typename dist>
+   T RandomManager::getDistribution(dist &distribution) {
+       return distribution(host_rng);
+   }
+   
+   }  // namespace detail
+   }  // namespace flamegpu
+   
+   #endif  // INCLUDE_FLAMEGPU_SIMULATION_DETAIL_RANDOMMANAGER_CUH_

@@ -1,0 +1,64 @@
+
+.. _file_src_flamegpu_detail_JitifyCache.cu:
+
+File JitifyCache.cu
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_flamegpu_detail>` (``src/flamegpu/detail``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/flamegpu/detail/JitifyCache.cu``)
+---------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_flamegpu_detail_JitifyCache.cu.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``array``
+
+- ``cassert``
+
+- ``filesystem``
+
+- ``flamegpu/detail/JitifyCache.h`` (:ref:`file_include_flamegpu_detail_JitifyCache.h`)
+
+- ``flamegpu/detail/compute_capability.cuh`` (:ref:`file_include_flamegpu_detail_compute_capability.cuh`)
+
+- ``flamegpu/exception/FLAMEGPUException.h`` (:ref:`file_include_flamegpu_exception_FLAMEGPUException.h`)
+
+- ``flamegpu/util/nvtx.h`` (:ref:`file_include_flamegpu_util_nvtx.h`)
+
+- ``flamegpu/version.h`` (:ref:`file_include_flamegpu_version.h`)
+
+- ``nvrtc.h``
+
+- ``regex``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_flamegpu`
+
+- :ref:`namespace_flamegpu__detail`
+

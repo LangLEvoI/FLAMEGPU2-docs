@@ -1,0 +1,16 @@
+.. _exhale_struct_structflamegpu_1_1visualiser_1_1AgentVisData:
+
+Struct AgentVisData
+===================
+
+- Defined in :ref:`file_include_flamegpu_visualiser_AgentVis.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: flamegpu::visualiser::AgentVisData
+   :members:
+   :protected-members:
+   :undoc-members:
