@@ -3,6 +3,19 @@ User Guide
 
 This user guide provides a clear introduction to the core features of FLAME GPU 2, by the end of the user guide you should have the skills necessary to implement a multi-agent simulation using FLAME GPU 2.
 
+.. mermaid::
+
+   sequenceDiagram
+      participant Alice
+      participant Bob
+      Alice->John: Hello John, how are you?
+      loop Healthcheck
+          John->John: Fight against hypochondria
+      end
+      Note right of John: Rational thoughts <br/>prevail...
+      John-->Alice: Great!
+      John->Bob: How about you?
+      Bob-->John: Jolly good!
 
 .. toctree::
    :maxdepth: 1   
